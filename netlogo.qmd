@@ -1,0 +1,8 @@
+---
+title: "NetLogo Tutorial"
+format: html
+---
+
+# Tutorial
+
+Agent-based models like those built in NetLogo allow us to explore emergent behaviors in complex systems. Unlike equation-based models, they simulate individual decisions and interactions, often revealing patterns that standard models miss, especially in social and institutional settings.

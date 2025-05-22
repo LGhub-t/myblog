@@ -1,0 +1,7 @@
+---
+title: "Time Series Analysis in R"
+format: html
+---
+
+R offers a rich ecosystem for time-series analysis, ranging from simple plotting with `ts` objects to sophisticated modeling with packages like `forecast`, `vars`, and `bvar`. A well-organized pipeline allows for repeatable and transparent analysis — essential when working with evolving data.
+

@@ -1,0 +1,6 @@
+---
+title: "Teaching Notes"
+format: html
+---
+
+This section gathers course outlines, exercises, and slides. The goal is not just to teach technical content, but to help students develop intuition and confidence when working with real-world data and methods — especially when results challenge expectations.

@@ -1,0 +1,6 @@
+---
+title: "Basic VAR Modeling"
+format: html
+---
+
+VAR models provide a flexible framework for capturing dynamic relationships between macroeconomic variables. By modeling each variable as a function of its own past and the past of others, we can simulate impulse responses and forecast interdependencies. Identification, however, remains the key challenge.

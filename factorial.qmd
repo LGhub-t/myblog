@@ -1,0 +1,6 @@
+---
+title: "Factorial Analysis Methods"
+format: html
+---
+
+Factorial analysis methods offer a window into complex data by reducing dimensionality while preserving structure. Techniques like Principal Component Analysis (PCA) and Correspondence Analysis (CA) help uncover latent patterns, often invisible in raw data, and are especially useful in the social sciences, where interpretability matters.

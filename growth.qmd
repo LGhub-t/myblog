@@ -1,0 +1,6 @@
+---
+title: "Growth Theory"
+format: html
+---
+
+Economic growth theory has evolved from the neoclassical Solow model to more nuanced approaches that incorporate human capital, technology, and institutions. While measurement challenges persist (especially for TFP) growth accounting remains a useful tool for cross-country comparisons.

@@ -1,0 +1,44 @@
+project:
+  type: website
+
+website:
+  title: "Lamia's Research Notebook"
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+
+      - text: "Macroeconometrics"
+        menu:
+          - text: "Business Cycle Filters"
+            href: filters.qmd
+          - text: "Basic VAR Modeling"
+            href: var_modeling.qmd
+          - text: "Bayesian Models"
+            href: bayesian.qmd
+
+      - text: "Data Science"
+        menu:
+          - text: "Factorial Analysis Methods"
+            href: factorial.qmd
+          - text: "Time Series in R"
+            href: timeseries.qmd
+
+      - text: "Macroeconomic Theory"
+        menu:
+          - text: "Growth Theory"
+            href: growth.qmd
+
+      - text: "Other Topics"
+        menu:
+          - text: "NetLogo Tutorial"
+            href: netlogo.qmd
+
+      - text: "Teaching Notes"
+        href: teaching.qmd
+
+      - text: "Projects"
+        href: projects.qmd
+
+      - text: "About"
+        href: about.qmd

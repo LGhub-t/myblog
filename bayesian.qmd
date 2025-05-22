@@ -1,0 +1,6 @@
+---
+title: "Bayesian Models"
+format: html
+---
+
+Bayesian methods offer a coherent way to incorporate prior knowledge and uncertainty into economic models. From shrinkage priors in VARs to hierarchical structures, Bayesian techniques can stabilize inference and handle limited data scenarios — common in macroeconomic applications.

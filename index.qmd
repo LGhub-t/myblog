@@ -1,0 +1,13 @@
+---
+title: "Lamia's Research Notebook"
+format: html
+---
+
+# Welcome
+
+This is my open notebook — a space to explore, document, and share ideas from my research, teaching, and ongoing learning in macroeconometrics, data science, and economic thought.
+
+The goal isn’t to publish polished pieces, but to build a living archive of working notes: structured, revisitable, and slowly evolving. Some pages are technical; others more intuitive or reflective. All are part of a journey toward deeper understanding.
+
+> “The best way to have good ideas is to have lots of ideas.”  
+> — Linus Pauling

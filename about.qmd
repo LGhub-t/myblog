@@ -1,0 +1,10 @@
+---
+title: "About this Blog"
+format: html
+---
+
+This blog is an experiment in quiet knowledge building.
+
+Most entries are drawn from my current projects in macroeconomics, econometrics, and teaching — particularly on topics like structural models, Bayesian inference, dimensionality reduction, and growth theory.
+
+It's a personal project, but one I hope will resonate with others navigating similar intellectual paths.
