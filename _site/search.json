@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Lamia’s Research Notebook",
-    "section": "",
-    "text": "Welcome\nThis is my open notebook — a space to explore, document, and share ideas from my research, teaching, and ongoing learning in macroeconometrics, data science, and economic thought.\nThe goal isn’t to publish polished pieces, but to build a living archive of working notes: structured, revisitable, and slowly evolving. Some pages are technical; others more intuitive or reflective. All are part of a journey toward deeper understanding.\n\n“The best way to have good ideas is to have lots of ideas.”\n— Linus Pauling"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About this Blog",
-    "section": "",
-    "text": "This blog is an experiment in quiet knowledge building.\nMost entries are drawn from my current projects in macroeconomics, econometrics, and teaching — particularly on topics like structural models, Bayesian inference, dimensionality reduction, and growth theory.\nIt’s a personal project, but one I hope will resonate with others navigating similar intellectual paths."
-  },
-  {
     "objectID": "var_modeling.html",
     "href": "var_modeling.html",
     "title": "Basic VAR Modeling",
@@ -35,18 +21,11 @@
     "text": "Tutorial\nAgent-based models like those built in NetLogo allow us to explore emergent behaviors in complex systems. Unlike equation-based models, they simulate individual decisions and interactions, often revealing patterns that standard models miss, especially in social and institutional settings."
   },
   {
-    "objectID": "filters.html",
-    "href": "filters.html",
-    "title": "Business Cycle Filters",
+    "objectID": "growth.html",
+    "href": "growth.html",
+    "title": "Growth Theory",
     "section": "",
-    "text": "Business cycle filters are tools that separate long-term trends from short-term fluctuations in macroeconomic data. While they are not grounded in structural theory, filters like HP, Baxter-King, or Hamilton are often used for descriptive analysis. Each has strengths, weaknesses, and assumptions worth making explicit."
-  },
-  {
-    "objectID": "bayesian.html",
-    "href": "bayesian.html",
-    "title": "Bayesian Models",
-    "section": "",
-    "text": "Bayesian methods offer a coherent way to incorporate prior knowledge and uncertainty into economic models. From shrinkage priors in VARs to hierarchical structures, Bayesian techniques can stabilize inference and handle limited data scenarios — common in macroeconomic applications."
+    "text": "Economic growth theory has evolved from the neoclassical Solow model to more nuanced approaches that incorporate human capital, technology, and institutions. While measurement challenges persist (especially for TFP) growth accounting remains a useful tool for cross-country comparisons."
   },
   {
     "objectID": "factorial.html",
@@ -56,11 +35,32 @@
     "text": "Factorial analysis methods offer a window into complex data by reducing dimensionality while preserving structure. Techniques like Principal Component Analysis (PCA) and Correspondence Analysis (CA) help uncover latent patterns, often invisible in raw data, and are especially useful in the social sciences, where interpretability matters."
   },
   {
-    "objectID": "growth.html",
-    "href": "growth.html",
-    "title": "Growth Theory",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About this Blog",
     "section": "",
-    "text": "Economic growth theory has evolved from the neoclassical Solow model to more nuanced approaches that incorporate human capital, technology, and institutions. While measurement challenges persist (especially for TFP) growth accounting remains a useful tool for cross-country comparisons."
+    "text": "This blog is an experiment in quiet knowledge building.\nMost entries are drawn from my current projects in macroeconomics, econometrics, and teaching — particularly on topics like structural models, Bayesian inference, dimensionality reduction, and growth theory.\nIt’s a personal project, but one I hope will resonate with others navigating similar intellectual paths."
+  },
+  {
+    "objectID": "bayesian.html",
+    "href": "bayesian.html",
+    "title": "Bayesian Models",
+    "section": "",
+    "text": "Bayesian methods offer a coherent way to incorporate prior knowledge and uncertainty into economic models. From shrinkage priors in VARs to hierarchical structures, Bayesian techniques can stabilize inference and handle limited data scenarios — common in macroeconomic applications."
+  },
+  {
+    "objectID": "filters.html",
+    "href": "filters.html",
+    "title": "Business Cycle Filters",
+    "section": "",
+    "text": "Business cycle filters are tools that separate long-term trends from short-term fluctuations in macroeconomic data. While they are not grounded in structural theory, filters like HP, Baxter-King, or Hamilton are often used for descriptive analysis. Each has strengths, weaknesses, and assumptions worth making explicit."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Lamia’s Research Notebook",
+    "section": "",
+    "text": "Welcome\nThis is my open notebook — a space to explore, document, and share ideas from my research, teaching, and ongoing learning in macroeconometrics, data science, and economic thought.\nThe goal isn’t to publish polished pieces, but to build a living archive of working notes: structured, revisitable, and slowly evolving. Some pages are technical; others more intuitive or reflective. All are part of a journey toward deeper understanding.\n\n“The best way to have good ideas is to have lots of ideas.”\n— Linus Pauling"
   },
   {
     "objectID": "projects.html",
