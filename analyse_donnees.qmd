@@ -1,0 +1,53 @@
+---
+title: "Analyse de données"
+format:
+  html:
+    toc: true
+    toc-title: "Sommaire"
+    toc-location: left
+---
+
+## 🌿 Introduction
+
+Cette section regroupe des notes, documents, et ressources pédagogiques sur l'**Analyse des Données**. Vous y trouverez des explications théoriques, des exemples chiffrés, et des codes R pratiques pour approfondir des méthodes telles que l'Analyse en Composantes Principales (ACP), l'Analyse des Correspondances (AFC), et la classification.
+
+---
+
+## 📊 Analyse en Composantes Principales (ACP)
+
+### 📄 Document à télécharger : Liens entre SVD, ACP et AFC
+
+👉 **[SVD-ACP-AFC-Connections-Lamia.pdf](media/SVD-PCA-CA-Connections.pdf)**  
+Un document pédagogique qui explore les liens mathématiques entre la SVD, l'ACP et l'AFC, avec exemples chiffrés.
+
+### 📦 R Code: Exemples d'ACP
+
+- 🧮 Calcul d'une ACP sur un tableau de données
+- 📈 Cercle des corrélations et représentation des individus
+- 📊 Interprétation des valeurs propres
+
+➡️ Bientôt disponible !
+
+---
+
+## 📊 Analyse des Correspondances (AFC)
+
+### 🌸 Notes et exercices
+
+➡️ Contenu à venir (profils, inerties, distances du chi-deux...)
+
+---
+
+## 🌿 Classification et Clustering
+
+### 📚 Supports à venir
+
+➡️ Méthodes hiérarchiques, k-means, silhouette score, dendrogrammes...
+
+---
+
+## 🧮 R Scripts et Exemples
+
+Un dépôt de **scripts R** pour illustrer les différentes méthodes.  
+➡️ À venir.
+

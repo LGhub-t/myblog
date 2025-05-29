@@ -117,5 +117,61 @@
     "title": "Time Series Analysis in R",
     "section": "",
     "text": "R offers a rich ecosystem for time-series analysis, ranging from simple plotting with ts objects to sophisticated modeling with packages like forecast, vars, and bvar. A well-organized pipeline allows for repeatable and transparent analysis — essential when working with evolving data."
+  },
+  {
+    "objectID": "analyse_donnees.html",
+    "href": "analyse_donnees.html",
+    "title": "Analyse de données",
+    "section": "",
+    "text": "Cette section regroupe des notes, documents, et ressources pédagogiques sur l’Analyse des Données. Vous y trouverez des explications théoriques, des exemples chiffrés, et des codes R pratiques pour approfondir des méthodes telles que l’Analyse en Composantes Principales (ACP), l’Analyse des Correspondances (AFC), et la classification."
+  },
+  {
+    "objectID": "analyse_donnees.html#introduction",
+    "href": "analyse_donnees.html#introduction",
+    "title": "Analyse de données",
+    "section": "",
+    "text": "Cette section regroupe des notes, documents, et ressources pédagogiques sur l’Analyse des Données. Vous y trouverez des explications théoriques, des exemples chiffrés, et des codes R pratiques pour approfondir des méthodes telles que l’Analyse en Composantes Principales (ACP), l’Analyse des Correspondances (AFC), et la classification."
+  },
+  {
+    "objectID": "analyse_donnees.html#analyse-en-composantes-principales-acp",
+    "href": "analyse_donnees.html#analyse-en-composantes-principales-acp",
+    "title": "Analyse de données",
+    "section": "📊 Analyse en Composantes Principales (ACP)",
+    "text": "📊 Analyse en Composantes Principales (ACP)\n\n📄 Document à télécharger : Liens entre SVD, ACP et AFC\n👉 SVD-ACP-AFC-Connections-Lamia.pdf\nUn document pédagogique qui explore les liens mathématiques entre la SVD, l’ACP et l’AFC, avec exemples chiffrés.\n\n\n📦 R Code: Exemples d’ACP\n\n🧮 Calcul d’une ACP sur un tableau de données\n📈 Cercle des corrélations et représentation des individus\n📊 Interprétation des valeurs propres\n\n➡️ Bientôt disponible !"
+  },
+  {
+    "objectID": "analyse_donnees.html#analyse-des-correspondances-afc",
+    "href": "analyse_donnees.html#analyse-des-correspondances-afc",
+    "title": "Analyse de données",
+    "section": "📊 Analyse des Correspondances (AFC)",
+    "text": "📊 Analyse des Correspondances (AFC)\n\n🌸 Notes et exercices\n➡️ Contenu à venir (profils, inerties, distances du chi-deux…)"
+  },
+  {
+    "objectID": "analyse_donnees.html#classification-et-clustering",
+    "href": "analyse_donnees.html#classification-et-clustering",
+    "title": "Analyse de données",
+    "section": "🌿 Classification et Clustering",
+    "text": "🌿 Classification et Clustering\n\n📚 Supports à venir\n➡️ Méthodes hiérarchiques, k-means, silhouette score, dendrogrammes…"
+  },
+  {
+    "objectID": "analyse_donnees.html#r-scripts-et-exemples",
+    "href": "analyse_donnees.html#r-scripts-et-exemples",
+    "title": "Analyse de données",
+    "section": "🧮 R Scripts et Exemples",
+    "text": "🧮 R Scripts et Exemples\nUn dépôt de scripts R pour illustrer les différentes méthodes.\n➡️ À venir."
+  },
+  {
+    "objectID": "analyse_donnees.html#objectif",
+    "href": "analyse_donnees.html#objectif",
+    "title": "Analyse de données",
+    "section": "🌸 Objectif",
+    "text": "🌸 Objectif\nConstruire une boîte à outils claire et progressive pour comprendre et appliquer les principales méthodes d’analyse des données en R et dans vos projets de recherche."
+  },
+  {
+    "objectID": "analyse_donnees.html#contributions-bienvenues",
+    "href": "analyse_donnees.html#contributions-bienvenues",
+    "title": "Analyse de données",
+    "section": "📩 Contributions bienvenues",
+    "text": "📩 Contributions bienvenues\nSi vous avez des questions ou des suggestions pour enrichir ces notes, n’hésitez pas à me contacter !"
   }
 ]
