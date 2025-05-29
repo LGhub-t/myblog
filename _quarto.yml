@@ -3,6 +3,8 @@ project:
 
 website:
   title: "Lamia's Research Notebook"
+  site-url: "https://lghub-t.github.io/myblog"
+  
   navbar:
     left:
       - text: "Home"
@@ -14,6 +16,8 @@ website:
             href: filters.qmd
           - text: "Basic VAR Modeling"
             href: var_modeling.qmd
+          - text: "Max-share Identification"
+            href: maxshare.qmd
           - text: "Bayesian Models"
             href: bayesian.qmd
 
@@ -39,6 +43,9 @@ website:
 
       - text: "Projects"
         href: projects.qmd
+
+      - text: "Papers"
+        href: papers.qmd
 
       - text: "About"
         href: about.qmd

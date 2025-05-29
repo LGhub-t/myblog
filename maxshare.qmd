@@ -1,0 +1,82 @@
+---
+title: "Max-Share Identification: A Step-by-Step Example in R"
+format: html
+---
+
+# Introduction
+
+In VAR analysis, **max-share identification** aims to extract a structural shock that explains the **largest share** of the forecast error variance (FEV) of a target variable over a finite horizon.
+
+This post walks through a simple example using two variables: **TFP** and **Stock**, from a dataset you can download below.
+
+📄 [Download the data](media/datamaxide.csv){target="_blank"}
+
+---
+
+# Step 1: Load the Data
+
+```{r}
+df <- read.csv("media/datamaxide.csv")
+head(df)
+```
+
+# Step 2: Estimate a VAR model
+
+```{r, warning=FALSE, message=FALSE}
+library(vars)
+
+data_var <- df[, c("TFP", "Stock")]
+colnames(data_var) <- c("y1", "y2")  # rename for generality
+var_model <- VAR(data_var, p = 1, type = "const")
+summary(var_model)
+
+```
+
+# Step 3: Compute the Cholesky-Based IRFs
+
+```{r}
+irf_chol <- irf(var_model, impulse = "y1", response = "y2", n.ahead = 10, ortho = TRUE)
+plot(irf_chol)
+
+```
+
+# Step 4:Apply Max-Share Identification
+```{r, warning=FALSE, message=FALSE}
+library(expm)
+
+# Step 1: Get A0 matrix (Cholesky)
+Sigma_u <- summary(var_model)$covres
+A0 <- t(chol(Sigma_u))
+
+# Step 2: Define shock candidates
+gamma1 <- c(0, 1)
+gamma2 <- c(1, 0)
+
+# Step 3: Structural shocks on impact
+A0 %*% gamma1
+A0 %*% gamma2
+
+```
+
+
+# Step 5: Interpretation of results
+
+By testing various candidate shocks (unit vectors or linear combinations), we find the shock that explains the most of TFP's variance.
+This approach generalizes Cholesky — we’re not just assuming an ordering, but optimizing based on information from the FEV
+
+
+# Conclusion
+
+This simple example illustrates the core logic of max-share identification:
+Find the linear combination of reduced-form errors that best explains your target variable over time.
+
+Future posts will automate the search over vectors and show applications in larger systems.
+
+
+# References
+
+Francis, Ramey, and others (2007). “A New Measure of Monetary Shocks: Derivation and Implications.”
+
+Boer, Lee & Sun (2024). IMF Working Paper.
+
+
