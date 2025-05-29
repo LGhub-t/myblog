@@ -38,8 +38,10 @@ website:
           - text: "NetLogo Tutorial"
             href: netlogo.qmd
 
-      - text: "Teaching Notes"
-        href: teaching.qmd
+      - text: "Teaching"
+        menu:
+          - text: "Analyse de données"
+            href: analyse_donnees.qmd
 
       - text: "Projects"
         href: projects.qmd
