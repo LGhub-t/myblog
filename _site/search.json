@@ -14,83 +14,6 @@
     "text": "This section gathers course outlines, exercises, and slides. The goal is not just to teach technical content, but to help students develop intuition and confidence when working with real-world data and methods — especially when results challenge expectations."
   },
   {
-    "objectID": "netlogo.html",
-    "href": "netlogo.html",
-    "title": "NetLogo Tutorial",
-    "section": "",
-    "text": "Tutorial\nAgent-based models like those built in NetLogo allow us to explore emergent behaviors in complex systems. Unlike equation-based models, they simulate individual decisions and interactions, often revealing patterns that standard models miss, especially in social and institutional settings."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Lamia’s Research Notebook",
-    "section": "",
-    "text": "Welcome\nThis is my open notebook — a space to explore, document, and share ideas from my research, teaching, and ongoing learning in macroeconometrics, data science, and economic thought.\nThe goal isn’t to publish polished pieces, but to build a living archive of working notes: structured, revisitable, and slowly evolving. Some pages are technical; others more intuitive or reflective. All are part of a journey toward deeper understanding.\n\n“The best way to have good ideas is to have lots of ideas.”\n— Linus Pauling"
-  },
-  {
-    "objectID": "filters.html",
-    "href": "filters.html",
-    "title": "Business Cycle Filters",
-    "section": "",
-    "text": "Business cycle filters are tools that separate long-term trends from short-term fluctuations in macroeconomic data. While they are not grounded in structural theory, filters like HP, Baxter-King, or Hamilton are often used for descriptive analysis. Each has strengths, weaknesses, and assumptions worth making explicit."
-  },
-  {
-    "objectID": "bayesian.html",
-    "href": "bayesian.html",
-    "title": "Bayesian Models",
-    "section": "",
-    "text": "Bayesian methods offer a coherent way to incorporate prior knowledge and uncertainty into economic models. From shrinkage priors in VARs to hierarchical structures, Bayesian techniques can stabilize inference and handle limited data scenarios — common in macroeconomic applications."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About this Blog",
-    "section": "",
-    "text": "This blog is an experiment in quiet knowledge building.\nMost entries are drawn from my current projects in macroeconomics, econometrics, and teaching — particularly on topics like structural models, Bayesian inference, dimensionality reduction, and growth theory.\nIt’s a personal project, but one I hope will resonate with others navigating similar intellectual paths."
-  },
-  {
-    "objectID": "factorial.html",
-    "href": "factorial.html",
-    "title": "Factorial Analysis Methods",
-    "section": "",
-    "text": "Factorial analysis methods offer a window into complex data by reducing dimensionality while preserving structure. Techniques like Principal Component Analysis (PCA) and Correspondence Analysis (CA) help uncover latent patterns, often invisible in raw data, and are especially useful in the social sciences, where interpretability matters."
-  },
-  {
-    "objectID": "growth.html",
-    "href": "growth.html",
-    "title": "Growth Theory",
-    "section": "",
-    "text": "Economic growth theory has evolved from the neoclassical Solow model to more nuanced approaches that incorporate human capital, technology, and institutions. While measurement challenges persist (especially for TFP) growth accounting remains a useful tool for cross-country comparisons."
-  },
-  {
-    "objectID": "maxshare.html",
-    "href": "maxshare.html",
-    "title": "Max-Share Identification: A Step-by-Step Example in R",
-    "section": "",
-    "text": "Introduction\nIn VAR analysis, max-share identification aims to extract a structural shock that explains the largest share of the forecast error variance (FEV) of a target variable over a finite horizon.\nThis post walks through a simple example using two variables: TFP and Stock, from a dataset you can download below.\n📄 Download the data\n\n\n\nStep 1: Load the Data\n\ndf &lt;- read.csv(\"media/datamaxide.csv\")\nhead(df)\n\n  Time        TFP       Stock\n1    0  0.0000000  0.00000000\n2    1 -1.3224297  0.20060020\n3    2 -0.7380925  0.24619445\n4    3 -2.3418298 -0.78696549\n5    4 -1.7381671  0.04828437\n6    5 -0.7563373  0.20709412\n\n\n\n\nStep 2: Estimate a VAR model\n\nlibrary(vars)\n\ndata_var &lt;- df[, c(\"TFP\", \"Stock\")]\ncolnames(data_var) &lt;- c(\"y1\", \"y2\")  # rename for generality\nvar_model &lt;- VAR(data_var, p = 1, type = \"const\")\nsummary(var_model)\n\n\nVAR Estimation Results:\n========================= \nEndogenous variables: y1, y2 \nDeterministic variables: const \nSample size: 99 \nLog Likelihood: -247.351 \nRoots of the characteristic polynomial:\n0.7424 0.6237\nCall:\nVAR(y = data_var, p = 1, type = \"const\")\n\n\nEstimation results for equation y1: \n=================================== \ny1 = y1.l1 + y2.l1 + const \n\n      Estimate Std. Error t value Pr(&gt;|t|)    \ny1.l1  0.73314    0.07228  10.143   &lt;2e-16 ***\ny2.l1 -0.01460    0.08773  -0.166    0.868    \nconst  0.12129    0.10613   1.143    0.256    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nResidual standard error: 0.9155 on 96 degrees of freedom\nMultiple R-Squared: 0.5312, Adjusted R-squared: 0.5214 \nF-statistic: 54.39 on 2 and 96 DF,  p-value: &lt; 2.2e-16 \n\n\nEstimation results for equation y2: \n=================================== \ny2 = y1.l1 + y2.l1 + const \n\n      Estimate Std. Error t value Pr(&gt;|t|)    \ny1.l1 -0.06913    0.06815  -1.014   0.3129    \ny2.l1  0.63297    0.08272   7.652 1.54e-11 ***\nconst  0.24946    0.10007   2.493   0.0144 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nResidual standard error: 0.8631 on 96 degrees of freedom\nMultiple R-Squared: 0.3822, Adjusted R-squared: 0.3693 \nF-statistic:  29.7 on 2 and 96 DF,  p-value: 9.121e-11 \n\n\n\nCovariance matrix of residuals:\n       y1     y2\ny1 0.8381 0.2914\ny2 0.2914 0.7450\n\nCorrelation matrix of residuals:\n       y1     y2\ny1 1.0000 0.3688\ny2 0.3688 1.0000\n\n\n\n\nStep 3: Compute the Cholesky-Based IRFs\n\nirf_chol &lt;- irf(var_model, impulse = \"y1\", response = \"y2\", n.ahead = 10, ortho = TRUE)\nplot(irf_chol)\n\n\n\n\n\n\n\n\n\n\nStep 4:Apply Max-Share Identification\n\nlibrary(expm)\n\n# Step 1: Get A0 matrix (Cholesky)\nSigma_u &lt;- summary(var_model)$covres\nA0 &lt;- t(chol(Sigma_u))\n\n# Step 2: Define shock candidates\ngamma1 &lt;- c(0, 1)\ngamma2 &lt;- c(1, 0)\n\n# Step 3: Structural shocks on impact\nA0 %*% gamma1\n\n        [,1]\ny1 0.0000000\ny2 0.8022985\n\nA0 %*% gamma2\n\n        [,1]\ny1 0.9154508\ny2 0.3183320\n\n\n\n\nStep 5: Interpretation of results\nBy testing various candidate shocks (unit vectors or linear combinations), we find the shock that explains the most of TFP’s variance. This approach generalizes Cholesky — we’re not just assuming an ordering, but optimizing based on information from the FEV\n\n\nConclusion\nThis simple example illustrates the core logic of max-share identification: Find the linear combination of reduced-form errors that best explains your target variable over time.\nFuture posts will automate the search over vectors and show applications in larger systems.\n\n\nReferences\nFrancis, Ramey, and others (2007). “A New Measure of Monetary Shocks: Derivation and Implications.”\nBoer, Lee & Sun (2024). IMF Working Paper."
-  },
-  {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Projects",
-    "section": "",
-    "text": "Ungoing projects"
-  },
-  {
-    "objectID": "projects.html#projects",
-    "href": "projects.html#projects",
-    "title": "Projects",
-    "section": "",
-    "text": "Ungoing projects"
-  },
-  {
-    "objectID": "timeseries.html",
-    "href": "timeseries.html",
-    "title": "Time Series Analysis in R",
-    "section": "",
-    "text": "R offers a rich ecosystem for time-series analysis, ranging from simple plotting with ts objects to sophisticated modeling with packages like forecast, vars, and bvar. A well-organized pipeline allows for repeatable and transparent analysis — essential when working with evolving data."
-  },
-  {
     "objectID": "papers.html",
     "href": "papers.html",
     "title": "Papers",
@@ -117,5 +40,82 @@
     "title": "Papers",
     "section": "Additional Materials",
     "text": "Additional Materials\n\nFor technical notes and additional resources, see Methodology Notes (optional)."
+  },
+  {
+    "objectID": "maxshare.html",
+    "href": "maxshare.html",
+    "title": "Max-Share Identification: A Step-by-Step Example in R",
+    "section": "",
+    "text": "Introduction\nIn VAR analysis, max-share identification aims to extract a structural shock that explains the largest share of the forecast error variance (FEV) of a target variable over a finite horizon.\nThis post walks through a simple example using two variables: TFP and Stock, from a dataset you can download below.\n📄 Download the data\n\n\n\nStep 1: Load the Data\n\ndf &lt;- read.csv(\"media/datamaxide.csv\")\nhead(df)\n\n  Time        TFP       Stock\n1    0  0.0000000  0.00000000\n2    1 -1.3224297  0.20060020\n3    2 -0.7380925  0.24619445\n4    3 -2.3418298 -0.78696549\n5    4 -1.7381671  0.04828437\n6    5 -0.7563373  0.20709412\n\n\n\n\nStep 2: Estimate a VAR model\n\nlibrary(vars)\n\ndata_var &lt;- df[, c(\"TFP\", \"Stock\")]\ncolnames(data_var) &lt;- c(\"y1\", \"y2\")  # rename for generality\nvar_model &lt;- VAR(data_var, p = 1, type = \"const\")\nsummary(var_model)\n\n\nVAR Estimation Results:\n========================= \nEndogenous variables: y1, y2 \nDeterministic variables: const \nSample size: 99 \nLog Likelihood: -247.351 \nRoots of the characteristic polynomial:\n0.7424 0.6237\nCall:\nVAR(y = data_var, p = 1, type = \"const\")\n\n\nEstimation results for equation y1: \n=================================== \ny1 = y1.l1 + y2.l1 + const \n\n      Estimate Std. Error t value Pr(&gt;|t|)    \ny1.l1  0.73314    0.07228  10.143   &lt;2e-16 ***\ny2.l1 -0.01460    0.08773  -0.166    0.868    \nconst  0.12129    0.10613   1.143    0.256    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nResidual standard error: 0.9155 on 96 degrees of freedom\nMultiple R-Squared: 0.5312, Adjusted R-squared: 0.5214 \nF-statistic: 54.39 on 2 and 96 DF,  p-value: &lt; 2.2e-16 \n\n\nEstimation results for equation y2: \n=================================== \ny2 = y1.l1 + y2.l1 + const \n\n      Estimate Std. Error t value Pr(&gt;|t|)    \ny1.l1 -0.06913    0.06815  -1.014   0.3129    \ny2.l1  0.63297    0.08272   7.652 1.54e-11 ***\nconst  0.24946    0.10007   2.493   0.0144 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nResidual standard error: 0.8631 on 96 degrees of freedom\nMultiple R-Squared: 0.3822, Adjusted R-squared: 0.3693 \nF-statistic:  29.7 on 2 and 96 DF,  p-value: 9.121e-11 \n\n\n\nCovariance matrix of residuals:\n       y1     y2\ny1 0.8381 0.2914\ny2 0.2914 0.7450\n\nCorrelation matrix of residuals:\n       y1     y2\ny1 1.0000 0.3688\ny2 0.3688 1.0000\n\n\n\n\nStep 3: Compute the Cholesky-Based IRFs\n\nirf_chol &lt;- irf(var_model, impulse = \"y1\", response = \"y2\", n.ahead = 10, ortho = TRUE)\nplot(irf_chol)\n\n\n\n\n\n\n\n\n\n\nStep 4:Apply Max-Share Identification\n\nlibrary(expm)\n\n# Step 1: Get A0 matrix (Cholesky)\nSigma_u &lt;- summary(var_model)$covres\nA0 &lt;- t(chol(Sigma_u))\n\n# Step 2: Define shock candidates\ngamma1 &lt;- c(0, 1)\ngamma2 &lt;- c(1, 0)\n\n# Step 3: Structural shocks on impact\nA0 %*% gamma1\n\n        [,1]\ny1 0.0000000\ny2 0.8022985\n\nA0 %*% gamma2\n\n        [,1]\ny1 0.9154508\ny2 0.3183320\n\n\n\n\nStep 5: Interpretation of results\nBy testing various candidate shocks (unit vectors or linear combinations), we find the shock that explains the most of TFP’s variance. This approach generalizes Cholesky — we’re not just assuming an ordering, but optimizing based on information from the FEV\n\n\nConclusion\nThis simple example illustrates the core logic of max-share identification: Find the linear combination of reduced-form errors that best explains your target variable over time.\nFuture posts will automate the search over vectors and show applications in larger systems.\n\n\nReferences\nFrancis, Ramey, and others (2007). “A New Measure of Monetary Shocks: Derivation and Implications.”\nBoer, Lee & Sun (2024). IMF Working Paper."
+  },
+  {
+    "objectID": "growth.html",
+    "href": "growth.html",
+    "title": "Growth Theory",
+    "section": "",
+    "text": "Economic growth theory has evolved from the neoclassical Solow model to more nuanced approaches that incorporate human capital, technology, and institutions. While measurement challenges persist (especially for TFP) growth accounting remains a useful tool for cross-country comparisons."
+  },
+  {
+    "objectID": "factorial.html",
+    "href": "factorial.html",
+    "title": "Factorial Analysis Methods",
+    "section": "",
+    "text": "Factorial analysis methods offer a window into complex data by reducing dimensionality while preserving structure. Techniques like Principal Component Analysis (PCA) and Correspondence Analysis (CA) help uncover latent patterns, often invisible in raw data, and are especially useful in the social sciences, where interpretability matters."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About this Blog",
+    "section": "",
+    "text": "This blog is an experiment in quiet knowledge building.\nMost entries are drawn from my current projects in macroeconomics, econometrics, and teaching — particularly on topics like structural models, Bayesian inference, dimensionality reduction, and growth theory.\nIt’s a personal project, but one I hope will resonate with others navigating similar intellectual paths."
+  },
+  {
+    "objectID": "bayesian.html",
+    "href": "bayesian.html",
+    "title": "Bayesian Models",
+    "section": "",
+    "text": "Bayesian methods offer a coherent way to incorporate prior knowledge and uncertainty into economic models. From shrinkage priors in VARs to hierarchical structures, Bayesian techniques can stabilize inference and handle limited data scenarios — common in macroeconomic applications."
+  },
+  {
+    "objectID": "filters.html",
+    "href": "filters.html",
+    "title": "Business Cycle Filters",
+    "section": "",
+    "text": "Business cycle filters are tools that separate long-term trends from short-term fluctuations in macroeconomic data. While they are not grounded in structural theory, filters like HP, Baxter-King, or Hamilton are often used for descriptive analysis. Each has strengths, weaknesses, and assumptions worth making explicit."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Lamia’s Research Notebook",
+    "section": "",
+    "text": "Welcome\nThis is my open notebook — a space to explore, document, and share ideas from my research, teaching, and ongoing learning in macroeconometrics, data science, and economic thought.\nThe goal isn’t to publish polished pieces, but to build a living archive of working notes: structured, revisitable, and slowly evolving. Some pages are technical; others more intuitive or reflective. All are part of a journey toward deeper understanding.\n\n“The best way to have good ideas is to have lots of ideas.”\n— Linus Pauling"
+  },
+  {
+    "objectID": "netlogo.html",
+    "href": "netlogo.html",
+    "title": "NetLogo Tutorial",
+    "section": "",
+    "text": "Tutorial\nAgent-based models like those built in NetLogo allow us to explore emergent behaviors in complex systems. Unlike equation-based models, they simulate individual decisions and interactions, often revealing patterns that standard models miss, especially in social and institutional settings."
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Ungoing projects"
+  },
+  {
+    "objectID": "projects.html#projects",
+    "href": "projects.html#projects",
+    "title": "Projects",
+    "section": "",
+    "text": "Ungoing projects"
+  },
+  {
+    "objectID": "timeseries.html",
+    "href": "timeseries.html",
+    "title": "Time Series Analysis in R",
+    "section": "",
+    "text": "R offers a rich ecosystem for time-series analysis, ranging from simple plotting with ts objects to sophisticated modeling with packages like forecast, vars, and bvar. A well-organized pipeline allows for repeatable and transparent analysis — essential when working with evolving data."
   }
 ]
