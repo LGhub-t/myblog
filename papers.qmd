@@ -1,0 +1,45 @@
+---
+title: "Papers"
+format:
+  html:
+    toc: true
+    toc-title: "On this page"
+    toc-location: left
+    number-sections: false
+---
+
+This page presents my academic publications and current research projects in macroeconomics. My work focuses on external imbalances, fiscal policy, structural heterogeneity, and the dynamics of global economic shocks.
+
+## Publications
+
+### 📄 [Spatial Dependence, Social Networks, and Economic Structures in Japanese Regional Labor Migration](https://doi.org/10.3390/su14031865)
+
+*Sustainability*, 2022, 14(3), 1865.\
+This paper examines how spatial dependence, social networks, and economic structures shape internal labor migration patterns in Japan. Using spatial econometric models, it highlights the complex interplay between regional labor flows and structural characteristics.
+
+### 📄 [Is Inflation Fiscally Determined?](https://doi.org/10.3390/su132011306)
+
+*Sustainability*, 2021, 13(20), 11306.\
+This paper investigates the relationship between fiscal policy and inflation for 44 countries from 1960 to 2020. Using panel data analysis, it explores whether inflation dynamics can be explained by fiscal dominance, providing evidence across advanced and developing economies.
+
+## Working Papers
+
+### 📝 Global Shocks, Local Structures: Mapping the Anatomy of External Adjustment
+
+This paper examines how structural differences in countries’ external sector configurations shape their macroeconomic responses to global shocks. Using principal component analysis (PCA) on detailed balance-of-payments and trade specialization data for over 150 countries, it constructs a low-dimensional typology of external structures—capturing reliance on external income flows, foreign direct investment, trade composition, and vulnerability to essential import needs. The paper then estimates local projections of the current account response to three standardized global shocks: geopolitical risk, world industrial production, and commodity prices. Results reveal sharp asymmetries: geopolitical and output shocks disproportionately affect countries reliant on FDI or remittance flows, while commodity shocks generate textbook terms-of-trade effects, benefiting exporters and penalizing structurally vulnerable importers. The findings highlight the importance of structural heterogeneity in external adjustment and call for more tailored approaches to external risk assessment and macroeconomic policy design.
+
+### 📝 Cyclical Reaction of Fiscal Policy and its Relationship with the Current Account Balance
+
+This paper examines the link between fiscal policy cyclicality and current account (CA) balances across 51 countries using a structural panel vector autoregression model. It shows that negative CA responses to government spending shocks are primarily observed in countercyclical economies, with substantial heterogeneity across countries. The analysis reveals that subsidies play a significant role in CA adjustments for some countries (e.g., Austria, Croatia, Spain, Bolivia), while property income is a major determinant in countries with high debt and sovereign risk. In contrast, other fiscal components like compensation of employees, intermediate consumption, and social benefits play a minor role.
+
+### 📝 Effects of Fiscal Stimulus Policies on Private Consumption: A RS-DSGE Approach for Japan
+
+This paper uses a New-Keynesian model with non-Ricardian households to analyze the impact of different fiscal policy measures on private consumption in Japan. The model is solved and estimated outside and at the Zero Lower Bound (ZLB) through a Markov-switching approach, using Japanese data over the period 1980Q1–2020Q3, and following two different fiscal rule specifications. Results show that consumption does not respond positively to fiscal stimulus measures, even after including rule-of-thumb consumers. This reflects Ricardian behavior and the decline in real wages that follows most measures. Tax distortions influence the variables’ responses through the impact of tax rate movements. The presence of the ZLB does not significantly alter the model’s behavior except after a consumption or wage income tax cut. A capital income tax cut is found to be the most effective fiscal stimulus measure, primarily boosting investment and productivity. A variance decomposition analysis reveals that consumption is mainly driven by labor supply and technology shocks.
+
+------------------------------------------------------------------------
+
+## Additional Materials
+
+-   For technical notes and additional resources, see [Methodology Notes](link-to-methodology-page) *(optional)*.
+
+------------------------------------------------------------------------
