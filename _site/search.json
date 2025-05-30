@@ -80,29 +80,29 @@
     "objectID": "analyse_donnees.html#analyse-en-composantes-principales-acp",
     "href": "analyse_donnees.html#analyse-en-composantes-principales-acp",
     "title": "Analyse de données",
-    "section": "📊 Analyse en Composantes Principales (ACP)",
-    "text": "📊 Analyse en Composantes Principales (ACP)\n\n📄 Document à télécharger : Liens entre SVD, ACP et AFC\n👉 SVD-ACP-AFC-Connections-Lamia.pdf\nUn document pédagogique qui explore les liens mathématiques entre la SVD, l’ACP et l’AFC, avec exemples chiffrés.\n\n\n📦 R Code: Exemples d’ACP\n\n🧮 Calcul d’une ACP sur un tableau de données\n📈 Cercle des corrélations et représentation des individus\n📊 Interprétation des valeurs propres\n\n➡️ Bientôt disponible !"
+    "section": "Analyse en Composantes Principales (ACP)",
+    "text": "Analyse en Composantes Principales (ACP)\n\n📄 Document à télécharger : Liens entre SVD, ACP et AFC\n👉 SVD-ACP-AFC-Connections-Lamia.pdf\nUn document pédagogique qui explore les liens mathématiques entre la SVD, l’ACP et l’AFC, avec exemples chiffrés.\n\n\n📦 R Code: Exemples d’ACP\n\nCalcul d’une ACP sur un tableau de données\nCercle des corrélations et représentation des individus\nInterprétation des valeurs propres\n\n➡️ Bientôt disponible !"
   },
   {
     "objectID": "analyse_donnees.html#analyse-des-correspondances-afc",
     "href": "analyse_donnees.html#analyse-des-correspondances-afc",
     "title": "Analyse de données",
-    "section": "📊 Analyse des Correspondances (AFC)",
-    "text": "📊 Analyse des Correspondances (AFC)\n\n🌸 Notes et exercices\n➡️ Contenu à venir (profils, inerties, distances du chi-deux…)"
+    "section": "Analyse des Correspondances (AFC)",
+    "text": "Analyse des Correspondances (AFC)\n\nNotes et exercices\n➡️ Contenu à venir (profils, inerties, distances du chi-deux…)"
   },
   {
     "objectID": "analyse_donnees.html#classification-et-clustering",
     "href": "analyse_donnees.html#classification-et-clustering",
     "title": "Analyse de données",
-    "section": "🌿 Classification et Clustering",
-    "text": "🌿 Classification et Clustering\n\n📚 Supports à venir\n➡️ Méthodes hiérarchiques, k-means, silhouette score, dendrogrammes…"
+    "section": "Classification et Clustering",
+    "text": "Classification et Clustering\n\nSupports à venir\n➡️ Méthodes hiérarchiques, k-means, silhouette score, dendrogrammes…"
   },
   {
     "objectID": "analyse_donnees.html#r-scripts-et-exemples",
     "href": "analyse_donnees.html#r-scripts-et-exemples",
     "title": "Analyse de données",
-    "section": "🧮 R Scripts et Exemples",
-    "text": "🧮 R Scripts et Exemples\nUn dépôt de scripts R pour illustrer les différentes méthodes.\n➡️ À venir."
+    "section": "R Scripts et Exemples",
+    "text": "R Scripts et Exemples\nUn dépôt de scripts R pour illustrer les différentes méthodes.\n➡️ À venir."
   },
   {
     "objectID": "about.html",
@@ -144,14 +144,14 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Ungoing projects"
+    "text": "Ongoing projects"
   },
   {
     "objectID": "projects.html#projects",
     "href": "projects.html#projects",
     "title": "Projects",
     "section": "",
-    "text": "Ungoing projects"
+    "text": "Ongoing projects"
   },
   {
     "objectID": "timeseries.html",
