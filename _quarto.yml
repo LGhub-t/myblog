@@ -51,7 +51,7 @@ website:
       - text: "Projects"
         href: projects.qmd
 
-      - text: "Papers"
+      - text: "Research"
         href: papers.qmd
 
       - text: "About"

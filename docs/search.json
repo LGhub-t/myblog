@@ -109,7 +109,7 @@
     "href": "analyse_donnees.html#analyse-en-composantes-principales-acp",
     "title": "Analyse de données",
     "section": "Analyse en Composantes Principales (ACP)",
-    "text": "Analyse en Composantes Principales (ACP)\n\n📄 Document à télécharger : Liens entre SVD, ACP et AFC\n👉 SVD-ACP-AFC-Connections-Lamia.pdf\nUn document pédagogique qui explore les liens mathématiques entre la SVD, l’ACP et l’AFC, avec exemples chiffrés.\n\n\n📦 R Code: Exemples d’ACP\n\nCalcul d’une ACP sur un tableau de données\nCercle des corrélations et représentation des individus\nInterprétation des valeurs propres\n\n➡️ Bientôt disponible !"
+    "text": "Analyse en Composantes Principales (ACP)\n\n📄 Document à télécharger : Liens entre SVD, ACP et AFC\n👉 Links_SVD_PCA_CA.pdf\nUn document pédagogique qui explore les liens mathématiques entre la SVD, l’ACP et l’AFC, avec exemples chiffrés.\n\n\n📦 R Code: Exemples d’ACP\n\nCalcul d’une ACP sur un tableau de données\nCercle des corrélations et représentation des individus\nInterprétation des valeurs propres\n\n➡️ Bientôt disponible !"
   },
   {
     "objectID": "analyse_donnees.html#analyse-des-correspondances-afc",
@@ -152,6 +152,13 @@
     "title": "Business Cycle Filters",
     "section": "",
     "text": "Business cycle filters are tools that separate long-term trends from short-term fluctuations in macroeconomic data. While they are not grounded in structural theory, filters like HP, Baxter-King, or Hamilton are often used for descriptive analysis. Each has strengths, weaknesses, and assumptions worth making explicit."
+  },
+  {
+    "objectID": "filters.html#pdf-document",
+    "href": "filters.html#pdf-document",
+    "title": "Business Cycle Filters",
+    "section": "📄 PDF Document",
+    "text": "📄 PDF Document\nFor detailed notes on filtering techniques, you can view or download the following document:\nDownload the PDF on Filtering Techniques"
   },
   {
     "objectID": "index.html",

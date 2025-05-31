@@ -4,3 +4,9 @@ format: html
 ---
 
 Business cycle filters are tools that separate long-term trends from short-term fluctuations in macroeconomic data. While they are not grounded in structural theory, filters like HP, Baxter-King, or Hamilton are often used for descriptive analysis. Each has strengths, weaknesses, and assumptions worth making explicit.
+
+## 📄 PDF Document
+
+For detailed notes on filtering techniques, you can view or download the following document:
+
+[Download the PDF on Filtering Techniques](media/Filters.pdf)

@@ -17,7 +17,7 @@ Cette section regroupe des notes, documents, et ressources pédagogiques sur l'*
 
 ### 📄 Document à télécharger : Liens entre SVD, ACP et AFC
 
-👉 **[SVD-ACP-AFC-Connections-Lamia.pdf](media/SVD-PCA-CA-Connections.pdf)**  
+👉 **[Links_SVD_PCA_CA.pdf](media/SVD-PCA-CA-Connections.pdf)**  
 Un document pédagogique qui explore les liens mathématiques entre la SVD, l'ACP et l'AFC, avec exemples chiffrés.
 
 ### 📦 R Code: Exemples d'ACP
