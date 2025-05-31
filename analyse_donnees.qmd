@@ -9,7 +9,7 @@ format:
 
 ## Introduction
 
-Cette section regroupe des notes, documents, et ressources pédagogiques sur l'**Analyse des Données**. Vous y trouverez des explications théoriques, des exemples chiffrés, et des codes R pratiques pour approfondir des méthodes telles que l'Analyse en Composantes Principales (ACP), l'Analyse des Correspondances (AFC), et la classification.
+Cette section regroupe des notes, documents, et ressources pédagogiques sur l'Analyse des Données. Vous y trouverez des explications théoriques, des exemples chiffrés, et des codes R pratiques pour approfondir des méthodes telles que l'Analyse en Composantes Principales (ACP), l'Analyse des Correspondances (AFC), et la classification.
 
 ---
 
