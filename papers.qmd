@@ -30,15 +30,11 @@ This paper examines how structural differences in countries’ external sector c
 
 ### 📝 Cyclical Reaction of Fiscal Policy and its Relationship with the Current Account Balance
 
-This paper examines the link between fiscal policy cyclicality and current account (CA) balances across 51 countries using a structural panel vector autoregression model. It shows that negative CA responses to government spending shocks are primarily observed in countercyclical economies, with substantial heterogeneity across countries. The analysis reveals that subsidies play a significant role in CA adjustments for some countries (e.g., Austria, Croatia, Spain, Bolivia), while property income is a major determinant in countries with high debt and sovereign risk. In contrast, other fiscal components like compensation of employees, intermediate consumption, and social benefits play a minor role.
+[View preprint](media/paper2.pdf)
 
 ### 📝 Effects of Fiscal Stimulus Policies on Private Consumption: A RS-DSGE Approach for Japan
 
-This paper uses a New-Keynesian model with non-Ricardian households to analyze the impact of different fiscal policy measures on private consumption in Japan. The model is solved and estimated outside and at the Zero Lower Bound (ZLB) through a Markov-switching approach, using Japanese data over the period 1980Q1–2020Q3, and following two different fiscal rule specifications. Results show that consumption does not respond positively to fiscal stimulus measures, even after including rule-of-thumb consumers. This reflects Ricardian behavior and the decline in real wages that follows most measures. Tax distortions influence the variables’ responses through the impact of tax rate movements. The presence of the ZLB does not significantly alter the model’s behavior except after a consumption or wage income tax cut. A capital income tax cut is found to be the most effective fiscal stimulus measure, primarily boosting investment and productivity. A variance decomposition analysis reveals that consumption is mainly driven by labor supply and technology shocks.
-
-------------------------------------------------------------------------
-
-## Additional Materials
+[View preprint](media/paper3.pdf)
 
 -   For technical notes and additional resources, see [Methodology Notes](link-to-methodology-page) *(optional)*.
 
