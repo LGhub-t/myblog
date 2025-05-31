@@ -1,0 +1,26 @@
+---
+title: "Théorie des probabilités"
+format:
+  html:
+    toc: true
+    toc-title: "Sommaire"
+    toc-location: left
+---
+
+## Introduction
+
+Cette page regroupe des notes et des ressources sur la **théorie des probabilités** (en français). Les documents couvrent les notions fondamentales, les définitions clés, et des exemples illustratifs.
+
+---
+
+## Documents à télécharger
+
+- 👉 **[Notions fondamentales en probabilités (PDF)](media/Notions-fondamentales-proba.pdf)**
+- 👉 **[Exercices corrigés (PDF)](media/Exercices-proba.pdf)**
+
+---
+
+## À venir
+
+Des compléments pédagogiques et des exemples en R seront ajoutés au fur et à mesure.
+

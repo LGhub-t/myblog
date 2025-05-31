@@ -1,0 +1,26 @@
+---
+title: "Statistique inférentielle"
+format:
+  html:
+    toc: true
+    toc-title: "Sommaire"
+    toc-location: left
+---
+
+## Introduction
+
+Cette page propose des ressources pour comprendre les principes de la **statistique inférentielle** : estimation, tests d’hypothèses, et applications pratiques.
+
+---
+
+## Documents à télécharger
+
+- 👉 **[Introduction à l'inférence statistique (PDF)](media/Introduction-inference.pdf)**
+- 👉 **[Exercices corrigés (PDF)](media/Exercices-inference.pdf)**
+
+---
+
+## À venir
+
+Des notes de cours et des scripts R seront ajoutés au fil du temps.
+

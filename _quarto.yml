@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: .
+  output-dir: docs
 
 website:
   title: "Lamia's Research Notebook"
@@ -43,6 +43,10 @@ website:
         menu:
           - text: "Analyse de données"
             href: analyse_donnees.qmd
+          - text: "Théorie des probabilités"
+            href: proba.qmd
+          - text: "Statistique inférentielle"
+            href: inference.qmd
 
       - text: "Projects"
         href: projects.qmd

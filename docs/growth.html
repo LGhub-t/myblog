@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Analyse de données – Lamia’s Research Notebook</title>
+<title>Growth Theory – Lamia’s Research Notebook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="floating nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -161,6 +161,14 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./analyse_donnees.html">
  <span class="dropdown-text">Analyse de données</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./proba.html">
+ <span class="dropdown-text">Théorie des probabilités</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./inference.html">
+ <span class="dropdown-text">Statistique inférentielle</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -185,39 +193,14 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sommaire</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#analyse-en-composantes-principales-acp" id="toc-analyse-en-composantes-principales-acp" class="nav-link" data-scroll-target="#analyse-en-composantes-principales-acp">Analyse en Composantes Principales (ACP)</a>
-  <ul class="collapse">
-  <li><a href="#document-à-télécharger-liens-entre-svd-acp-et-afc" id="toc-document-à-télécharger-liens-entre-svd-acp-et-afc" class="nav-link" data-scroll-target="#document-à-télécharger-liens-entre-svd-acp-et-afc">📄 Document à télécharger : Liens entre SVD, ACP et AFC</a></li>
-  <li><a href="#r-code-exemples-dacp" id="toc-r-code-exemples-dacp" class="nav-link" data-scroll-target="#r-code-exemples-dacp">📦 R Code: Exemples d’ACP</a></li>
-  </ul></li>
-  <li><a href="#analyse-des-correspondances-afc" id="toc-analyse-des-correspondances-afc" class="nav-link" data-scroll-target="#analyse-des-correspondances-afc">Analyse des Correspondances (AFC)</a>
-  <ul class="collapse">
-  <li><a href="#notes-et-exercices" id="toc-notes-et-exercices" class="nav-link" data-scroll-target="#notes-et-exercices">Notes et exercices</a></li>
-  </ul></li>
-  <li><a href="#classification-et-clustering" id="toc-classification-et-clustering" class="nav-link" data-scroll-target="#classification-et-clustering">Classification et Clustering</a>
-  <ul class="collapse">
-  <li><a href="#supports-à-venir" id="toc-supports-à-venir" class="nav-link" data-scroll-target="#supports-à-venir">Supports à venir</a></li>
-  </ul></li>
-  <li><a href="#r-scripts-et-exemples" id="toc-r-scripts-et-exemples" class="nav-link" data-scroll-target="#r-scripts-et-exemples">R Scripts et Exemples</a></li>
-  </ul>
-</nav>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Analyse de données</h1>
+<h1 class="title">Growth Theory</h1>
 </div>
 
 
@@ -234,52 +217,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Cette section regroupe des notes, documents, et ressources pédagogiques sur l’<strong>Analyse des Données</strong>. Vous y trouverez des explications théoriques, des exemples chiffrés, et des codes R pratiques pour approfondir des méthodes telles que l’Analyse en Composantes Principales (ACP), l’Analyse des Correspondances (AFC), et la classification.</p>
-<hr>
-</section>
-<section id="analyse-en-composantes-principales-acp" class="level2">
-<h2 class="anchored" data-anchor-id="analyse-en-composantes-principales-acp">Analyse en Composantes Principales (ACP)</h2>
-<section id="document-à-télécharger-liens-entre-svd-acp-et-afc" class="level3">
-<h3 class="anchored" data-anchor-id="document-à-télécharger-liens-entre-svd-acp-et-afc">📄 Document à télécharger : Liens entre SVD, ACP et AFC</h3>
-<p>👉 <strong><a href="media/SVD-PCA-CA-Connections.pdf">SVD-ACP-AFC-Connections-Lamia.pdf</a></strong><br>
-Un document pédagogique qui explore les liens mathématiques entre la SVD, l’ACP et l’AFC, avec exemples chiffrés.</p>
-</section>
-<section id="r-code-exemples-dacp" class="level3">
-<h3 class="anchored" data-anchor-id="r-code-exemples-dacp">📦 R Code: Exemples d’ACP</h3>
-<ul>
-<li>Calcul d’une ACP sur un tableau de données</li>
-<li>Cercle des corrélations et représentation des individus</li>
-<li>Interprétation des valeurs propres</li>
-</ul>
-<p>➡️ Bientôt disponible !</p>
-<hr>
-</section>
-</section>
-<section id="analyse-des-correspondances-afc" class="level2">
-<h2 class="anchored" data-anchor-id="analyse-des-correspondances-afc">Analyse des Correspondances (AFC)</h2>
-<section id="notes-et-exercices" class="level3">
-<h3 class="anchored" data-anchor-id="notes-et-exercices">Notes et exercices</h3>
-<p>➡️ Contenu à venir (profils, inerties, distances du chi-deux…)</p>
-<hr>
-</section>
-</section>
-<section id="classification-et-clustering" class="level2">
-<h2 class="anchored" data-anchor-id="classification-et-clustering">Classification et Clustering</h2>
-<section id="supports-à-venir" class="level3">
-<h3 class="anchored" data-anchor-id="supports-à-venir">Supports à venir</h3>
-<p>➡️ Méthodes hiérarchiques, k-means, silhouette score, dendrogrammes…</p>
-<hr>
-</section>
-</section>
-<section id="r-scripts-et-exemples" class="level2">
-<h2 class="anchored" data-anchor-id="r-scripts-et-exemples">R Scripts et Exemples</h2>
-<p>Un dépôt de <strong>scripts R</strong> pour illustrer les différentes méthodes.<br>
-➡️ À venir.</p>
+<p>Economic growth theory has evolved from the neoclassical Solow model to more nuanced approaches that incorporate human capital, technology, and institutions. While measurement challenges persist (especially for TFP) growth accounting remains a useful tool for cross-country comparisons.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
