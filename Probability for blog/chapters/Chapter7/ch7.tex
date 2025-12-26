@@ -1,0 +1,380 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{lscape}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage[capposition=top]{floatrow}
+\usepackage{sectsty}
+\usepackage{textcase}
+\usepackage[tablename=TABLE,figurename=FIGURE]{caption}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{comment}
+\usepackage{threeparttable}
+\usepackage{subcaption}
+\usepackage{epstopdf}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{awesomebox}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{pgfkeys}
+\usepackage{amsmath,amssymb}
+
+%\sectionfont{\centering}
+%\subsectionfont{\underline}
+
+\usepackage[authoryear]{natbib}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+		T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\oddsidemargin 0.30cm \textwidth 16.5cm \textheight 23cm
+\topmargin -1.5cm
+
+\newcolumntype{b}{X}
+\newcolumntype{s}{>{\hsize=.5\hsize}X}
+
+\makeatletter
+\renewcommand\@biblabel[1]{}
+\makeatother
+
+\doublespacing
+\begin{document}
+	\title{Distributions de probabilité continues}
+	\author{Probabilités et statistique (L.B.); Chapitre 4 (Variables aléatoires), section 3}
+	\date{}
+	\maketitle
+	
+	\pagenumbering{gobble}
+	\pagenumbering{arabic}
+	
+	%\doublespacing
+	\linespread{1.0}
+	
+
+
+\section{Caractéristiques d'une variable aléatoire continue}
+\subsection{Fonction de densité de probabilité}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition
+	]
+	La \textbf{fonction de densité de probabilité} d'une variable aléatoire \textbf{continue} $X$ est
+\begin{equation*}
+	{f_X}:P(a\le X \le b)=\mathop \int \nolimits_{a}^b f(x) dx
+\end{equation*}
+\end{tcolorbox}
+\noindent Notez que pour une variable continue, la probabilité ne peut pas être calculée sur des valeurs spécifiques mais sur des intervalles. C'est dû au fait que $P(X=x)=0, \forall x \in \mathbb{R}$ (parce que $\mathop \int \nolimits_{x}^x f_X(t) dt=0$). Par conséquent, on peut considérer que $P\left(X \in \left]a,b\right[\right)=P\left(X \in \left[a,b\right] \right)=P\left(X \in \left]a,b\right]\right)=P\left(X \in \left[a,b\right[ \right)$.
+\\Une propriété importante de la fonction de densité de probabilité est
+\begin{equation*}
+	{f_X}:\int \nolimits_{-\infty}^{+\infty} f_X(x) dx=1 
+\end{equation*}
+\begin{equation*}
+	f_X(x)\ge 0, \forall x
+\end{equation*}
+$f_X(x)\ge 0$ parce que $F_X$ est croissante, donc sa dérivée est positive.
+\subsection{Fonction de répartition}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition
+	]
+La fonction de répartition est comme suit
+\begin{equation*}
+	\;{F_X}\left( x \right) = P(X\le x)= P(X < x)=\mathop \smallint \nolimits_{ - \infty }^x {f_X}\left( t \right)dt
+\end{equation*}
+\end{tcolorbox}
+\noindent Contrairement aux variables discrètes, la loi de répartition est une loi continue. La fonction de densité de probabilité définie plus haut correspond à la dérivée de la fonction de répartition
+\begin{equation*}
+	f(x)=F'(x)
+\end{equation*}
+De ce fait, la densité peut se calculer à partir de la différence de la primitive aux deux bornes de l'intégrale $\int \nolimits_{a}^b f(x) dx=F(b)-F(a)=P(a<X<b)$. Cette intégrale correspond à l'aire au-dessous de la courbe de densité entre les deux bornes, comme illustré sur la figure ci-dessous:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.65\linewidth]{area}
+\end{figure}
+\subsection{Espérance et variance}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définitions
+	] 	
+Espérance pour une variable aléatoire continue
+\begin{equation*}
+	E\left( X \right) = \mathop \int   x{f_X}\left( x \right)dx
+\end{equation*}
+\noindent La définition de la variance ne change pas
+\begin{equation*}Var\left( X \right) = E[(X-E(X))^2]=E\left( {{X^2}} \right) - E{\left( X \right)^2}={\sigma^2}\end{equation*}
+\end{tcolorbox}
+\noindent Notez que l'approche est la même que pour une variable continue en remplaçant la fonction de masse de probabilité par la fonction de densité et l'opérateur de somme par une intégrale.
+\subsection{Vecteurs aléatoires continus}
+\subsubsection{Fonctions jointes de distribution cumulative et de densité}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définitions
+	] 	
+La fonction de distribution cumulative jointe
+	\begin{equation*}
+		F_{(X,Y)}(x,y)=P\{X\le x \cap Y \le y\}
+	\end{equation*}
+La fonction de densité jointe
+\begin{equation*}
+	f_{(X,Y)}(x,y)=\frac{\partial^2}{\partial x \partial y}F_{(X,Y)}(x,y)
+\end{equation*}
+\end{tcolorbox}
+
+\subsubsection{Indépendance}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définitions
+	] 	
+	Les variables aléatoires continues X et Y sont indépendantes si et seulement si
+	\begin{equation*}
+		f(x,y)=f(x)f(y)
+	\end{equation*}
+
+\end{tcolorbox}
+\noindent Où les fonctions marginales sont définies comme:
+\begin{equation*}
+f(x)=\int f(x,y)dy
+\end{equation*}
+\begin{equation*}
+f(y)=\int f(x,y)dx
+\end{equation*}
+\subsubsection{Covariance}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition
+	] 
+	La covariance est définie comme suit entre deux variables aléatoires continues $X$ et $Y$ est comme suit
+	\begin{equation*}
+		Cov(X,Y)=E((X-E(X))(Y-E(Y)))=\int \int (x-E(X))(y-E(Y))f(x,y)dxdy
+	\end{equation*}
+	\begin{equation*}
+=\int \int (xy)f(x,y)dxdy-E(X)E(Y)
+\end{equation*}
+\end{tcolorbox}
+\section{Lois usuelles continues}
+\subsection{La loi uniforme}
+C'est une distribution de probabilité définie sur un intervalle spécifique où chaque point a une probabilité égale. C'est-à-dire chacune des valeurs possibles de la variable aléatoire a la même chance d'être choisie. On prend l'exemple d'une distribution uniforme sur l'intervalle $[a,b]$
+\\La fonction de densité de probabilité est constante sur l'intervalle considéré
+\begin{equation*}
+	{f_X}\left( x \right) = \left\{ {\begin{array}{*{20}{c}}
+			{\frac{1}{{b - a}}}&{a < x < b}\\
+			0&{sinon}
+	\end{array}} \right.
+\end{equation*}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.35\linewidth]{uni0}
+\end{figure}
+\noindent Avec la condition que $|b-a|$ soit un nombre fini. La fonction de répartition est comme suit:
+\begin{equation*}
+	{F_X}\left( x \right) = \left\{ {\begin{array}{*{20}{c}}
+			0&{x < a}\\
+			{\frac{{x - a}}{{b - a}}}&{a \le x \le b}\\
+			1&{x > b}
+	\end{array}} \right.
+\end{equation*}
+\textbf{Propriété uniforme}: cette propriété implique que la probabilité ne dépend que de la longueur de l'intervalle et non pas de sa position. Par exemple, sur la figure ci-dessous, les probabilités A et B sont égales.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.65\linewidth]{ab}
+\end{figure}
+\noindent \textbf{Exemple}: un vol est prévu d'arriver à 17:00. Le temps d'arrivée effectif est distribué de manière uniforme et continue entre 16:50 et 17:10. De ce fait, la probabilité que le vol arrive avant ou après 17:00 est la même. La probabilité que le vol arrive avant 16:55 ou après 17:05 est la même, etc.
+\\L'espérance pour la loi uniforme continue est comme suit:
+\begin{equation*}
+	E\left( X \right) = \mathop \int \nolimits_a^b x\frac{1}{{b - a}}dx = \frac{1}{2}\left( {a + b} \right)
+\end{equation*}
+Et la variance
+\begin{equation*}
+	Var\left( X \right) = E\left( {{X^2}} \right) - {\left( {E\left( X \right)} \right)^2} = \mathop \int \nolimits_a^b {x^2}\frac{1}{{b - a}}dx - \frac{1}{4}{\left( {a + b} \right)^2} = \frac{1}{{12}}{\left( {b - a} \right)^2}
+\end{equation*}
+\textbf{Remarque}: la loi uniforme standard est la loi uniforme avec les paramètres $a=0$ et $b=1$\\
+
+\subsection{La distribution logistique}
+La fonction de répartition de la forme standard de la distribution logistique est comme suit:
+\begin{equation*}
+{F_X}\left( x \right) = \frac{1}{{1 + {e^{ - x}}}}
+\end{equation*}
+\noindent Conformément aux propriétés vues dans la section 1, on peut voir que lorsque x tend vers $+\infty$, la fonction tend vers 1 et lorsque x tend vers $-\infty$, la fonction tend vers 0. Cette fonction est aussi continue et croissante en x.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{cdf10}
+\end{figure}
+\noindent La dérivée de la fonction de répartition est la fonction de densité de probabilité:
+\begin{equation*}
+{f_X}\left( x \right) = \frac{d}{dx}F_X(x)=\frac{{{e^{ - x}}}}{{{{\left( {1 + {e^{ - x}}} \right)}^2}}}
+\end{equation*}
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.35\linewidth]{pdf10}
+\end{figure}
+\noindent On peut calculer la probabilité à partir des deux fonctions comme suit
+\begin{equation*}
+P(a<X<b)= F_X(b)-F_X(a)=\int_{-\infty}^{b}f_X(x)dx-\int_{-\infty}^{a}f_X(x)dx=\int_{a}^{b}f_X(x)dx
+\end{equation*}Mais si par exemple, on cherche $F_X(a)$ avec $a=0$, on aura
+	\begin{equation*}
+					{F_X}\left( 0 \right) = \frac{1}{{1 + {e^{ - 0}}}}=\frac{1}{2}
+			\end{equation*} \begin{equation*}
+					P(X \le 0) = \mathop \smallint \nolimits_{ - \infty }^0 {\frac{{{e^{ - x}}}}{{{{\left( {1 + {e^{ - x}}} \right)}^2}}}}=\frac{1}{2}
+			\end{equation*}
+\noindent Ce qui correspond à toute la zone à gauche de 0.\\
+\textbf{Remarque}\\
+On peut chercher également l'inverse: quelle est la valeur de $x$ telle que $P(X\le x)=1/2$? On a $x: F_X(x)=1/2\Rightarrow F^{-1}_X(1/2)=0$. La fonction inverse $F^{-1}_X$ de la fonction de répartition s'appelle la \textbf{fonction quantile}. Dans le présent exemple, on a ${F_X}\left( x \right) = \frac{1}{{1 + {e^{ - x}}}}$ et donc $F^{-1}_X(p)=ln(p/(1-p))$. Par exemple, si $P(X\le x)=0.975$, alors  $F^{-1}_X(0.975)\approx 3.66$
+\subsection{La loi exponentielle}
+La distribution exponentielle est souvent utilisée pour la modélisation du temps: temps d'attente, temps de défaillance, temps entre des appels téléphoniques, etc. Il existe un lien avec la loi de Poisson dans la mesure où la durée de temps entre les événements rares décrits par la loi de Poisson suit une distribution exponentielle.
+\\La fonction de densité de probabilité
+\begin{equation*}
+	f(x)=\lambda e^{-\lambda x},\;\;\; \text{ pour } x>0
+\end{equation*}
+Le paramètre $\lambda$ représente la fréquence dans un intervalle de temps donné (comme dans la loi de Poisson).\\
+La fonction de répartition
+\begin{equation*}
+	F(x)=\int_{0}^{x}f(t)dt=\int_{0}^{x} \lambda e^{-\lambda t} dt=1-e^{-\lambda x}\;\; (x>0),
+\end{equation*}
+L'espérance
+\begin{equation*}
+	E(X)=\int t f(t)dt=\int_{0}^{\infty}t \lambda e^{-\lambda t}dt=\frac{1}{\lambda}
+\end{equation*}
+La variance
+\begin{equation*}
+	Var(X)=\int t^2f(t)dt-E^2(X)
+\end{equation*}
+\begin{equation*}
+=\int_0^{\infty} t^2\lambda e^{-\lambda t}dt-\left(\frac{1}{\lambda}\right)^2=\frac{2}{\lambda^2}-\frac{1}{\lambda^2}=\frac{1}{\lambda^2}
+\end{equation*}
+\noindent \textbf{Exemple}: On envoie des travaux d'impression à une imprimante à raison de 3 travaux par heure:\\
+1. Quelle est l'espérance du temps entre les travaux d'impression?
+\\2. Quelle est la probabilité que le prochain travail soit envoyé dans un intervalle de 5 minutes.\\
+Réponses: On a $\lambda=3$ pour une heure\\
+1. $E(T)=1/{\lambda}=1/3$ heures, donc 20 minutes en moyenne.\\
+2. On utilise la définition de la fonction de répartition: $P(T<1/12 \text{ heures})=F(1/12)=1-e^{-\lambda(1/12)}=1-e^{-1/4}=0.2212$
+\subsection{La loi normale}
+La loi normale (distribution Gaussienne) joue un rôle fondamental en statistique, pour plusieurs raisons:
+\begin{itemize}
+	\item De nombreux phénomènes naturels, tels que la taille des individus, les erreurs de mesure, la température, niveau de pollution, plusieurs variables biologiques suivent une distribution normale
+	\item Théorème Central Limite: Ce théorème stipule que la somme ou la moyenne d'un grand nombre d'échantillons indépendants issus de n'importe quelle distribution de probabilité converge vers une distribution normale.
+	\item Les propriétés mathématiques de la loi normale, telles que la symétrie et la forme en cloche facilitent l'analyse.
+	\item Inférence statistique: de nombreux tests statistiques classiques reposent sur l'hypothèse de normalité des données. Ces tests sont utilisés dans plusieurs domaines pour faire des études et des prévisions.
+\end{itemize} 
+\subsubsection{Caractéristiques}
+La fonction de densité de probabilité pour une variable aléatoire X qui suit une loi normale de paramètres $\mu$ et $\sigma^2$ est comme suit:
+		\begin{equation*}
+			{f_X}\left( x \right) = \frac{1}{{\sigma \sqrt {2\pi } }}{e^{ - \frac{{{{\left( {x - \mu } \right)}^2}}}{{2{\sigma ^2}}}}}
+		\end{equation*}
+Notation $X\sim N(\mu,\sigma^2)$
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\linewidth]{nm0}
+		\end{figure}
+\noindent Dans le cas de la distribution normale $P(|X-\mu|\ge 2\sigma)\approx 0.0455$\\
+Les deux paramètres de la loi normale sont son espérance et sa variance. Ils définissent la forme de la courbe
+\begin{equation*}
+	E(X)=\mu
+\end{equation*}
+\begin{equation*}
+	Var(X)=\sigma^2
+\end{equation*}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.65\linewidth]{param}
+\end{figure}
+\subsubsection{La loi normale standard}
+La loi normale standard correspond à une loi normale avec paramètres $\mu=0$ et $\sigma=1$. On l'appelle aussi la loi normale centrée réduite. La variable utilisée est souvent dénotée par $Z$, avec
+\begin{equation*}
+	Z=\frac{X-\mu}{\sigma}
+\end{equation*}
+On utilise habituellement une table de la loi normale centrée réduite pour obtenir des probabilités, que ce soit pour $Z$ ou pour $X$. Par exemple: $P(Z<1.35)=\Phi(1.35)=0.9115$, où $\Phi()$ dénote la fonction de répartition de la loi normale centrée réduite. Cette valeur peut être retrouvée au niveau de la table.\\
+En revanche, si on a une variable aléatoire $X\sim N(900, 200^2)$ et qu'on cherche $P(600<X<1200)$, on doit d'abord transformer la variable en une variable centrée réduite puis chercher la probabilité au niveau de la table de la loi normale standard.
+\begin{equation*}
+	P(600<X<1200)=P\left(\frac{600-900}{200}<\frac{X-\mu}{\sigma}<\frac{1200-900}{200}\right)=P(-1.5<Z<1.5)
+\end{equation*}
+\begin{equation*}
+=0.9332-0.0668=0.8664
+\end{equation*}
+\section{L'inégalité de Chebychev}
+\subsection{L'inégalité de Chebychev}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=L'inégalité de Chebychev
+	] 	
+	Soit $X$ une variable aléatoire et $g(x)$ une fonction non-négative. Alors $\forall r>0$,
+	\begin{equation*}
+		P(g(X)\ge r)\le \frac{E(g(X))}{r}
+	\end{equation*}
+\end{tcolorbox}
+\noindent Démonstration du théorème (pour $X$ comme variable continue)\\
+D'après la définition de l'espérance, on a
+\begin{equation*}
+	E[g(X)]=\int_{-\infty}^{+\infty}g(x)f_X(x)dx
+\end{equation*}
+Si on calcule l'intégrale sur un intervalle plus petit: par exemple, l'intervalle où $g(x)\ge r$, on obtient une valeur plus petite
+\begin{equation*}
+	\int_{-\infty}^{+\infty}g(x)f_X(x)dx \ge \int_{x:g(x)\ge r}g(x)f_X(x)dx
+\end{equation*}
+Puisque $g(x)\ge r$, si on multiplie la densité par $r$ au lieu de $g(x)$, on obtient une valeur plus petite
+\begin{equation*}
+	\int_{x:g(x)\ge r}g(x)f_X(x)dx \ge r\int_{x:g(x)\ge r}f_X(x)dx=rP(g(X)\ge r)
+\end{equation*}
+De ce fait, on obtient
+\begin{equation*}
+	P(g(X)\ge r)\le \frac{E(g(X))}{r}
+\end{equation*}
+\subsection{Un résultat important de l'inégalité de Chebychev}
+On considère le cas $g(x)=\frac{(x-\mu)^2}{\sigma^2}$, $\mu=E[x]$, $\sigma^2=V[X]$, $r=t^2$
+\\En utilisant l'inégalité de Chebychev, on a
+\begin{equation*}
+	P\left(\frac{(X-\mu)^2}{\sigma^2}\ge t^2\right) \le \frac{1}{t^2}E\left[\frac{(X-\mu)^2}{\sigma^2}\right]=\frac{1}{t^2}
+\end{equation*}
+Parce que $E\left[\frac{(X-\mu)^2}{\sigma^2}\right]=\frac{E\left[{(X-\mu)^2}\right]}{\sigma^2}=1$ puisque le numérateur du second terme est égal à la variance $\sigma^2$.\\
+Après simplification, on obtient
+
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Résultat important
+	]
+	\begin{equation*}
+	P\left(|X-\mu|\ge t \sigma\right)\le \frac{1}{t^2}
+\end{equation*}
+Par exemple, pour $t=2$, on obtient
+\begin{equation*}
+	P\left(|X-\mu|\ge 2 \sigma\right)\le \frac{1}{2^2}=0.25
+\end{equation*}
+Cela implique que
+\begin{equation*}
+	P\left(|X-\mu|\le 2 \sigma\right)\ge 0.75
+\end{equation*}
+Ce résultat est valable \textbf{quelle que soit la distribution de $X$}
+\end{tcolorbox}
+\subsection{Exemple de la loi normale}
+Soit $X \sim \mathcal{N}(\mu, \sigma)$
+\begin{equation*}
+	P\left(|X-\mu|\le 2 \sigma\right)=P\left(|X-\mu|/\sigma\ge 2\right)
+\end{equation*}
+\begin{equation*}
+	=P(|Z|\ge 2)=2\frac{1}{\sqrt{2 \pi}}\int_{2}^{\infty}e^{-\frac{x^2}{2}}dx \approx 0.0455
+\end{equation*}
+Donc, si $Z \sim \mathcal{N}(0,1)$, alors $P(Z \le 2)\approx 0.977$.\\
+De même, quel est le quantile $z$ tel que $P(Z \le z)=0.975$? C'est $z\approx 1.96$
+
+\section{Annexe}
+Le tableau ci-dessous est extrait de l'ouvrage de Casella \& Berger et montre les liens qui existent entre les distributions:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.95\linewidth]{liens}
+\end{figure}
+\noindent Source: Casella \& Berger, Statistical Inference (2002)
+\end{document}

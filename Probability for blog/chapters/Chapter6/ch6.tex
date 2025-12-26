@@ -1,0 +1,495 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{lscape}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage[capposition=top]{floatrow}
+\usepackage{sectsty}
+\usepackage{textcase}
+\usepackage[tablename=TABLE,figurename=FIGURE]{caption}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{comment}
+\usepackage{threeparttable}
+\usepackage{subcaption}
+\usepackage{epstopdf}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{awesomebox}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{pgfkeys}
+\usepackage{slashbox}
+\usepackage{amsmath,amssymb}
+
+%\sectionfont{\centering}
+%\subsectionfont{\underline}
+
+\usepackage[authoryear]{natbib}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+		T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\oddsidemargin 0.30cm \textwidth 16.5cm \textheight 23cm
+\topmargin -1.5cm
+ \newcommand{\ind}{\perp\!\!\!\!\perp} 
+\newcolumntype{b}{X}
+\newcolumntype{s}{>{\hsize=.5\hsize}X}
+
+\makeatletter
+\renewcommand\@biblabel[1]{}
+\makeatother
+
+\doublespacing
+\begin{document}
+	\title{Les vecteurs aléatoires discrets}
+	\author{Probabilités et statistique (L.B.); Chapitre 4 -section 2}
+	\date{}
+	\maketitle
+	
+	\pagenumbering{gobble}
+	\pagenumbering{arabic}
+	
+	%\doublespacing
+	\linespread{1.0}
+	
+
+
+\section{Vecteur aléatoire: définition}
+\subsection{Définition}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition
+	] 	
+	Un vecteur aléatoire est une application de $\Omega$ dans $\mathbb{R}^n$ qui attribue un vecteur de nombres à chaque élément de $\Omega$
+\end{tcolorbox}
+\subsection{Exemple 1}
+On considère l'exemple de lancer de deux dés avec $X$ la variable qui représente la somme des résultats obtenus et $Y$ la valeur absolue de la différence entre les deux résultats:\\
+$X$= somme; $Y=|\text{Différence}|$
+\begin{table}[!htbp]
+	\centering
+	\renewcommand{\arraystretch}{1}
+	\resizebox{0.3\linewidth}{!}{
+		\begin{tabular}{|c|c|c|c|}\hline
+			$\omega$& $P(\omega)$ & $X(\omega)$ & $Y(\omega)$\\\hline
+			(1,1)& 1/36 & 2 & 0\\
+			(1,2) & 1/36&3&1\\
+			$\dots$&&&\\
+			(6,6)&1/36&12&0\\
+			\hline
+	\end{tabular}}
+\end{table}
+\section{Probabilités jointes}
+\subsection{Définition}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition
+	] 	
+	Pour deux variables aléatoires discrètes $X$ et $Y$, on définit la fonction de masse de probabilité jointe comme
+	\begin{equation*}
+		f_{X,Y}(x,y)=P(X=x,Y=y)
+	\end{equation*}
+On a
+	\begin{equation*}
+	P((X,Y)\in A)=\sum_{(x,y)\in A} f_{X,Y}(x,y)
+\end{equation*}
+\end{tcolorbox}
+Deux résultats immédiats de la définition
+\begin{equation*}
+	f_{X,Y}\ge 0\;\;\; \forall (x,y) \in \mathbb{R}^2
+\end{equation*}
+\begin{equation*}
+	\sum_{(x,y)\in \mathbb{R}^2} f_{X,Y}(x,y)=1
+\end{equation*}
+\subsection{Exemple 1}
+Dans le cas de l'exemple de lancer de deux dés, on obtient
+\begin{equation*}
+f(5,3)=P(X=5, Y=3)=P(\{(4,1), (1,4)\})=2/36=1/18
+\end{equation*}
+\begin{equation*}
+f(6,0)=P(X=6, Y=0)=P(\{(3,3)\})=1/36
+\end{equation*}
+\begin{equation*}
+P(X=7, Y \le 4)=f(7,1)+f(7,3)=1/18+1/18=1/9
+\end{equation*}
+La fonction de probabilités jointes complète est comme suit
+\begin{table}[!htbp]
+	\centering
+	\renewcommand{\arraystretch}{1}
+	\resizebox{0.8\linewidth}{!}{
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
+			Y X&2&3&4&5&6&7&8&9&10&11&12\\\hline
+			0&1/36&&1/36&&1/36&&1/36&&1/36&&1/36\\
+			1&&1/18&&1/18&&1/18&&1/18&&1/18&\\
+			2&&&1/18&&1/18&&1/18&&1/18&&\\
+			3&&&&1/18&&1/18&&1/18&&&\\
+			4&&&&&1/18&&1/18&&&&\\
+			5&&&&&&1/18&&&&&\\\hline
+	\end{tabular}}
+\end{table}
+
+\subsection{Exemple 2}
+	On considère la distribution jointe suivante:
+	\begin{equation*}
+		f(0,0)=f(0,1)=1/6
+	\end{equation*}
+	\begin{equation*}
+		f(1,0)=f(1,1)=1/3
+	\end{equation*}
+	\begin{equation*}
+		f(x,y)=0 \text{ pour tout autre }(x,y)
+	\end{equation*}
+On peut vérifier que $f$ est une fonction de probabilité jointe valide. Puisqu'on a les probabilités jointes, on peut utiliser $f$ pour les calculs sans se référer à $\Omega$. Par exemple, $P(X=Y)=f(0,0)+f(1,1)=1/2$
+\subsection{Exemple 3}
+On considère une expérience de lancer de deux pièces de monnaie ($\Omega=\{PP, FF, PF, FP\}$)\\
+On définit X comme une variable aléatoire qui prend la valeur 1 si au moins un "Pile" est obtenu et 0 sinon, et Y comme une variable aléatoire qui prend la valeur 1 si au moins un "Face" est obtenu et 0 sinon.
+\\Alors le résultat \{FF\} correspondra à (0,1), \{FP\} à (1,1), \{PF\} à (1,1) et \{PP\} à (1,0).
+\\ A quoi correspond P(X=0,Y=0)? $\Rightarrow$ cette probabilité est nulle
+\\On peut résumer les probabilités des résultats dans le tableau qui suit
+\begin{table}[!htbp]
+	\centering
+	\renewcommand{\arraystretch}{1.0}
+	\resizebox{0.2\linewidth}{!}
+	{\begin{tabular}[t]{ccc}
+			\hline \backslashbox{Y}{X} & 0 & 1\\\hline
+			0 &0 &1/4 \\
+			1 & 1/4 &1/2 \\\hline
+	\end{tabular}}
+\end{table}
+\\Ces probabilités représentent la distribution de probabilité jointe $f_{X,Y}$, une fonction définie de $\mathbb{R}^2$ vers $\mathbb{R}$
+\\ Nous pouvons également dériver les distributions marginales de X et Y
+\begin{table}[!htbp]
+	\centering
+	\renewcommand{\arraystretch}{1.0}
+	\resizebox{0.25\linewidth}{!}{\begin{tabular}[t]{cccc}
+			\hline \backslashbox{Y}{X} & 0 & 1&\\\hline
+			0 &0 &1/4 &\textbf{1/4}\\
+			1 & 1/4 &1/2&\textbf{3/4} \\
+			&\textbf{1/4}&\textbf{3/4}&\textbf{1}\\\hline
+	\end{tabular}}
+\end{table}
+\section{Probabilités marginales}
+\subsection{Définition}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition
+	] 	
+	Pour deux variables aléatoires discrètes $X$ et $Y$, on définit la fonction de probabilité marginale pour $X$ comme
+	\begin{equation*}
+		f_X(x)=\sum_{y \in \mathbb{R}}f_{X, Y}(x,y)
+	\end{equation*}
+\end{tcolorbox}
+Démonstration
+\begin{equation*}
+	f_X(x)=P(X=x)=P(X=x, Y \in\mathbb{R})
+\end{equation*}
+\begin{equation*}
+	=\sum_{(x,y) \in A_x}f_{X, Y}(x,y)
+\end{equation*}
+\begin{equation*}
+	=\sum_{y \in \mathbb{R}}f_{X, Y}(x,y)
+\end{equation*}
+\subsection{Exemple 1}
+L'exemple précédent 1 de deux lancers de dés:
+\begin{table}[!htbp]
+	\centering
+	\renewcommand{\arraystretch}{1}
+	\resizebox{0.8\linewidth}{!}{
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
+			Y X&2&3&4&5&6&7&8&9&10&11&12&\\\hline
+			0&1/36&&1/36&&1/36&&1/36&&1/36&&1/36&3/18\\
+			1&&1/18&&1/18&&1/18&&1/18&&1/18&&5/18\\
+			2&&&1/18&&1/18&&1/18&&1/18&&&4/18\\
+			3&&&&1/18&&1/18&&1/18&&&&3/18\\
+			4&&&&&1/18&&1/18&&&&&2/18\\
+			5&&&&&&1/18&&&&&&1/18\\
+			&1/36&2/36&3/36&4/36&5/36&6/36&5/36&4/36&3/36&2/36&1/36&\\\hline
+	\end{tabular}}
+\end{table}
+\subsection{Exemple 2}
+Pour l'exemple précédent 2, les probabilités marginales $f_X(x)$ et $f_Y(y)$ peuvent être obtenues comme suit:
+\begin{equation*}
+	f_X(x)=\begin{cases}
+		2/6 \;\;\; x=0\\
+		2/3\;\;\; x=1
+	\end{cases}
+\end{equation*}
+\begin{equation*}
+	f_Y(y)=\begin{cases}
+		3/6 \;\;\; y=0\\
+		3/6\;\;\; y=1
+	\end{cases}
+\end{equation*}
+Ces deux fonctions sont des fonctions de masse de probabilité valides.
+\\\textbf{Remarque}: On peut retrouver les probabilités marginales à partir des probabilités jointes. Mais l'inverse n'est pas vrai: on ne peut pas retrouver les probabilités jointes à partir des probabilités marginales.
+	\section{Distribution identique}
+	\subsection{Définition}
+	\begin{tcolorbox}[colback=blue!5!white,
+		colframe=blue!75!black,
+		title=Définition
+		] 	
+		On considère les variables aléatoires $X$, $Y$. $X$ et $Y$	sont identiquement distribuées (on note $X \sim Y$) si et seulement si $\forall A \in \mathcal{B}, P(X\in A)= P(Y\in A)$
+	\end{tcolorbox}
+
+\subsection{Exemple 3}
+On considère l'exemple 3 ci-dessus de lancer de deux pièces de monnaie. Est-ce que $X \sim Y$?
+\\ Notez que
+		\begin{multicols}{2}
+			\begin{equation*}
+				{f_X}\left( x \right) = \left\{ {\begin{array}{*{20}{c}}
+						{1/4}&{x = 0}\\
+						{3/4}&{x = 1}
+				\end{array}} \right.
+			\end{equation*}
+			
+			\begin{equation*}
+				{f_Y}\left( y \right) = \left\{ {\begin{array}{*{20}{c}}
+						{1/4}&{y = 0}\\
+						{3/4}&{y = 1}
+				\end{array}} \right.
+			\end{equation*}	
+		\end{multicols}
+\noindent Donc $X \sim Y$. On peut dire que $X \sim Ber(3/4)$ (même chose pour Y)
+
+\subsection{Exemple 4} 
+On considère une expérience de 3 lancers de pièces. On considère la variable $X=$ nombre de Faces et $Y=$nombre de Piles. 
+		\begin{table}[!htbp]
+			\centering
+			\renewcommand{\arraystretch}{1.0}
+			\resizebox{0.7\linewidth}{!}{
+				\begin{tabular}{ccccccccc}
+					\hline
+					i & 1   & 2   & 3   & 4   & 5   & 6   & 7   & 8    \\\hline
+					$\omega_i$ & FFF & FFP & FPF & PFF & PPF & PFP & FPP & PPP  \\
+					$X(\omega_i)$ & 3   & 2   & 2   & 2   & 1   & 1   & 1   & 0    \\
+					$Y(\omega_i)$ & 0   & 1   & 1   & 1   & 2   & 2   & 2   & 3    \\
+					$P(\omega_i)$ & 1/8 & 1/8 & 1/8 & 1/8 & 1/8 & 1/8 & 1/8 & 1/8 \\\hline
+			\end{tabular}}
+		\end{table}
+ \\Si X représente les résultats comprenant les résultats pour un nombre donné de "Face"et Y les résultats avec le même nombre de "Pile", alors $X \sim Y$. On a $X\sim Y$ (mais notez que $\forall\;\omega \in \Omega$, $X \neq Y$)\\
+De manière générale, deux variables aléatoires X et Y qui sont identiquement distribuées ont la même fonction de répartition $F_X$ and $F_Y$
+
+
+\section{Indépendance}
+\subsection{Définition}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition
+	] 	
+Les variables aléatoires $X$ et $Y$ sont indépendantes si et seulement si 
+\begin{equation*}
+	f(x,y)=f_X(x)f_Y(y)
+\end{equation*}
+Notation $X \ind Y$
+\end{tcolorbox}
+\noindent Si ces variables aléatoires sont indépendantes, la connaissance de $X$ ne nous donne pas d'information sur $Y$. Autrement dit,
+\begin{equation*}
+	f(y|x)=\frac{f(x,y)}{f_X(x)}=\frac{f_X(x) f_Y(y)}{f_X(x)}=f_Y(y)
+\end{equation*}
+Avec la fonction de probabilité conditionnelle définie comme suit:
+		\begin{equation*}
+			f(y|x)=f(x,y)/f_X(x),\;\;\;\forall x: f_X(x)>0
+		\end{equation*}
+Exemple: lancer une pièce de monnaie une fois et lancer la même pièce une deuxième fois
+\subsection{Exemple 1}
+Pour calculer l'ensemble des probabilités jointes et l'ensemble des produits de probabilités marginales peut demander du temps. Néanmoins, si n trouve un seul exemple de cas où la définition d'indépendance n'est pas vérifiée, on pourra dire que les deux variables $X$ et $Y$ de l'exemple 1 ne sont pas indépendantes.\\
+Par exemple, on peut noter que $P(X=2,Y=1)=0$, pourtant $P(X=2)=1/36$ et $P(Y=1)=5/18$. Le produit de ces probabilités marginales ne peut donc pas être nul. On conclut que $X$ et $Y$ ne sont pas indépendantes.\\
+\textbf{Remarque}: le domaine (valeurs possibles) de Y varie en fonction des valeurs de X dans cet exemple. Donc, on peut s'attendre à ce que les deux variables soient dépendantes.
+\subsection{Exemple 2}
+On reprend l'exemple 2 ci-dessus. Est-ce que $X$ et $Y$ sont indépendantes?\\
+Pour répondre à la question, on doit vérifier si $f_{X,Y}=f_X\times f_Y$.
+\\On a les probabilités jointes
+\begin{equation*}
+	f(0,0)=f(0,1)=1/6
+\end{equation*}
+\begin{equation*}
+	f(1,0)=f(1,1)=1/3
+\end{equation*}
+\begin{equation*}
+	f(x,y)=0 \text{ pour tout autre }(x,y)
+\end{equation*}
+\noindent Et les probabilités marginales
+\begin{equation*}
+	f_X(x)=\begin{cases}
+		2/6 \;\;\; x=0\\
+		2/3\;\;\; x=1
+	\end{cases}
+\end{equation*}
+\begin{equation*}
+	f_Y(y)=\begin{cases}
+		3/6 \;\;\; y=0\\
+		3/6\;\;\; y=1
+	\end{cases}
+\end{equation*}
+Donc
+\begin{equation*}
+	f_{X,Y}(0,0)=1/6=f_X(0)f_Y(0)
+\end{equation*}
+\begin{equation*}
+	f_{X,Y}(0,1)=1/6=f_X(0)f_Y(1)
+\end{equation*}
+\begin{equation*}
+	f_{X,Y}(1,0)=1/3=f_X(1)f_Y(0)
+\end{equation*}
+\begin{equation*}
+	f_{X,Y}(1,1)=1/3=f_X(1)f_Y(1)
+\end{equation*}
+On confirme que $X$ et $Y$ sont indépendantes.
+\subsection{Exemple 3}
+Dans l'exemple 3 ci-dessus, est-ce que $X \ind Y$?\\
+Est-ce qu'on a $f(x,y)=f_X(x)f_Y(y)$?
+		\begin{table}[!htbp]
+			\centering
+			\renewcommand{\arraystretch}{1.0}
+			\resizebox{0.25\linewidth}{!}{\begin{tabular}[t]{cccc}
+					\hline \backslashbox{Y}{X} & 0 & 1&\\\hline
+					0 &0 &1/4 &\textbf{1/4}\\
+					1 & 1/4 &1/2&\textbf{3/4} \\
+					&\textbf{1/4}&\textbf{3/4}&\textbf{1}\\\hline
+			\end{tabular}}
+		\end{table}
+Par exemple, on a $P(X=0,Y=0)=0$. Néanmoins, $P(X=0)*P(Y=0)=1/4.1/4=1/16$. Donc X et Y ne sont pas indépendantes.
+\\Un contre-exemple : on change la distribution jointe. Par exemple, si on avait plutôt eu la distribution jointe suivante:
+		\begin{table}[!htbp]
+			\centering
+			\renewcommand{\arraystretch}{1.0}
+			\resizebox{0.25\linewidth}{!}{\begin{tabular}[t]{cccc}
+					\hline \backslashbox{Y}{X} & 0 & 1&\\\hline
+					0 &1/16 &3/16 &\textbf{1/4}\\
+					1 & 3/16 &9/16&\textbf{3/4} \\
+					&\textbf{1/4}&\textbf{3/4}&\textbf{1}\\\hline
+			\end{tabular}}
+		\end{table}
+\\Dans ce cas, $X$ and $Y$ \textbf{sont i.i.d. (indépendantes et identiquement distribuées)}
+
+\section{Vecteurs aléatoires: l'espérance et la covariance}
+\subsection{L'espérance de la somme de deux variables aléatoires}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition
+	] 
+	Soient deux variables aléatoires $X$ et $Y$
+	\begin{equation*}
+		E(X+Y)=E(X)+E(Y)
+	\end{equation*}
+\end{tcolorbox}
+\subsection{L'espérance du produit de deux variables aléatoires}
+On peut calculer l'espérance d'une fonction  de deux variables aléatoires de la manière suivante:
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition
+	] 
+	Soient deux variables aléatoires $X$ et $Y$ et une fonction $g(X,Y)$
+\begin{equation*}
+	E(g(X,Y))=\sum_{(x,y)\in \mathbb{R}^2}g(x,y)f_{X,Y}(x,y)
+\end{equation*}
+\end{tcolorbox}
+\noindent \textbf{Exemple 1}: On considère que $g(X,Y)=X \times Y$\\
+Dans l'exemple 1 de lancer des deux dés, on calcule $E[X Y]$
+\begin{equation*}
+	E[X Y]=\sum_{(x,y)\in \mathbb{R}^2}x y f_{X,Y}(x,y)
+\end{equation*}
+En reprenant les valeurs du tableau, on trouve:
+\begin{equation*}
+		E[X Y]=2\times 0\times1/36+4\times0\times1/36+\dots+8\times4\times1/18+7\times5\times1/18=13\times 11/18
+\end{equation*}
+
+\subsection{Exemple 3}
+On considère la fonction $g(X,Y)=X.Y$ pour l'exemple 3, l'espérance $E[g(X,Y)]$ sera
+\begin{equation*}\begin{split}
+		E[g(X,Y)]=E[X.Y]=g(0,0)*f(0,0)+	g(0,1)*f(0,1)\\+g(1,0)*f(1,0)+g(1,1)*f(1,1)=\frac{1}{2}	\end{split}\end{equation*}
+\subsection{La covariance} 
+	\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition
+	] 
+	Le comportement conjoint de deux variables aléatoires peut être décrit par la covariance
+		\begin{equation*}
+			Cov(X,Y)=\sigma_{X,Y}=E[(X-E(X))(Y-E(Y))]
+		\end{equation*}
+Ou bien
+		\begin{equation*}
+			Cov(X,Y)=E(X.Y)-E(X)E(Y)
+		\end{equation*}
+La corrélation
+		\begin{equation*}
+			\rho(X,Y)=\frac{Cov(X,Y)}{\sigma_X\sigma_Y}
+		\end{equation*}
+On peut aussi démontrer que la variance
+		\begin{equation*}
+			Var(X+Y)=\sigma_{X}^2+\sigma_{Y}^2+2\sigma_{X,Y}
+		\end{equation*}
+	\end{tcolorbox}
+\noindent Enfin, si $X$, $Y$ sont \textbf{indépendantes}, alors
+		\begin{equation*}
+			Cov(X,Y)=0
+		\end{equation*}
+\subsection{Exemple 3}
+On a $E(X)=0*1/4+1*3/4=3/4$ et $E(Y)=0*1/4+1*3/4=3/4$. Donc $E(X)*E(Y)=3/4*3/4=9/16$. Donc, la covariance est non-nulle.\\
+En revanche, dans le contre-exemple, on a $E[X.Y]=9/16$. Donc la covariance est nulle.
+\section{Echantillon aléatoire}
+Les définitions précédentes peuvent être étendues au cas de plus de 2 variables aléatoires.
+	\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition
+	] 
+L'ensemble de variables aléatoires $\{X_1,...,X_n\}$ est un échantillon aléatoire de taille $n$ de la population suivant la distribution $f(\theta), \theta \in \Theta$ si et seulement si:
+		\begin{itemize}
+			\item $\{X_i\}$ sont mutuellement \textbf{indépendants}
+			\item $X_i \sim f(\theta)$, $\forall i $
+		\end{itemize}
+ Notation: $X_1,...,X_n$ sont \textbf{i.i.d.}, avec $X_i \sim f$
+\end{tcolorbox}
+
+\noindent On peut calculer une statistique sur la base d'un échantillon aléatoire
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition
+	] 
+	Une statistique $Y_n$ est une fonction de l'échantillon aléatoire $\{X_i, i=1, \dots, n\}$:
+	\begin{equation*}
+		Y_n=T(X_1,\dots, X_n)
+	\end{equation*}
+\end{tcolorbox}
+\noindent \textbf{Exemple}: on peut calculer la moyenne empirique des variables aléatoires $\bar{X}_n=\frac{1}{n}\sum_{i=1}^{n} X_i$. Cette moyenne est également une variable aléatoire.
+\section{Processus stochastique}
+Les processus stochastiques sont souvent utilisés pour la modélisation de l'incertitude dans le temps.
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition
+	] 
+	Un processus stochastique est une séquence de variables aléatoires qui évoluent au fil du temps.\\
+	La notation utilisée est comme suit:
+	\begin{equation*}
+		\{X_t\},\;\;\; t\in \mathbb{R}
+	\end{equation*}
+\end{tcolorbox}
+\noindent \textbf{Exemple}: on lance un dé à chaque seconde sur une certaine durée. La séquence des numéros obtenus représente un processus stochastique. Un autre exemple qui est courant est celui des séries temporelles (comme l'évolution du cours d'une action en bourse).
+\\\textbf{Remarque}: certains processus stochastiques ne sont pas définis par rapport au temps. Exemples: processus stochastiques spatiaux $\{X_s\},\;s\in \mathbb{R}^2$ (variation de la variable est dans l'espace comme la fluctuation de la température sur différentes régions), processus stochastiques définis par rapport à des événements non ordonnés $\{X_n\},\; n\in \mathbb{N}$ (par exemple, une séquence de jeux où à chaque tour les joueurs peuvent décider de participer ou non, et ceux qui participent obtiendront des résultats aléatoires), etc.
+\begin{comment}
+\begin{tcolorbox}[colback=blue!5!white,
+colframe=blue!75!black,
+title=Théorème
+] 	
+$X \sim Y$ si et seulement si
+\begin{equation*}
+F_X(t)=F_Y(t)
+\end{equation*}
+$\forall\;t$ où $F_X$ et $F_Y$ sont continues.
+\end{tcolorbox}
+\end{comment}
+
+\end{document}

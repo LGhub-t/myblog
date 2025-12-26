@@ -1,0 +1,244 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{lscape}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage[capposition=top]{floatrow}
+\usepackage{sectsty}
+\usepackage{textcase}
+\usepackage[tablename=TABLE,figurename=FIGURE]{caption}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{comment}
+\usepackage{threeparttable}
+\usepackage{subcaption}
+\usepackage{epstopdf}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{awesomebox}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{pgfkeys}
+\usepackage{amsmath,amssymb}
+
+%\sectionfont{\centering}
+%\subsectionfont{\underline}
+
+\usepackage[authoryear]{natbib}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+		T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\oddsidemargin 0.30cm \textwidth 16.5cm \textheight 23cm
+\topmargin -1.5cm
+
+\newcolumntype{b}{X}
+\newcolumntype{s}{>{\hsize=.5\hsize}X}
+
+\makeatletter
+\renewcommand\@biblabel[1]{}
+\makeatother
+
+\doublespacing
+\begin{document}
+	\title{Définition axiomatique de la probabilité}
+	\author{Probabilités et statistique (L.B.); Chapitre 3 (calcul probabiliste), section 1}
+	\date{}
+	\maketitle
+	
+	\pagenumbering{gobble}
+	\pagenumbering{arabic}
+	
+	%\doublespacing
+	\linespread{1.0}
+	
+
+\section{Introduction}
+Examinez les exemples suivants:
+\begin{itemize}
+	\item Le management d'une entreprise industrielle se demande s'il serait  possible de quantifier la probabilité qu'une pièce tirée au hasard de la production ait un défaut de fabrication. La direction de la qualité de l'entreprise effectue une enquête sur les pièces produites qui révèle que sur 10\;000 pièces examinées, 200 sont défectueuses. Le responsable conclut alors que la probabilité qu'une pièce tirée au hasard soit défectueuse est de $\frac{200}{10000}=2\%$
+	\item On considère une expérience de lancer de dé. Les issues
+	possibles sont 1, 2, 3, 4, 5 et 6, donc n = 6. Ces 6 numéros ont tous les mêmes chances d’apparaître. Donc on aura $P(\{1\})=P(\{2\})=P(\{3\})=P(\{4\})=P(\{5\})=P(\{6\})=\frac{1}{6}$
+	\item Un analyste de performance sportive estime que le Maroc a $10\%$ de chances de décrocher la prochaine coupe du monde de football. Pour définir cette probabilité, il se base sur une impression personnelle.
+\end{itemize}
+Ces exemples montrent bien qu'il n'y a pas de méthode unique pour déterminer la probabilité d'un événement. On examinera les différentes définitions de probabilité dans cette section.
+\section{Définitions fréquentiste, classique et subjective}
+\subsection{Définition fréquentiste de la probabilité}
+On considère l'expérience aléatoire de lancer d'une pièce de monnaie. Y aurait-il moyen de savoir si la pièce est truquée ou non? Si on lance la pièce une ou deux fois, quel que soit le résultat, on ne pourra rien conclure. Mais si après plusieurs centaines de lancers, on trouve qu'on tombe deux fois plus souvent sur Pile que sur Face, alors il y a de fortes chances que la pièce soit truquée. C'est donc la répétition de l'expérience qui nous aura fourni de l'information. Et on pourrait en outre se baser sur cette information pour déterminer la probabilité des événements. Par exemple, si au bout de 4000 lancers, on trouve 3000 fois Pile, on pourrait dire que la probabilité d'avoir Pile est de $\frac{3000}{4000}=\frac{3}{4}$. Dans ce cas, la probabilité serait calculée sur la base de la fréquence empirique. Cette approche montre l'intuition derrière la définition fréquentiste de la probabilité
+ \begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition fréquentiste de la probabilité
+	] 
+	La probabilité d'un événement est la limite de la fréquence relative des succès lorsque $n \rightarrow \infty$, où $n$ est le nombre de répétitions de l'expérience, dans des conditions identiques.\footnote{Cette définition est basée sur la même logique que la loi des grands nombres, qui sera discutée à la fin du semestre.}
+	
+	Formellement, si on considère que $n_A$ est le nombre de fois où $A$ est réalisé, la fréquence empirique de $A$ est la fréquence de réalisation de $A$ sur $n$ coups; c'est-à-dire $f_n(A)=\frac{n_A}{n}$ et la probabilité de $A$ est
+	\begin{equation*}
+		P(A)=\lim_{n\to+\infty} f_n(A)
+	\end{equation*}
+	 \end{tcolorbox}
+
+ Toutefois, cette définition présente certaines limitations:
+		\begin{itemize}
+			\item Elle a une applicabilité limitée puisqu'elle est uniquement valable pour une expérience aléatoire qu'il est possible de répéter un grand nombre de fois. Ce n'est pas toujours le cas, exemple: probabilité d'avoir de la pluie aujourd'hui (on ne peut pas répéter aujourd'hui plusieurs fois).	
+			\item On ne sait pas comment obtenir cette limite de manière précise ni pourquoi elle devrait exister.
+		\end{itemize}	
+\subsection{Définition classique}
+\subsubsection{Un exemple tiré de l'histoire}
+Dans un lancer d'un ensemble de dés non truqués, on n'est pas en mesure de connaitre le résultat à l'avance.\footnote{Voir lien \url{https://rolladie.net/}}. Néanmoins, au XVIIème siècle, des joueurs ont tenté d'établir les chances d'apparition de certains résultats en se basant sur une approche fréquentiste. Ils ont remarqué que certains résultats étaient observés plus fréquemment que d'autres. En particulier, la question suivante a été discutée dans certains ouvrages dont un ouvrage de Galilée  (1620):\footnote{Galilée a rédigé vers 1620 sous le titre Sopra le scoperte dei dadi, un mémoire où il calcule la probabilité que la somme des faces de trois dés soit égale à une certaine valeur, cette question lui ayant été posée par le grand-duc de Toscane.}
+ \begin{tcolorbox}
+	Dans un lancer de 3 dés non truqués, si on calcule le total des points obtenus pour les 3 dés, on remarque que certains totaux sont observés plus fréquemment que d'autres. Par exemple, sur le long-terme, le total de 10 est observé plus fréquemment que celui du 9.
+\end{tcolorbox}
+\noindent La réponse fournie par Galilée est comme suit:
+ \begin{tcolorbox}
+Le nombre de résultats possibles pour les 3 lancers est de $6^3=216$.
+Le nombre de scores totaux possibles est en revanche de \textbf{16} seulement: 3, 4, 5,..., 18. De ce fait, chaque score total correspond à plusieurs combinaisons possibles. Donc
+\textbf{certains scores totaux correspondent à plus de résultats possibles que d'autres}. Par exemple, le total de 9 est obtenu pour 25 résultats possibles et le total de 10 est obtenu pour 27 résultats possibles.\footnote{Voir tableau en annexe}\end{tcolorbox}
+
+\noindent Notez que dans cet exemple, l'événement recherché est celui d'obtenir un score total donné et non pas un résultat particulier donné. Pour calculer la probabilité d'un événement, on va compter le nombre de cas où il est réalisé, ce qui va correspondre à plusieurs résultats de $\Omega$, et non pas un seul. Une illustration est fournie avec un exemple de deux dés (sur l'application html).\\
+Cet exemple montre aussi les limites de l'approche fréquentiste, dans la mesure où la probabilité varie en fonction du nombre de répétitions de l'expérience. De ce fait, une autre approche de calcul des probabilités est considérée. Il s'agit de l'approche classique qui est souvent appliquée dans le cas des jeux de hasard.
+\subsubsection{Définition classique de la probabilité}
+Au lieu de se baser sur la fréquence empirique, la probabilité d'un événement selon l'approche classique correspond à
+\begin{equation*}
+	\frac{\text{Nombre de cas favorables}}{\text{Nombre de tous les cas possibles}}
+\end{equation*}
+\noindent Toutefois, cette approche n'est valable que lorsque tous les résultats possibles de l'expérience sont \textbf{équiprobables}.\footnote{Pour $n$ résultats possibles, probabilité de $1/n$ chacun.} Formellement,
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition classique
+	] 
+Lorsque chaque singleton de l'espace fini $\Omega$ a la même chance de réalisation, alors la probabilité $P$ sur cet espace est dite uniforme et on a
+\begin{equation*}
+	p_{\omega}=P(\{\omega\})=\frac{1}{Card(\Omega)}
+\end{equation*}
+Plus généralement, si $P$ est une probabilité uniforme, alors:
+\begin{equation*}
+	P(A)=\frac{Card(A)}{Card(\Omega)}
+\end{equation*}
+\end{tcolorbox}
+\noindent Lorsque cette définition est utilisée, on a recours au \textbf{calcul combinatoire} (méthodes de dénombrement vues au Chapitre 2). Comme l'approche précédente, cette définition présente quelques limites
+\begin{itemize}
+	\item Une définition circulaire: tous les cas sont également probables veut dire qu'ils ont tous la même probabilité, un concept qu'on essaie justement de définir.
+	\item Une applicabilité limitée: avoir une même probabilité pour tous les résultats possibles n'arrive pas très souvent.\footnote{En outre, cette définition ne peut pas être utilisée si $\Omega$ a une infinité d'éléments (exemple, lancer une pièce jusqu'à obtenir un Face).\\}	
+\end{itemize}
+
+\section{Une définition subjective}
+Compte tenu des limites des définitions fréquentiste et classique, une autre approche est parfois utilisée, c'est l'approche subjective: 
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition subjective
+	] 
+	La probabilité d'un événement traduit le niveau de confiance qu'on a dans la réalisation de l'événement	
+\end{tcolorbox}
+\noindent Cette définition ne fournit aucune méthode de calcul concrète. Pour déterminer les probabilités, on se base sur toutes les informations disponibles, l'expérience, l'intuition, etc. Elle est utilisée lorsqu'il est irréaliste de supposer que les résultats de l'expérience sont équiprobables (on ne peut pas utiliser la définition classique) et lorsqu'on ne dispose pas de suffisamment de données (on ne peut pas utiliser la méthode fréquentiste).\\
+\textbf{Exemple}: Dans le cadre d'élections présidentielles, le directeur de campagne du candidat Y estime que sa probabilité de remporter les élections est de $P(E_1)=0.6$. Néanmoins, le candidat Y est moins optimiste et pense que sa probabilité de gagner ne dépasse pas $P(E_1)=0.42$. Dans les deux cas, l'approche suivie est subjective.
+
+
+\section{Définition axiomatique de la probabilité}
+On va définir un ensemble de propriétés mathématiques que la probabilité devrait satisfaire. \textbf{Quelle que soit la méthode utilisée (fréquentiste, classique ou subjective), l'essentiel est que les axiomes de probabilités soient respectés}.
+
+\subsection{Quelques rappels}
+Dans le chapitre introductif, on avait vu les définitions suivantes\\	
+\textbf{L'expérience aléatoire}: On appelle \textbf{expérience aléatoire} une expérience $\varepsilon$ qui, reproduite dans des conditions identiques, peut avoir des résultats différents, résultats qui ne peuvent être prévus par avance.	\\	
+\textbf{L'espace-échantillon}: L'espace de tous les résultats possibles de l'expérience est appelé \textbf{espace-échantillon} (sample space). Il est noté $\Omega$.\\
+\textbf{L'événement aléatoire}: On appelle \textbf{événement aléatoire} (associé à l'expérience $\varepsilon$) un sous-ensemble de $\Omega$ dont on peut dire au vu de l'expérience s'il est réalisé ou non	
+
+\subsection{Un nouveau concept: $\sigma$-algèbre des événements}
+On veut déterminer des probabilités pour des événements, mais aussi pour leurs compléments, les unions et les intersections d'événements. Donc, on va définir un ensemble qui inclut non seulement les événements individuels, mais aussi différentes combinaisons de ces événements. Cet ensemble est l'ensemble $\sigma$-algèbre des événements $\sigma(\Omega)=\mathcal{A}: \sigma\text{-algèbre des événements}$. Il est également appelé "Tribu". Une tribu doit satisfaire les propriétés suivantes:\\
+ $\emptyset \in \mathcal{A}$ et $\Omega \in \mathcal{A}$\\
+ $A, B \in \mathcal{A}\Rightarrow A \cup B \in \mathcal{A}$\\
+$A \in \mathcal{A}\Rightarrow A^c \in \mathcal{A}$\\
+$A_i \in \mathcal{A}\Rightarrow \bigcup^{\infty}_{i=1}A_i \in \mathcal{A}$\\			
+Les événements sont des sous-ensembles $A$ de $\Omega$ tels que $A \in \mathcal{A}$
+\subsection{Un nouveau concept: L'espace de probabilités}
+L'espace de probabilités est formé de 3 éléments: $\Omega$, $\sigma$-algèbre des événements et la fonction de probabilité ($\Omega, \mathcal{A}, P$). La probabilité est une fonction qui assigne un nombre donné à un événement. Le domaine de définition de cette fonction est $\mathcal{A}$.		
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.98\linewidth]{pspa}
+	\end{figure}	
+
+\subsection{Une définition axiomatique de la probabilité}
+\noindent La fonction de probabilités permettra de savoir comment la probabilité de réalisation est distribuée entre les différents événements ou combinaisons d'événements. Elle doit respecter les axiomes suivants (axiomes de Kolmogorov):
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition axiomatique de la probabilité
+	] 
+	On considère une expérience aléatoire avec un espace-échantillon $\Omega$, et un $\sigma$-algèbre associé $\mathcal{A}$. La fonction de probabilité est une application $P: \mathcal{A}\rightarrow [0,1]$ qui satisfait les axiomes suivants:
+	\begin{enumerate}
+		\item Non-négativité $\forall A \in \mathcal{A}, P(A)\ge 0$
+		\item $P(\Omega)$=1
+		\item $A\cap B=\emptyset \Rightarrow P(A\cup B)=P(A)+P(B)$
+		\item $A_i \cap A_j=\emptyset \Rightarrow P(\bigcup^{\infty}_{i=1}A_i)=\sum_{i=1}^{\infty}P(A_i)$ \footnote{Cette propriété est l'additivité dénombrable pour une série infinie d'événements deux-à-deux disjoints (pairwise disjoint)}
+	\end{enumerate}		
+	\end{tcolorbox}
+\clearpage
+\noindent Pour un événement donné, la probabilité est égale à la somme des probabilités des points d'échantillon qui constituent cet événement. Cependant, dans de nombreux cas, l'identification des éléments de l'échantillon et de leurs probabilités est difficile. Une autre approche est alors nécessaire. Dans ces cas-là, les théorèmes suivants\footnote{Voir démonstration en classe} peuvent parfois être utilisés.
+\section{Quelques théorèmes}
+
+\subsection{Théorème 1}
+
+ \begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Théorème 1
+	] 
+En utilisant les axiomes de probabilités, on peut obtenir les résultats suivants
+	\begin{itemize}
+		\item $P(\emptyset)=0$
+		\item $P(A)\le 1$
+		\item $P(A^c)=1-P(A)$	
+	\end{itemize}	
+\end{tcolorbox}
+
+
+\subsection{Théorème 2}
+
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Théorème 2
+	] 	\begin{itemize}
+		\item $P(B\cap A^c)=P(B)-P(A\cap B)$
+		\item $P(A\cup B)=P(A)+P(B)-P(A\cap B)$
+		\item $A\subset B\Rightarrow P(A)\le P(B)$
+	\end{itemize}	
+\end{tcolorbox}
+
+
+\section{Evénement presque sûr et événement presque impossible}
+\textbf{Evénement presque sûr}
+\\ En théorie des probabilités, un évènement est dit \textbf{presque sûr} si et seulement si il a une probabilité de un $P(A)=1$. En d'autres mots, l'ensemble des cas où l'évènement ne se réalise pas est de probabilité nulle. 
+\\Rappel: l'événement \textbf{certain} est l'événement $\Omega$	
+\\\textbf{Evénement presque impossible}
+\\Un événement est \textbf{presque impossible} si et seulement si il a une probabilité nulle $P(A)=0$
+\\Rappel: l'événement \textbf{impossible} c'est l'ensemble vide $\emptyset$.
+
+\section{Annexe}
+Ci-après les résultats possibles qui donnent un score de 9 ou de 10 dans une expérience de lancer de 3 dés.
+\begin{table}[!htbp]
+	\centering
+	\renewcommand{\arraystretch}{1}
+	\resizebox{1\linewidth}{!}{
+		\begin{tabular}{|c|c|c|c|}\hline
+			\multicolumn{2}{|c|}{Score de 9}& \multicolumn{2}{c|}{Score de 10}\\\hline
+			Résultats possibles& Nombre de permutations&Résultats possibles& Nombre de permutations\\\hline
+			6-2-1&6&6-3-1&6\\
+			5-3-1&6&6-2-2&3\\
+			5-2-2&3&5-4-1&6\\
+			4-4-1&3&5-3-2&6\\
+			4-3-2&6&4-4-2&3\\
+			3-3-3&1&4-3-3&3\\\hline
+			&25&&27\\\hline
+	\end{tabular}}
+\end{table}
+\end{document}

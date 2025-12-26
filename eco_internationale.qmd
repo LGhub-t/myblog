@@ -1,0 +1,79 @@
+---
+title: "Economie Internationale"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+---
+
+## Présentation du cours
+
+Ce cours d'**Économie Internationale** s'appuie principalement sur le manuel de Krugman, Obstfeld et Melitz.  
+Il introduit les modèles fondamentaux du commerce international et met l’accent sur la compréhension des mécanismes économiques sous-jacents plutôt que sur la mémorisation de résultats.  
+Chaque chapitre comprend :  
+- un **support de cours** (notes de lecture),  
+- un **jeu d’exercices guidés** pour la classe,  
+- et quelques **ressources complémentaires** (vidéos, lectures, ou graphiques interactifs).
+
+---
+
+## 📘 Plan du cours
+
+1. [Le modèle de Ricardo](#le-modele-de-ricardo)  
+2. [Le modèle à facteurs spécifiques](#le-modele-a-facteurs-specifiques)  
+3. [Le modèle Heckscher–Ohlin–Samuelson (HOS)](#le-modele-heckscher–ohlin–samuelson-hos)
+
+---
+
+## Le modèle de Ricardo
+
+**Objectif :** comprendre comment les avantages comparatifs déterminent la spécialisation et les gains à l’échange.
+
+- 📄 [Notes de cours – Modèle de Ricardo](media/ecoint/ricardo_notes.pdf)
+- 🧮 [Exercices – Avantages comparatifs et prix relatifs](media/ecoint/ricardo_exercices.pdf)
+- 🎥 [Ressource complémentaire – Résumé vidéo (MIT OpenCourseWare)](https://ocw.mit.edu/courses/economics/14-581-international-trade-fall-2013/)
+
+---
+
+## Le modèle à facteurs spécifiques
+
+**Objectif :** analyser la répartition des gains du commerce entre travail et capital lorsque certains facteurs sont immobiles.
+
+- 📄 [Notes de cours – Facteurs spécifiques](media/ecoint/specific_factors_notes.pdf)
+- 🧮 [Exercices – Mobilité et effets distributifs](media/ecoint/specific_factors_exercices.pdf)
+- 📚 [Lecture complémentaire – Krugman & Obstfeld, Chapitre 3](media/ecoint/specific_factors_reading.pdf)
+
+---
+
+## Le modèle Heckscher–Ohlin–Samuelson (HOS)
+
+**Objectif :** relier les dotations factorielles d’un pays à sa structure d’échanges et comprendre les théorèmes de Stolper–Samuelson et Rybczynski.
+
+- 📄 [Notes de cours – HOS](media/ecoint/hos_notes.pdf)
+- 🧮 [Exercices – Dotations factorielles et équilibre général](media/ecoint/hos_exercices.pdf)
+- 📘 [Ressource complémentaire – Résumé des théorèmes](media/ecoint/hos_summary.pdf)
+
+---
+
+## 📂 Documents généraux du cours
+
+- 🗂️ [Description du cours (syllabus)](media/ecoint/syllabus_ecoint.pdf)
+- 🗓️ [Planning des séances et évaluations](media/ecoint/planning.pdf)
+
+---
+
+## 💡 Objectif pédagogique
+
+À l’issue du cours, les étudiants seront capables de :
+- interpréter les principaux modèles du commerce international ;
+- identifier les déterminants théoriques des échanges entre pays ;
+- analyser les effets distributifs et structurels de l’ouverture commerciale ;
+- appliquer ces notions à des données empiriques simples ou à des études de cas.
+
+---
+
+## 🧭 Ressources utiles
+
+- **Krugman, Obstfeld & Melitz (2022)** – *Économie internationale* (Pearson, 12e éd.)
+- **Feenstra & Taylor (2017)** – *International Economics*
+- **MIT OpenCourseWare** – [International Trade](https://ocw.mit.edu/courses/economics/14-581-international-trade-fall-2013/)

@@ -7,20 +7,16 @@ format:
     toc-location: left
 ---
 
-## Introduction
 
-Cette page regroupe des notes et des ressources sur la **théorie des probabilités** (en français). Les documents couvrent les notions fondamentales, les définitions clés, et des exemples illustratifs.
+# Introduction
 
----
+Cette page contient le support de cours et exercices sur la théorie des probabilités des semestres d'automne 2023, 2024. Le document couvre les notions fondamentales, les définitions clés, et des exemples illustratifs.
 
-## Documents à télécharger
+## 📁 Documents à télécharger
 
-- 👉 **[Notions fondamentales en probabilités (PDF)](media/Notions-fondamentales-proba.pdf)**
-- 👉 **[Exercices corrigés (PDF)](media/Exercices-proba.pdf)**
+- 📄 [Formulaire de propriétés utiles](media/proba/lectures.pdf)
 
 ---
 
-## À venir
 
-Des compléments pédagogiques et des exemples en R seront ajoutés au fur et à mesure.
 

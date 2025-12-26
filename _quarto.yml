@@ -41,6 +41,8 @@ website:
 
       - text: "Teaching"
         menu:
+          - text: "Economie Internationale"
+            href: eco_internationale.qmd
           - text: "Analyse de données"
             href: analyse_donnees.qmd
           - text: "Théorie des probabilités"

@@ -18,28 +18,14 @@
     "href": "proba.html",
     "title": "Théorie des probabilités",
     "section": "",
-    "text": "Cette page regroupe des notes et des ressources sur la théorie des probabilités (en français). Les documents couvrent les notions fondamentales, les définitions clés, et des exemples illustratifs."
-  },
-  {
-    "objectID": "proba.html#introduction",
-    "href": "proba.html#introduction",
-    "title": "Théorie des probabilités",
-    "section": "",
-    "text": "Cette page regroupe des notes et des ressources sur la théorie des probabilités (en français). Les documents couvrent les notions fondamentales, les définitions clés, et des exemples illustratifs."
+    "text": "Cette page contient le support de cours et exercices sur la théorie des probabilités des semestres d’automne 2023, 2024. Le document couvre les notions fondamentales, les définitions clés, et des exemples illustratifs.\n\n\n\n📄 Formulaire de propriétés utiles"
   },
   {
     "objectID": "proba.html#documents-à-télécharger",
     "href": "proba.html#documents-à-télécharger",
     "title": "Théorie des probabilités",
-    "section": "Documents à télécharger",
-    "text": "Documents à télécharger\n\n👉 Notions fondamentales en probabilités (PDF)\n👉 Exercices corrigés (PDF)"
-  },
-  {
-    "objectID": "proba.html#à-venir",
-    "href": "proba.html#à-venir",
-    "title": "Théorie des probabilités",
-    "section": "À venir",
-    "text": "À venir\nDes compléments pédagogiques et des exemples en R seront ajoutés au fur et à mesure."
+    "section": "",
+    "text": "📄 Formulaire de propriétés utiles"
   },
   {
     "objectID": "netlogo.html",
@@ -91,6 +77,20 @@
     "text": "Factorial analysis methods offer a window into complex data by reducing dimensionality while preserving structure. Techniques like Principal Component Analysis (PCA) and Correspondence Analysis (CA) help uncover latent patterns, often invisible in raw data, and are especially useful in the social sciences, where interpretability matters."
   },
   {
+    "objectID": "bayesian.html",
+    "href": "bayesian.html",
+    "title": "Bayesian Models",
+    "section": "",
+    "text": "Bayesian methods offer a coherent way to incorporate prior knowledge and uncertainty into economic models. From shrinkage priors in VARs to hierarchical structures, Bayesian techniques can stabilize inference and handle limited data scenarios — common in macroeconomic applications."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About this Blog",
+    "section": "",
+    "text": "This blog is an experiment in quiet knowledge building.\nMost entries are drawn from my current projects in macroeconomics, econometrics, and teaching — particularly on topics like structural models, Bayesian inference, dimensionality reduction, and growth theory.\nIt’s a personal project, but one I hope will resonate with others navigating similar intellectual paths."
+  },
+  {
     "objectID": "analyse_donnees.html",
     "href": "analyse_donnees.html",
     "title": "Analyse de données",
@@ -133,18 +133,67 @@
     "text": "R Scripts et Exemples\nUn dépôt de scripts R pour illustrer les différentes méthodes.\n➡️ À venir."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About this Blog",
+    "objectID": "eco_internationale.html",
+    "href": "eco_internationale.html",
+    "title": "Economie Internationale",
     "section": "",
-    "text": "This blog is an experiment in quiet knowledge building.\nMost entries are drawn from my current projects in macroeconomics, econometrics, and teaching — particularly on topics like structural models, Bayesian inference, dimensionality reduction, and growth theory.\nIt’s a personal project, but one I hope will resonate with others navigating similar intellectual paths."
+    "text": "Ce cours d’Économie Internationale s’appuie principalement sur le manuel de Krugman, Obstfeld et Melitz.\nIl introduit les modèles fondamentaux du commerce international et met l’accent sur la compréhension des mécanismes économiques sous-jacents plutôt que sur la mémorisation de résultats.\nChaque chapitre comprend :\n- un support de cours (notes de lecture),\n- un jeu d’exercices guidés pour la classe,\n- et quelques ressources complémentaires (vidéos, lectures, ou graphiques interactifs)."
   },
   {
-    "objectID": "bayesian.html",
-    "href": "bayesian.html",
-    "title": "Bayesian Models",
+    "objectID": "eco_internationale.html#présentation-du-cours",
+    "href": "eco_internationale.html#présentation-du-cours",
+    "title": "Economie Internationale",
     "section": "",
-    "text": "Bayesian methods offer a coherent way to incorporate prior knowledge and uncertainty into economic models. From shrinkage priors in VARs to hierarchical structures, Bayesian techniques can stabilize inference and handle limited data scenarios — common in macroeconomic applications."
+    "text": "Ce cours d’Économie Internationale s’appuie principalement sur le manuel de Krugman, Obstfeld et Melitz.\nIl introduit les modèles fondamentaux du commerce international et met l’accent sur la compréhension des mécanismes économiques sous-jacents plutôt que sur la mémorisation de résultats.\nChaque chapitre comprend :\n- un support de cours (notes de lecture),\n- un jeu d’exercices guidés pour la classe,\n- et quelques ressources complémentaires (vidéos, lectures, ou graphiques interactifs)."
+  },
+  {
+    "objectID": "eco_internationale.html#plan-du-cours",
+    "href": "eco_internationale.html#plan-du-cours",
+    "title": "Economie Internationale",
+    "section": "📘 Plan du cours",
+    "text": "📘 Plan du cours\n\nLe modèle de Ricardo\n\nLe modèle à facteurs spécifiques\n\nLe modèle Heckscher–Ohlin–Samuelson (HOS)"
+  },
+  {
+    "objectID": "eco_internationale.html#le-modèle-de-ricardo",
+    "href": "eco_internationale.html#le-modèle-de-ricardo",
+    "title": "Economie Internationale",
+    "section": "Le modèle de Ricardo",
+    "text": "Le modèle de Ricardo\nObjectif : comprendre comment les avantages comparatifs déterminent la spécialisation et les gains à l’échange.\n\n📄 Notes de cours – Modèle de Ricardo\n🧮 Exercices – Avantages comparatifs et prix relatifs\n🎥 Ressource complémentaire – Résumé vidéo (MIT OpenCourseWare)"
+  },
+  {
+    "objectID": "eco_internationale.html#le-modèle-à-facteurs-spécifiques",
+    "href": "eco_internationale.html#le-modèle-à-facteurs-spécifiques",
+    "title": "Economie Internationale",
+    "section": "Le modèle à facteurs spécifiques",
+    "text": "Le modèle à facteurs spécifiques\nObjectif : analyser la répartition des gains du commerce entre travail et capital lorsque certains facteurs sont immobiles.\n\n📄 Notes de cours – Facteurs spécifiques\n🧮 Exercices – Mobilité et effets distributifs\n📚 Lecture complémentaire – Krugman & Obstfeld, Chapitre 3"
+  },
+  {
+    "objectID": "eco_internationale.html#le-modèle-heckscherohlinsamuelson-hos",
+    "href": "eco_internationale.html#le-modèle-heckscherohlinsamuelson-hos",
+    "title": "Economie Internationale",
+    "section": "Le modèle Heckscher–Ohlin–Samuelson (HOS)",
+    "text": "Le modèle Heckscher–Ohlin–Samuelson (HOS)\nObjectif : relier les dotations factorielles d’un pays à sa structure d’échanges et comprendre les théorèmes de Stolper–Samuelson et Rybczynski.\n\n📄 Notes de cours – HOS\n🧮 Exercices – Dotations factorielles et équilibre général\n📘 Ressource complémentaire – Résumé des théorèmes"
+  },
+  {
+    "objectID": "eco_internationale.html#documents-généraux-du-cours",
+    "href": "eco_internationale.html#documents-généraux-du-cours",
+    "title": "Economie Internationale",
+    "section": "📂 Documents généraux du cours",
+    "text": "📂 Documents généraux du cours\n\n🗂️ Description du cours (syllabus)\n🗓️ Planning des séances et évaluations"
+  },
+  {
+    "objectID": "eco_internationale.html#objectif-pédagogique",
+    "href": "eco_internationale.html#objectif-pédagogique",
+    "title": "Economie Internationale",
+    "section": "💡 Objectif pédagogique",
+    "text": "💡 Objectif pédagogique\nÀ l’issue du cours, les étudiants seront capables de : - interpréter les principaux modèles du commerce international ; - identifier les déterminants théoriques des échanges entre pays ; - analyser les effets distributifs et structurels de l’ouverture commerciale ; - appliquer ces notions à des données empiriques simples ou à des études de cas."
+  },
+  {
+    "objectID": "eco_internationale.html#ressources-utiles",
+    "href": "eco_internationale.html#ressources-utiles",
+    "title": "Economie Internationale",
+    "section": "🧭 Ressources utiles",
+    "text": "🧭 Ressources utiles\n\nKrugman, Obstfeld & Melitz (2022) – Économie internationale (Pearson, 12e éd.)\nFeenstra & Taylor (2017) – International Economics\nMIT OpenCourseWare – International Trade"
   },
   {
     "objectID": "filters.html",

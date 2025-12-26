@@ -1,0 +1,26 @@
+\contentsline {section}{\numberline {1}Rappels sur la théorie des ensembles}{1}{section.1}%
+\contentsline {section}{\numberline {2}La notion d'ensemble}{1}{section.2}%
+\contentsline {section}{\numberline {3}Inclusion, égalité et diagramme de Venn}{2}{section.3}%
+\contentsline {section}{\numberline {4}Union, intersection, différence et complément}{2}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Union}{2}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Intersection}{3}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Différence de deux ensembles}{3}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Complémentaire d'un ensemble}{3}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Quelques propriétés}{4}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Propriétés liées aux opérations d'union et intersection}{4}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Propriétés liées à l'ensemble complémentaire}{4}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Loi de De Morgan}{4}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Extension à une collection d'ensembles}{4}{section.6}%
+\contentsline {section}{\numberline {7}Partitions}{4}{section.7}%
+\contentsline {section}{\numberline {8}Opérations sur les cardinaux}{1}{section.8}%
+\contentsline {section}{\numberline {9}Expériences en plusieurs étapes}{2}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Définition}{2}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Diagramme arborescent}{2}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Exemples}{2}{subsection.9.3}%
+\contentsline {section}{\numberline {10}Arrangements}{3}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Arrangements sans répétition}{3}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Arrangements avec répétition}{3}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Permutations}{4}{section.11}%
+\contentsline {section}{\numberline {12}Combinaisons}{4}{section.12}%
+\contentsline {section}{\numberline {13}Le binôme de Newton}{5}{section.13}%
+\contentsline {section}{\numberline {14}Résumé}{5}{section.14}%

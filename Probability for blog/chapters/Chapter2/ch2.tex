@@ -1,0 +1,343 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{lscape}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage[capposition=top]{floatrow}
+\usepackage{sectsty}
+\usepackage{textcase}
+\usepackage[tablename=TABLE,figurename=FIGURE]{caption}
+\usepackage{comment}
+\usepackage{threeparttable}
+\usepackage{subcaption}
+\usepackage{epstopdf}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{awesomebox}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{pgfkeys}
+\usepackage{amsmath,amssymb}
+%\sectionfont{\centering}
+%\subsectionfont{\underline}
+
+\usepackage[authoryear]{natbib}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+		T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\oddsidemargin 0.30cm \textwidth 16.5cm \textheight 23cm
+\topmargin -1.5cm
+
+\newcolumntype{b}{X}
+\newcolumntype{s}{>{\hsize=.5\hsize}X}
+
+\makeatletter
+\renewcommand\@biblabel[1]{}
+\makeatother
+
+\doublespacing
+\begin{document}
+	\title{Dénombrement}
+	\author{Probabilités et statistique (L.B.); Chapitre 2 (analyse combinatoire)}
+	\date{}
+	\maketitle
+	
+	\pagenumbering{gobble}
+	\pagenumbering{arabic}
+	
+	%\doublespacing
+	\linespread{1.0}
+	
+\section{Expériences en plusieurs étapes}
+\subsection{Définition}
+Considérons l'exemple de lancer de deux pièces de monnaie. Les résultats de l'expérience correspondent à Pile ou Face pour chacune des pièces.
+		\begin{equation*}
+			S=\{(F,F), (P,F), (F,P), (P,P)\}
+		\end{equation*}
+Quatre résultats sont possibles qu'on peut énumérer. La règle de comptage des expériences à plusieurs étapes consiste à dénombrer les résultats possibles sans les énumérer. Cette règle correspond au principe fondamental du dénombrement et est comme suit: \begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Principe fondamental du dénombrement
+	]
+Si une expérience peut être décrite par une séquence de $k$ étapes, avec $n_1$ résultats possibles à la première étape, $n_2$ résultats possibles à la seconde étape et ainsi de suite, alors le nombre total de résultats possibles de l'expérience est égal à $(n_1)(n_2)\dots(n_k)$. \end{tcolorbox}
+Dans l'exemple précédent, on peut considérer les deux lancers comme une expérience à deux étapes: un premier lancer avec deux résultats possibles ($n_1=2$), un deuxième lancer ($n_2=2$).
+D'après la règle de comptage, l'expérience a quatre résultats possibles différents ($n_1\times n_2=2\times 2=4$).
+De la même manière, le nombre de résultats possibles pour 6 lancers de pièces serait de $2^6=64$.\footnote{Autre exemple: dans le problème des partis vu en introduction du cours, on avait calculé le nombre de résultats possibles pour les manches restantes comme étant $2^{i+j-1}$}	
+	
+\subsection{Diagramme arborescent}
+On peut visualiser graphiquement une expérience à plusieurs étapes à l'aide d'un diagramme arborescent.
+
+\begin{center}
+\tikzstyle{lien}=[->,>=stealth,rounded corners=5pt,thick]
+\tikzset{individu/.style={draw,thick,fill=#1!25},
+	individu/.default={red}}
+\begin{tikzpicture}
+	\node[individu] (B) at (0,0) {Expérience aléatoire: Lancer de 2 pièces};
+	\node[individu=cyan] (P) at (-3,-2) {Pile};
+	\node[individu=gray] (M) at (3,-2) {Face};
+	\node[individu=cyan] (GPP) at (-4.5,-4) {Pile (P,P)};
+	\node[individu=gray] (GMP) at (-1.5,-4) {Face (P,F)};
+	\node[individu=cyan] (GPM) at (1.5,-4) {Pile (F,P)};
+	\node[individu=gray] (GMM) at (4.5,-4) {Face (F,F)};
+	\draw[lien] (B) |- (-1,-1) -| (P);
+	\draw[lien] (B) |- (1,-1) -| (M);
+	\draw[lien] (P) |- (-4,-3) -| (GPP);
+	\draw[lien] (P) |- (-2,-3) -| (GMP);
+	\draw[lien] (M) |- (2,-3) -| (GPM);
+	\draw[lien] (M) |- (4,-3) -| (GMM);
+\end{tikzpicture}
+\end{center}
+\subsection{Exemples}
+\textbf{Exemple 1}\\
+		Si l'on doit choisir un mot de passe contenant 5 lettres à partir d'un alphabet de 26 lettres. On aura $26\times 26 \times 26\times 26\times 26=26^5=11\;881\;376$ si on peut répéter la même lettre plusieurs fois. Si les lettres doivent être différentes, alors il y a $26\times 25 \times 24\times 23\times 22=7\;893\;600$ possibilités.\\
+\textbf{Exemple 2}\\
+		Le nombre de codes à 4 chiffres possibles pour une carte bancaire est de $10\times 10\times 10\times 10=10\;000$. Mais si on ne peut pas avoir de chiffres qui se répétent, ce nombre sera de $10\times 9\times 8\times 7=5\;040$.
+\section{Arrangements}
+\subsection{Arrangements sans répétition}
+Soit $k$ et $n$ deux entiers naturels. On appelle arrangement de $k$ éléments parmi $n$ toute application injective\footnote{Voir rappel en annexe 1} de $\mathbb{N}_k$ dans $\mathbb{N}_n$. Puisque la donnée d'une application injective de $\mathbb{N}_k$ dans l'ensemble $E$ revient à choisir $k$ éléments de $E$ avec ordre, un arrangement de $k$ éléments parmi $n$ peut être défini comme un $k-$uplet\footnote{En mathématiques, un uplet est une collection ordonnée finie d'objets.} d'éléments de $E$, mais sans répétition. On a la proposition suivante:
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Arrangements sans répétition
+	]
+Le nombre d'arrangements possibles de $k$ éléments parmi $n$ vaut
+		\begin{equation*}
+			A^k_n=0\text{ si }k>n,\;\;\;\;\;\; A^k_n=\frac{n!}{(n-k)!}=n(n-1)\times(n-k+1)\text{ si }k\le n
+		\end{equation*}	\end{tcolorbox}
+\noindent Où $n!= n(n-1)(n-2)\dots(2)(1)$, $k!=k(k-1)(k-2)\dots(2)(1)$ et $0!=1$, 
+\notebox{Notez que $A^n_n=n!$. On a également $A^0_n=1$}	
+ \noindent\textbf{Exemple 1}:   Les arrangements de 2 éléments pris dans l'ensemble $\{1,2,3,4\}$ sont:
+$\{1,2\}$, $\{1,3\}$, $\{1,4\}$,$\{2,1\}$, $\{2,3\}$,$\{2,4\}$, $\{3,1\}$, $\{3,2\}$, $\{3,4\}$,$ \{4,1\}$, $\{4,2\}$, $\{4,3\}$. On note qu'il y a au total 12 possibilités. En utilisant la formule, on a:
+		\begin{equation*}
+			A^2_4=\frac{4!}{(4-2)!}=\frac{4\times 3 \times 2!}{2!}=12
+		\end{equation*}
+\textbf{Exemple 2}: 5 individus se présentent à un concours. L'individu classé premier remportera un prix de 500 dollars et le deuxième un prix de 250 dollars. Combien y a-t-il de remises de prix possibles?
+		\begin{equation*}
+			A^2_5=2!\begin{pmatrix} 5\\2\end{pmatrix}=\frac{5!}{(5-2)!}=\frac{5\times 4 \times 3 \times 2 \times 1}{(3 \times 2 \times 1)}=20				
+		\end{equation*}	
+\noindent On peut aussi reprendre les exemples précédents:\\
+Pour choisir un mot de passe contenant 5 lettres \textbf{distinctes} de l'alphabet de 26 lettres, on aura  $26\times 25 \times 24\times 23\times 22=7\;893\;600$ ou bien $A^5_{26}=\frac{26!}{(26-5)!}=\frac{26\times25\times24\times23\times22\times21!}{21!}=7\;893\;600$ possibilités.\\
+Le nombre de codes à 4 chiffres \textbf{distincts} possibles pour une carte bancaire est de $10\times 9\times 8\times 7=5\;040$. En utilisant la formule ci-dessus, on aura $A^4_{10}=\frac{10!}{(10-4)!}=\frac{10\times9\times8\times7\times6!}{6!}=5\;040$ 	
+
+\subsection{Arrangements avec répétition}
+Un arrangement avec répétition de $k$ éléments choisis parmi $n$ est une liste ordonnée avec répétition éventuelle des éléments.    \begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Arrangements avec répétition
+	]Le nombre de ces arrangements est comme suit
+		\begin{equation*}
+		n\times n \times n\times \dots=n^k
+		\end{equation*}\end{tcolorbox}
+\noindent \textbf{Exemple}: Un numéro de téléphone comporte 8 chiffres. Combien y a-t-il de numéros de téléphone possibles? Puisque le nombre de chiffres est de 10 (0,1,2...,9), alors on aura $10^8=100\,000\,000$.\\		
+\noindent On peut aussi reprendre les exemples précédents\\
+Si l'on doit choisir un mot de passe contenant 5 lettres à partir d'un alphabet de 26 lettres. On aura $26\times 26 \times 26\times 26\times 26=26^5=11\;881\;376$ si on peut répéter la même lettre plusieurs fois. Ou alors, en utilisant la formule: $26^5$\\
+Le nombre de codes à 4 chiffres possibles pour une carte bancaire est de $10\times 10\times 10\times 10=10\;000$. Ou alors, en utilisant la formule $10^4$. 
+\notebox{Dans ce cas, $k$ n'est pas forcément plus petit que $n$. De manière générale, le nombre de n-uplets ($n^k$) correspond au nombre de séries de longueur $k$ composées de $n$ éléments.}
+\section{Permutations}
+La règle de comptage par permutations permet de calculer le nombre de possibilités d'ordonner $n$ éléments parmi $n$. La méthode de calculer est comme suit
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Permutations
+	] On définit une bijection de l'ensemble fini $E$ vers l'ensemble $\{1,2,3\dots,n\}$. Le nombre de permutations pour $E$ est		\begin{equation*}
+			P=n\times(n-1)\times(n-2)\dots\times1=n!
+		\end{equation*}	\end{tcolorbox}
+\importantbox{ Notez que la permutation est un cas particulier d'arrangement sans répétition $A^n_n$}
+\noindent\textbf{Exemple 1}: On a un jeu de 4 cartes $E=\{C, D, H, S\}$. Quel est le nombre de permutations possibles?
+\\Suivant la formule, on a $P=4!=4\times 3\times 2\times 1=24$. Si on veut les lister, on aura
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.4\linewidth]{cart}
+		\end{figure}	
+\noindent\textbf{Exemple 2}:\\ 
+		On a invité 8 familles amies à une fête. Chaque famille va être installée dans une table à part. Combien y a-t-il de manières de les organiser?\\
+On aura $P=8!=8\times 7\times 6\times 5\times 4\times 3\times 2\times 1=40\;320$ dispositions possibles.	
+	
+\section{Combinaisons}
+Soient $n$ et $k$ deux entiers naturels. On appelle combinaison de $k$ objets parmi $n$ toute partie à $k$ éléments d'un ensemble de $n$ objets.
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Combinaisons
+	]	
+	Le nombre de combinaisons de $k$ objets parmi $n$ vaut	\begin{equation*}
+			C^k_n=\begin{pmatrix} n\\k\end{pmatrix}=0\text{ si }k>n,\;\;\;\;\;\; C^k_n=\begin{pmatrix} n\\k\end{pmatrix}=\frac{n!}{k!(n-k)!}=\frac{n}{1}\frac{n-1}{2}\frac{n-2}{3}\dots\frac{n-k+1}{k}\text{ si }k\le n				
+		\end{equation*}	\end{tcolorbox}	
+\noindent On a : $C^0_n=C^n_n=1$, $C^1_n=C^{n-1}_n=n$. On a également\footnote{Pour rappel: on a vu que les valeurs sur le triangle de Pascal sont symétriques} $C^{n-k}_n=C^{k}_n$\\
+Notez qu'on peut aussi utiliser la formule suivante
+		\begin{equation*}
+			C^k_n=\frac{A^k_n}{k!}				
+		\end{equation*}
+ \textbf{Exemple 1}: Dans le cadre d'un contrôle qualité, un inspecteur sélectionne aléatoirement deux pièces sur cinq pour tester leur qualité. Combien y a-t-il de combinaisons possibles?\\
+ Sur la base de la règle ci-dessus, nous avons
+		\begin{equation*}
+			C^2_5=\begin{pmatrix} 5\\2\end{pmatrix}=\frac{5!}{2!(5-2)!}=\frac{5\times 4 \times 3 \times 2 \times 1}{2\times 1 \times(3 \times 2 \times 1)}=10				
+		\end{equation*}	
+\warningbox{Une expérience aura toujours plus d'arrangements sans répétition que de combinaisons pour un même nombre d'objets sélectionnés, car pour chaque tirage de $k$ objets, il y a $k!$ façons différentes de les ordonner (comme expliqué dans la partie permutations), et donc $C^k_n=\frac{A^k_n}{k!}$.}
+\noindent \textbf{Exemple 2}\\
+Un joueur au loto doit sélectionner les 6 bons numéros parmi 47. Quel est le nombre de combinaisons possibles de 6 chiffres parmi 47? \\Ce nombre sera de 		
+	\begin{equation*}
+		C^6_{47}=\frac{47!}{6!(47-6)!}=\frac{47\times 46 \times45 \times 44 \times 43\times 42\times 41}{6!\times 41}=10\;737\;573				
+	\end{equation*}
+	
+
+
+\section{Le binôme de Newton}
+Le terme $C^k_n$ correspond aux coefficients binomiaux dans la formule du binôme de Newton. La formule du binôme de Newton permet de trouver le développement d'une puissance entière quelconque d'un binôme. 
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Formule du binôme
+	]
+	$\forall (x,y)\in \mathbb{R}^2$, $\forall n \in \mathbb{N}$:
+		\begin{equation*}
+			(x+y)^n=\sum_{k=0}^{n}C^k_nx^{n-k}y^k
+		\end{equation*}\end{tcolorbox}
+\noindent Les coefficients binomiaux peuvent aussi être obtenus à l'aide du triangle de Pascal, en utilisant la formule.
+\begin{equation*}
+	\begin{pmatrix} n\\k\end{pmatrix}=\begin{pmatrix} n-1\\k-1\end{pmatrix}+\begin{pmatrix} n-1\\k\end{pmatrix}
+\end{equation*}	
+\textbf{Corollaire}: Comment calculer la somme des coefficients binomiaux $\sum_{k=0}^{n}C^k_n$, $\forall n \in \mathbb{N}$?\\
+En prenant $x=y=1$:
+\begin{equation*}
+	\sum_{k=0}^{n}C^k_n\times 1^{n-k}\times 1^k=(1+1)^n=2^n
+\end{equation*}
+\noindent Cela correspond au nombre de résultats possibles pour une expérience répétée $n$ fois, avec 2 issues possibles à chaque répétition (exemple: lancer de pièce). Ce résultat est aussi visible au niveau du triangle de Pascal (somme de chaque ligne = $2^n$)
+\section{Résumé}
+ Le tableau ci-dessous résume les différentes formules de dénombrement
+		\begin{table}[!hbtp]
+			\centering
+			\renewcommand{\arraystretch}{1.0}
+			\resizebox{0.65\linewidth}{!}{
+				\begin{tabular}{l|l|l}
+					& \textbf{Avec répétition} & \textbf{Sans répétition}  \\\hline
+					\textbf{Avec ordre} & $n^p$         &$A^p_n=p!\begin{pmatrix} n\\p\end{pmatrix}=\frac{n!}{(n-p)!}$             \\\hline
+					\textbf{Sans ordre}  &       $\bar{C}^k_n=\begin{pmatrix} n+k-1\\k\end{pmatrix}$          & $C^k_n=\begin{pmatrix} n\\k\end{pmatrix}=\frac{n!}{k!(n-k)!}$	\\\hline           
+			\end{tabular}}
+		\end{table}	
+\\\textcolor{purple}{Quelques remarques:}	
+\begin{itemize}
+	\item Le cas "sans ordre et avec répétition" n'a pas été expliqué dans les sections précédentes, mais il correspond au cas des combinaisons avec répétition (un exemple est donné en annexe).
+	\item La permutation est un cas particulier de la case "avec ordre et sans répétition" ($A^n_n=n!$)
+\end{itemize}			
+
+\section*{Annexe 1: applications injectives, surjectives, bijectives}
+Soit l'application $f: E \rightarrow F$
+\begin{tcolorbox}[colback=pink!5!white,
+	colframe=pink!75!black,
+	title=Définition d'une application injective
+	]
+	$f$ est \textbf{injective} si $\forall x, x'\in E$ on a $(f(x)=f(x')\Rightarrow x=x')$
+	\end{tcolorbox}
+\begin{figure}[!hbtp]
+	\centering
+	\begin{tikzpicture}
+	\filldraw[fill=gray!10, draw=magenta!70] (-1.5,0) circle (1cm);
+	\filldraw[fill=pink!20, draw=cyan!60] (1.5,0) circle (1cm);
+
+	\node at (-1.5,1.5) {$E$};
+	\node at (1.5,1.5) {$F$};
+	
+	\node (x1) at (-1.5,0.7) {$a$};
+	\node (x2) at (-1.5,0.3) {$b$};
+	\node (x3) at (-1.5,-0.2) {$c$};
+
+	\node (y1) at (1.5,0.7) {$1$};
+	\node (y2) at (1.5,0.3) {$2$};
+	\node (y3) at (1.5,-0.2) {$3$};
+	\node (y4) at (1.5,-0.7) {$4$};
+	
+	\draw[->] (x1) -- (y4);
+	\draw[->] (x2) -- (y2);
+	\draw[->] (x3) -- (y1);
+
+\end{tikzpicture}
+\end{figure}
+\noindent Cette application est \textbf{injective}: notez que chaque élément de $F$ a \textbf{au plus} un antécédent
+\begin{tcolorbox}[colback=pink!5!white,
+	colframe=pink!75!black,
+	title=Définition d'une application surjective
+	]
+	$f$ est \textbf{surjective} si $\forall\; y \in F$, $\exists\; x\in E$ tel que $(y=f(x))$
+\end{tcolorbox}
+\begin{figure}[!hbtp]
+	\centering
+	\begin{tikzpicture}
+		\filldraw[fill=gray!10, draw=magenta!70] (-1.5,0) circle (1cm);
+		\filldraw[fill=pink!20, draw=cyan!60] (1.5,0) circle (1cm);
+		
+		\node at (-1.5,1.5) {$E$};
+		\node at (1.5,1.5) {$F$};
+		
+		\node (x1) at (-1.5,0.7) {$a$};
+		\node (x2) at (-1.5,0.3) {$b$};
+		\node (x3) at (-1.5,-0.2) {$c$};
+		\node (x4) at (-1.5,-0.7) {$d$};
+		\node (y1) at (1.5,0.7) {$1$};
+		\node (y2) at (1.5,0.3) {$2$};
+
+		\node (y4) at (1.5,-0.7) {$3$};
+		
+		\draw[->] (x1) -- (y4);
+		\draw[->] (x2) -- (y2);
+		\draw[->] (x3) -- (y1);
+		\draw[->] (x4) -- (y4);	
+	\end{tikzpicture}
+
+\end{figure}
+\noindent Cette application est \textbf{surjective}: notez que chaque élément de $F$ a \textbf{au moins} un antécédent.
+\begin{tcolorbox}[colback=pink!5!white,
+	colframe=pink!75!black,
+	title=Définition d'une application bijective
+	]
+	$f$ est \textbf{bijective} si $\forall\; y\in F$, $\exists\;!x\in E$ tel que $(y=f(x))$
+\end{tcolorbox}
+\begin{figure}[!hbtp]
+	\centering
+	\begin{tikzpicture}
+	\filldraw[fill=gray!10, draw=magenta!70] (-1.5,0) circle (1cm);
+	\filldraw[fill=pink!20, draw=cyan!60] (1.5,0) circle (1cm);
+	
+		\node at (-1.5,1.5) {$E$};
+		\node at (1.5,1.5) {$F$};
+		
+		\node (x1) at (-1.5,0.7) {$a$};
+		\node (x2) at (-1.5,0.3) {$b$};
+		\node (x3) at (-1.5,-0.2) {$c$};
+		\node (x4) at (-1.5,-0.7) {$d$};
+		\node (y1) at (1.5,0.7) {$1$};
+		\node (y2) at (1.5,0.3) {$2$};
+		\node (y3) at (1.5,-0.2) {$3$};
+		\node (y4) at (1.5,-0.7) {$4$};
+		
+		\draw[->] (x1) -- (y4);
+		\draw[->] (x2) -- (y2);
+		\draw[->] (x3) -- (y1);
+		\draw[->] (x4) -- (y3);	
+	\end{tikzpicture}
+\end{figure}
+\noindent Cette application est \textbf{bijective} parce que tout élément de $F$ a \textbf{un unique} antécédent par $f$. Elle est à la fois injective et surjective.
+\clearpage
+\section*{Annexe 2: un exemple de combinaisons avec répétitions}
+On veut choisir 2 fruits parmi une variété de 4. Quel est le nombre de combinaisons possibles?
+\begin{table}[!hbtp]
+	\centering
+	\begin{tabular}{l|l|l|l}
+		Pomme, Pomme     & Pomme, Ananas   & Pomme, raisins   & Pomme, Poire    \\\hline
+		Ananas, Ananas   & Ananas, raisins & Ananas, Poire&  \\\hline
+		Raisins, raisins & Raisins, Poire &            &     \\\hline
+		Poire, poire&   &                  &                
+	\end{tabular}
+\end{table}
+\\ La solution est $C^2_{4+2-1}=\begin{pmatrix} 4+2-1\\2\end{pmatrix}=\begin{pmatrix} 5\\2\end{pmatrix}=10$.\\
+\noindent Si les répétitions n'avaient pas été possibles, on aurait eu $C^2_4=6$ (on exclut la première colonne du tableau ci-dessus).	
+
+	
+\end{document}

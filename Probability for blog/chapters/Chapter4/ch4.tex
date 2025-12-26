@@ -1,0 +1,385 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{lscape}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage[capposition=top]{floatrow}
+\usepackage{sectsty}
+\usepackage{textcase}
+\usepackage[tablename=TABLE,figurename=FIGURE]{caption}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{comment}
+\usepackage{threeparttable}
+\usepackage{subcaption}
+\usepackage{epstopdf}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{awesomebox}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{pgfkeys}
+\usepackage{amsmath,amssymb}
+
+%\sectionfont{\centering}
+%\subsectionfont{\underline}
+
+\usepackage[authoryear]{natbib}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+		T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\oddsidemargin 0.30cm \textwidth 16.5cm \textheight 23cm
+\topmargin -1.5cm
+
+\newcolumntype{b}{X}
+\newcolumntype{s}{>{\hsize=.5\hsize}X}
+
+\makeatletter
+\renewcommand\@biblabel[1]{}
+\makeatother
+
+\doublespacing
+\begin{document}
+	\title{Probabilité conditionnelle et théorème de Bayes}
+	\author{Probabilités et statistique (L.B.); Chapitre 3 (calcul probabiliste), section 2}
+	\date{}
+	\maketitle
+	
+	\pagenumbering{gobble}
+	\pagenumbering{arabic}
+	
+	%\doublespacing
+	\linespread{1.0}
+	
+
+
+\section{Conditionnalité en probabilité}
+\textbf{Exemple a}: Un étudiant doit passer deux examens, un examen en la matière "Introduction à la microéconomie" et un autre en la matière "Microéconomie avancée". On définit les deux événements suivants: A= "réussir l'examen de microéconomie avancée" et B= "réussir l'examen d'introduction à la microéconomie". La connaissance de la réalisation de l'événement B devrait influencer notre estimation de la probabilité $P(A)$. Autrement dit, on va s'intéresser à la probabilité que A soit réalisé, \underline{sachant que} B a été réalisé. 
+\\\textbf{Exemple b}: Soit une expérience aléatoire de lancer d'un dé équilibré. Nous définissons les événements suivants: A= "obtenir un chiffre pair"; B= "obtenir un chiffre supérieur à 3". On va s'intéresser à la probabilité que A soit réalisé \underline{sachant que} B a été réalisé.
+\subsection{Définition de la probabilité conditionnelle}
+ \begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Probabilité conditionnelle
+	] 
+	Soit $A, B\in \mathcal{A}$ et $P(B)>0$
+	\begin{equation*}
+		P(A|B)=\frac{P(A\cap B)}{P(B)}
+	\end{equation*}		
+\end{tcolorbox}
+
+ \begin{tcolorbox}[colback=blue!5!white,
+	colframe=pink!75!black,
+	title=Corollaires
+	] 
+	\begin{equation*}
+		P(A\cap B)= P(A|B)\times {P(B)}
+	\end{equation*}	
+\begin{equation*}
+	P(A\cap B)= P(B|A)\times {P(A)}
+\end{equation*}		
+\end{tcolorbox}
+\noindent Les probabilités conditionnelles font l'objet de plusieurs paradoxes dont certains sont discutés dans les exemples qui suivent.
+\subsection{Exemple 1: Le paradoxe des 3 prisonniers}
+3 prisoniers A, B et C sont condamnés à mort. On décide de gracier l'un d'entre eux mais l'identité de la personne graciée est gardée secrète pour quelques jours. Le gardien n'a pas le droit de la révéler.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.25\linewidth]{3pris}
+\end{figure}
+\noindent Le prisonier A pose au gardien la question suivante: "Qui de B ou C sera exécuté?"
+\\Le gardien répond: "B sera exécuté"
+\\A pense que désormais, sa chance d'être sauvé est de 1/2. Mais le gardien pense qu'il n'a fourni aucune information utile. Qui des deux a raison?\\
+L'espace-échantillon $\Omega$ est comme suit
+\begin{multicols}{2}
+\begin{center}
+	\renewcommand{\arraystretch}{1}
+	\resizebox{0.8\linewidth}{!}{
+		\begin{tabular}{|c|c|c|}\hline
+			i & $\omega_i=$(gracié, désigné) & $P(\omega_i)$\\\hline
+			1& (A,B)& 1/6\\
+			2& (A,C)& 1/6\\
+			3& (B,C)& 1/3\\
+			4& (C,B)& 1/3\\\hline
+	\end{tabular}}
+\end{center}
+On considère l'événement\\ $W=$\{"B est désigné"\}=\{(A,B), (C,B)\}.\\ Quelle sera alors $P(A|W)$?
+
+\columnbreak
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.94\linewidth]{tot}
+\end{figure}
+\end{multicols}
+\begin{equation*}
+	P(A|W)=\frac{P(A\cap W)}{P(W)}=\frac{P(\{(A,B),(A,C)\}\cap \{(A,B),(C, B)\})}{P(W)}
+\end{equation*}
+
+\begin{equation*}
+	=\frac{P(\{(A,B)\})}{P(W)}=\frac{1/6}{1/6+1/3}	=1/3
+\end{equation*}
+Par conséquent, on peut voir que $P(A|W)=P(A)=1/3$ et donc l'information fournie par le gardien n'est pas utile pour le prisonnier A.
+\subsection{Exemple 2: Le problème de Monty Hall}
+Le problème de Monty Hall est une énigme mathématique inspirée du jeu télévisé américain "Let's make a deal". Le jeu oppose un présentateur à un candidat. Le candidat est placé face à 3 portes fermées: A, B et C. Derrière l'une d'entre elles, se trouve une voiture et derrière chacune des deux autres se trouve une chèvre. Si le candidat choisit la porte derrière laquelle se trouve la voiture, il pourra l'emporter. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{mh}
+\end{figure}
+\noindent Le candidat choisit une porte au hasard, par exemple A, mais elle est maintenue fermée. Ensuite, le présentateur ouvre l'une des deux portes restantes, qui ne cache pas la voiture. Il offre au candidat l'option de changer d'avis et de choisir l'autre porte. \\
+Le candidat devrait-il modifier son choix?\footnote{Voir simulation sur le lien \url{https://www.rossmanchance.com/applets/2021/montyhall/Monty.html}et exemple de calcul des fréquences sur fichier html}\\
+\textbf{Stratégie 1}: Garder le choix initial (porte A)
+\begin{equation*}
+	\Omega=\{\text{"voiture derrière porte A"},\text{"voiture derrière porte B"}, \text{"voiture derrière porte C"} \}
+\end{equation*}
+\begin{equation*}
+	P(gagner)=1/3
+\end{equation*}
+\textbf{Stratégie 2}: Changer de porte
+\begin{equation*}
+	\begin{split}
+	\Omega=\left\{\omega_1=\text{"voiture derrière porte A, présentateur ouvre B, le candidat choisit C"}, \right. \\\omega_2=\text{"voiture derrière porte A, présentateur ouvre C, le candidat choisit B"},  \\ \omega_3=\text{"voiture derrière porte B, présentateur ouvre C, le candidat choisit B"}, \\ \left. \omega_4=\text{"voiture derrière porte C, présentateur ouvre B, le candidat choisit C"} \right\}	
+\end{split}
+\end{equation*}
+\begin{equation*}
+	P(gagner)=P(\{\omega_3, \omega_4\})=2/3
+\end{equation*}
+On peut trouver le même résultat en utilisant des probabilités conditionnelles. On définit deux événements: A= "Voiture derrière porte A" et B= "Le présentateur ouvre la porte B". On a
+\begin{equation*}
+	P(A|B)= \frac{P(A\cap B)}{P(B)}
+\end{equation*}
+On a $P(A\cap B)=\frac{1}{3}\times \frac{1}{2}= \frac{1}{6}$\\
+Et $P(B)= P(B\cap A)+P(B\cap A^c)= \frac{1}{3}\times \frac{1}{2}+\frac{1}{3}\times 0+\frac{1}{3}\times 1=\frac{1}{2}$\\
+Donc
+\begin{equation*}
+	P(A|B)= \frac{P(A\cap B)}{P(B)}= \frac{\frac{1}{6}}{\frac{1}{2}}=\frac{1}{3}
+\end{equation*}
+De ce fait
+\begin{equation*}
+	P(A^c|B)= 1-P(A| B)=\frac{2}{3}
+\end{equation*}
+\subsection{Exemple 3: Détection de phytovirus dans les plantes}
+Pour lutter contre certains virus de plantes, une détection précoce est un enjeu majeur qui permet une meilleure efficacité du traitement des plantes contaminées. Une technique récente a été mise en place en vue de détecter les phytopathogènes à travers un test conduit en laboratoire.
+On définit les événements suivants:\\
+$E=$ Le test est positif.\footnote{Le test est positif= le test indique que la plante est contaminée}\\
+2 scénarios possibles:
+\begin{itemize}
+	\item $A_1$: La plante est infectée 
+	\item $A_2$: La plante n'est pas infectée 
+\end{itemize}
+On a $A_1\cup A_2=\Omega$, et $A_1 \cap A_2=\emptyset$: $A_1$ et $A_2$ forment une \textbf{partition} de l'espace-échantillon. On donne les probabilités:
+\begin{equation*}
+	P(E|A_1)=99.9\%
+\end{equation*}
+\begin{equation*}
+	P(E|A_2)=0.01\%
+\end{equation*}	
+On conduit le test pour une plante et il s'avère positif. Est-ce que la plante est contaminée? On va examiner la probabilité $P(A_1|E)$. Par définition, on a
+\begin{equation*}
+P(A_1|E)=\frac{P(A_1\cap E)}{P(E)}	
+\end{equation*}	
+On ne connait pas $P(A_1 \cap E)$. Toutefois, la définition de probabilité conditionnelle nous donne
+\begin{equation*}
+P(A_1\cap E)=P(E\cap A_1)=P(E|A_1)P(A_1)
+\end{equation*}	
+$P(A_1)$ est la \textbf{probabilité à priori} de l'infection. Dans des conditions environnementales saines, on considère que $P(A_1)=0.01\%$. Pour $P(E)$, on peut l'exprimer comme suit\footnote{Cette formule est connue sous le nom de la \textbf{la formule des probabilités totales}}
+\begin{equation*}
+	P(E)=P((E\cap A_1)\cup (E\cap A_2))=P(E\cap A_1)+P(E\cap A_2)	
+\end{equation*}
+Donc
+\begin{equation*}
+	P(A_1|E)=\frac{P(E|A_1)P(A_1)}{\sum_{i=1}^{2}P(E|A_i)P(A_i)}	
+\end{equation*}
+En calculant
+\begin{equation*}
+	P(A_1|E)=\frac{99.9\times 0.01}{99.9\times 0.01+0.01 \times 99.99}\approx 50\%	
+\end{equation*}
+Notez bien que $P(E|A_1)=99.9\%$ alors que $P(A_1|E)\approx 50\%$. On peut illustrer ce résultat par ce qui suit:\\
+Sur 10000 plantes, une seule est infectée (taux de base de $0.01\%$). Cette plante infectée a 99.9\% de chances d'avoir un test positif. Et parmi les 9999 plantes non infectées, une seul aura un test positif ($0.01\%$ de taux de faux positifs).\\
+Si une plante a un résultat positif au test, quelle est la probabilité pour qu'elle soit infectée? Sur 10000 plantes, 2 auront un test positif. L'une de ces deux est réellement infectée. Donc, pour un test positif, il y a $50\%$ de chances que la plante soit infectée.
+\\Cet exemple est une application du théorème de Bayes, expliqué dans ce qui suit.
+\section{Théorème de Bayes}
+En pratique, il arrive souvent qu'on commence l'analyse avec des probabilités initiales (à priori) concernant des événements donnés. Ensuite, on obtient de nouvelles informations qui nous permettent de calculer des probabilités révisées, dites probabilités à postériori. Le théorème de Bayes permet d'effectuer ces calculs.
+
+\subsection{Théorème de Bayes}
+Ce théorème s'applique lorsqu'il y a une \textbf{partition de l'espace-échantillon}\footnote{Evénements mutuellement exclusifs et leur union correspond à l'espace-échantillon en entier.} (comme dans l'exemple précédent) et un événement aléatoire donné.
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Théorème
+	] 
+	Soit $A_1, A_2, \dots$ une partition de l'espace-échantillon, et soit $B$ un événement aléatoire. Alors:
+	\begin{equation*}
+		\forall i, P(A_i|B)=\frac{P(B|A_i)P(A_i)}{\sum_j P(B|A_j)P(A_j)}
+	\end{equation*}		
+\end{tcolorbox}
+
+\subsection{Exemple 4: Tests de produits laitiers }
+Les produits laitiers commerciaux, tels que les produits laitiers cultivés doivent obligatoirement être testés pour la contamination microbienne. 
+La multinationale "Teraplak" qui opère dans l'industrie laitière a développé sa propre technologie brevetée pour tester ses produits avant leur mise en vente. Les produits déclarés non conformes dans le cadre la procédure de test sont mis au rebut. Récemment, le responsable R\&D de l'entreprise a avisé le management de l'entreprise qu'il était urgent de revoir la technologie de test employée. Pour quelle raison? L'explication est fournie dans ce qui suit:
+\\ Pour un produit testé, on va examiner la probabilité: $P(NC|TP)$ (NC: non conforme; TP: test positif). On dispose des données suivantes:
+\\Pour un produit donné, la probabilité de ne pas être conforme est de $P(NC)=1/700$ (probabilité à priori). Le test ne détecte pas forcèment l'ensemble des cas de produits contaminés, on a $P(TP|NC)=0.73$. Il y a également un taux de faux positifs de $P(TP|C)= 0.12$ (C: conforme). On a donc
+\begin{equation*}
+	P(TP)=P(TP|NC)\times P(NC)+P(TP|C)\times P(C)\approx 12.1%
+\end{equation*}	
+\begin{equation*}
+	P(NC|TP)=P(TP|NC)\times P(NC)/P(TP)=0.73 \times 1/700/0.121\approx 0.0086< 1\%
+\end{equation*}
+Cela veut dire que si le test est positif pour un produit donné, la probabilité qu'il soit effectivement non conforme est en réalité inférieure à 1\%! Pour illustrer ces résultats, si l'on prend un groupe de 3000 produits, on obtient la répartition suivante:
+\begin{center}
+	\tikzstyle{lien}=[->,>=stealth,rounded corners=5pt,thick]
+	\tikzset{individu/.style={draw,thick,fill=#1!25},
+		individu/.default={gray}}
+	\begin{tikzpicture}
+		\node[individu] (B) at (0,0) {3000 produits};
+		\node[individu=red] (P) at (-3,-2) {4 non conformes};
+		\node[individu=green] (M) at (3,-2) {2996 conformes};
+		\node[individu=green, align=center] (GPP) at (-4.5,-4) {1 \\test négatif};
+		\node[individu=red, align=center] (GMP) at (-1.5,-4) {3\\ test positif};
+		\node[individu=green, align=center] (GPM) at (1.5,-4) {2636\\ test négatif};
+		\node[individu=red, align=center] (GMM) at (4.5,-4) {360 \\test positif};
+		\draw[lien] (B) |- (-1,-1) -| (P);
+		\draw[lien] (B) |- (1,-1) -| (M);
+		\draw[lien] (P) |- (-4,-3) -| (GPP);
+		\draw[lien] (P) |- (-2,-3) -| (GMP);
+		\draw[lien] (M) |- (2,-3) -| (GPM);
+		\draw[lien] (M) |- (4,-3) -| (GMM);
+	\end{tikzpicture}
+\end{center}
+Ceci montre que parmi les 363 produits pour lesquels le test est positif, uniquement 3 sont réellement contaminés. De ce fait, l'entreprise supporte un coût important en mettant au rebut une grande quantité de produits conformes.
+\subsection{Exemple 5: Transmission d'un code morse}
+Dans une transmission de code morse classique "." et "-" apparaissent avec une proportion de 3 contre 4
+\begin{equation*}
+	P(.\text{ envoyé})= 3/7 \;\;\;\;\;P(-\text{ envoyé})= 4/7
+\end{equation*}
+Supposons qu'il y ait une interférence et qu'on ait
+\begin{equation*}
+	P(- \text{ reçu}|. \text{ envoyé})=1/8\;\;\;\;\;P(.  \text{ reçu}|- \text{ envoyé})= 1/8
+\end{equation*}	
+Si on reçoit un ".", quelle est la probabilité que "." ait été réellement envoyé? On peut utiliser la formule de Bayes:
+\begin{equation*}
+	P(. \text{ envoyé}|.  \text{ reçu})= P(.  \text{ reçu}|. \text{ envoyé})\frac{P(. \text{ envoyé})}{P(.  \text{ reçu})}
+\end{equation*}
+On a $P(. \text{ envoyé})=3/7$, $P(. \text{ reçu}|.  \text{ envoyé})=7/8$.\footnote{Remarque: On a utilisé une formule générale qui est de $P(A^c|B)=1- P(A|B)$} Et
+\begin{equation*}
+	P(. \text{ reçu})= P(. \text{ reçu}\cap .\text{ envoyé})+ P(. \text{ reçu}\cap -\text{ envoyé})
+\end{equation*}
+\begin{equation*}
+	=P(.\text{ reçu}|. \text{ envoyé})P(.\text{ envoyé})+P(.\text{ reçu}|-\text{ envoyé})P(-\text{ envoyé})
+\end{equation*}
+\begin{equation*}
+	=7/8 \times 3/7 +1/8 \times 4/7=25/56
+\end{equation*}
+Remplaçant dans la formule de Bayes
+\begin{equation*}
+	P(. \text{ envoyé}|.  \text{ reçu})= \frac{(7/8)\times (3/7)}{25/56}=\frac{21}{25}=0.84
+\end{equation*}
+\section{Indépendance en probabilités}
+\subsection{Indépendance}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=pink!75!black,
+	title=Définition
+	] 
+	$A$ et $B$ sont indépendants si et seulement si on a\footnote{Remarque: dans le cas de l'indépendance, on a $P(A|B)=P(A)$ et $P(B|A)=P(B)$}
+	\begin{equation*}
+		P(A\cap B)= P(A)P(B)
+	\end{equation*}		
+\end{tcolorbox}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Théorème
+	] 
+	Si A et B sont indépendants, alors
+	\begin{itemize}
+		\item $A$ et $B^c$
+		\item $A^c$ et $B$
+		\item $A^c$ et $B^c$
+	\end{itemize}	
+sont indépendants
+\end{tcolorbox}
+\subsection{Indépendance et incompatibilité pour 2 événements}
+Il ne faut pas confondre indépendance et incompatibilité
+\begin{itemize}
+	\item $A$ et $B$ sont incompatibles si $A\cap B=\emptyset$
+	\item $A$ et $B$ sont indépendants si $P(A\cap B)= P(A)P(B)$
+\end{itemize}
+\textbf{Exemple}
+\\ On considère une expérience aléatoire de 2 lancers de pièce, l'espace-échantillon $\Omega$ est
+\begin{equation*}
+\Omega=\{(P,P), (P,F), (F,P), (F,F)\}
+\end{equation*}
+Soient les événements suivants
+\begin{itemize}
+	\item $A_1$: le premier résultat est $P$
+	\item $A_2$: le deuxième résultat est $F$
+	\item $A_3$: le premier résultat est $F$
+\end{itemize}
+Quelle est la relation entre $A_1$, $A_2$ et $A_3$?\\
+On a 
+\begin{multicols}{2}
+\begin{itemize}
+	\item $A_1=\{PP, PF\}$
+	\item $A_2= \{PF, FF\}$
+	\item $A_3= \{FP, FF\}$
+	\item $A_1\cap A_2=\{PF\}$
+	\item $A_1\cap A_3=\emptyset$
+	\item $A_2\cap A_3=\{FF\}$
+\end{itemize}
+\begin{itemize}
+	\item $P(A_1)=1/2$
+	\item $P(A_2)=1/2$
+	\item $P(A_3)=1/2$
+	\item $P(A_1 \cap A_2)=1/4$
+	\item $P(A_2 \cap A_3)= 1/4$
+\end{itemize}
+\end{multicols}
+Par conséquent, on conclut que
+\begin{itemize}
+	\item $A_1$ et $A_2$ sont indépendants
+	\item $A_1$ et $A_3$ sont incompatibles
+	\item $A_2$ et $A_3$ sont indépendants
+\end{itemize}
+\subsection{Indépendance de plus de 2 événements}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=pink!75!black,
+	title=Définition
+	] 
+	$A_1, \dots, A_n$ sont mutuellement indépendants si et seulement si, pour un groupe quelconque $A_{i_1}, \dots, A_{i_k}$, on a
+	\begin{equation*}
+	P\left(\bigcap_{j=1}^k A_{i_j}\right)=\prod_{j=1}^{k}P(A_{i_j})
+	\end{equation*}		
+\end{tcolorbox}
+\noindent \textbf{Exemple} \\
+On considère l'expérience aléatoire de lancer de deux dés équilibrés. On a ce qui suit
+\begin{equation*}
+	\begin{split}
+		&\Omega= \{(1,1), (1,2), \dots, (6,6)\}\\
+		&A=\{\text{on obtient des résultats doubles}\}= \{(1,1), (2,2)\dots, (6,6)\}\\
+		&B=\{\text{La somme est entre 7 et 10}\}= \{(1,6), (2,5), \dots, (5,5)\}\\
+		&C= \{\text{La somme est soit 2, 7 ou 8}\}= \{(1,1), (3,4), (4,4), \dots\}
+	\end{split}
+\end{equation*} 
+Est-ce que les événements $A$, $B$ et $C$ sont indépendants?\\
+On a:
+\begin{equation*}
+	P(A)= 1/6\;\;\;\;P(B)= 1/2\;\;\;\;P(C)=1/3
+\end{equation*}
+\begin{equation*}
+	P(A\cap B\cap C)= P(\{(4,4)\})=1/36= P(A) \times P(B) \times P(C)
+\end{equation*}
+\begin{equation*}
+	P(B\cap C)= P(\{\text{la somme est de 7 ou 8}\})= 11/36 \neq P(B) \times P(C)
+\end{equation*}
+On a donc l'indépendance des 3 événements mais pas l'indépendance mutuelle.
+
+\end{document}

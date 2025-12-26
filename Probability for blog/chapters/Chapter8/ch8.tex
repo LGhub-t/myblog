@@ -1,0 +1,240 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{lscape}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage[capposition=top]{floatrow}
+\usepackage{sectsty}
+\usepackage{textcase}
+\usepackage[tablename=TABLE,figurename=FIGURE]{caption}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{comment}
+\usepackage{threeparttable}
+\usepackage{subcaption}
+\usepackage{epstopdf}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{awesomebox}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{pgfkeys}
+\usepackage{amsmath,amssymb}
+
+%\sectionfont{\centering}
+%\subsectionfont{\underline}
+
+\usepackage[authoryear]{natbib}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+		T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\oddsidemargin 0.30cm \textwidth 16.5cm \textheight 23cm
+\topmargin -1.5cm
+
+\newcolumntype{b}{X}
+\newcolumntype{s}{>{\hsize=.5\hsize}X}
+
+\makeatletter
+\renewcommand\@biblabel[1]{}
+\makeatother
+
+\doublespacing
+\begin{document}
+	\title{Introduction au concept de convergence, la loi des grands nombres et le théorème central limite}
+	\author{Probabilités et statistique (L.B.); chapitre 4 (variables aléatoires)-section 4}
+	\date{}
+	\maketitle
+	
+	\pagenumbering{gobble}
+	\pagenumbering{arabic}
+	
+	%\doublespacing
+	\linespread{1.0}
+	
+
+
+
+\section{La convergence}
+La convergence est un concept fondamental en statistique, qui sous-tend de nombreuses méthodes et théorèmes, tels que la Loi des Grands Nombres et le Théorème Central Limite. Ce concept permet de comprendre comment certaines caractéristiques des échantillons aléatoires convergent vers certaines valeurs à mesure que la taille de l'échantillon augmente. Il existe plusieurs types de convergence.
+\subsection{Convergence en distribution}
+La distribution d'une séquence d'échantillons se rapproche d'une distribution limite.
+\subsection{Définition}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition
+	] 
+	La forme la plus faible de convergence est la convergence en distribution. Elle est définie comme suit: Soit le processus stochastique $X_n$
+		\begin{equation*}
+			X_n \xrightarrow{d} X
+		\end{equation*}
+Si et seulement si\footnote{On dit aussi convergence en loi et on note $X_n \xrightarrow{\mathcal{L}} X$ }
+		\begin{equation*}
+			\lim_{n \rightarrow \infty} F_{X_n}(x)= F_{X}(x)\;\; \forall x
+		\end{equation*}
+Avec $F_X$ la fonction de répartition de X est continue
+\end{tcolorbox}
+\subsection{Exemple}
+Soient des variables aléatoires $X_i$ qui sont iid et suivent une distribution uniforme sur $[0,1]$, avec $i=1,\dots, n$. On définit une variable $X_{(n)}=max_{1\le i \le n} X_i$. Il s'agit d'un processus stochastique qui dépend de $n$. On veut vérifier si cette variable converge en distribution. La première étape est de trouver sa fonction de répartition:
+\begin{equation*}
+	P(X_{(n)}\le t)=\begin{cases}
+		0 & t<0\\
+		t^n & 0\le t <1\\
+		1& t\ge1
+	\end{cases}
+\end{equation*}
+\noindent La valeur $t^n$ est obtenue comme suit
+\begin{equation*}
+	P(max(X_1, X_2,\dots, X_n)\le t)=P(X_1\le t, \dots, X_n \le t)
+\end{equation*}
+Puisque les $X_i$ sont indépendantes, on peut calculer ces probabilités comme un produit des $P(X_i\le t)$. Partant de la définition de la fonction de répartition de la loi uniforme, on a  $P(X_1\le t)=\dots= P(X_n\le t)=t$, lorsque $0\le t <1$.\\
+Ensuite, on cherche la limite de cette fonction pour $n\rightarrow \infty$ et on vérifie si cette limite existe et si elle correspond à une fonction de répartition:
+\begin{equation*}
+	\lim_{n \rightarrow \infty}	P(X_{(n)}\le t)=\begin{cases}
+		0 & t<0\\
+		0 & 0\le t <1\\
+		1& t\ge 1
+			\end{cases}
+\end{equation*}
+Cette fonction vérifie les conditions définies d'une fonction de répartition (probabilités entre 0 et 1, non-décroissante). Il s'agit d'une fonction de distribution cumulative de la constante 1. Donc:
+\begin{equation*}
+X_{(n)}\xrightarrow{d} 1
+\end{equation*}
+\subsection{Convergence en probabilité}
+La probabilité d'une différence significative entre un échantillon et une valeur théorique diminue à mesure que la taille de l'échantillon augmente.
+\subsection{Définition}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition
+	] 
+	La convergence en probabilité est plus forte que la convergence en distribution. Soit le processus stochastique $X_n$, on a
+		\begin{equation*}
+			X_n \xrightarrow{p} X
+		\end{equation*}
+Si et seulement si $\forall \epsilon>0$
+		\begin{equation*}
+			\lim_{n \rightarrow \infty} P(|X_n-X|<\epsilon)=1
+		\end{equation*}
+	\end{tcolorbox}
+Remarque: si $X_n \xrightarrow{p} X$, alors $X_n \xrightarrow{d} X$
+\subsection{Exemple}
+Soient des variables aléatoires $X_i$ qui sont iid et suivent une distribution uniforme sur $[0,1]$, avec $i=1,\dots, n$. On définit une variable $X_{(n)}=max_{1\le i \le n} X_i$. Puisqu'on a déjà vérifié la convergence en distribution vers 1, on peut juste vérifier si on a la convergence en probabilité vers 1.\\
+En utilisant la définition, on cherche la probabilité suivante, $\forall \epsilon >0$
+\begin{equation*}
+	P(|X_{(n)}-1|< \epsilon)=1-P(|X_{(n)}-1|\ge \epsilon)
+\end{equation*}
+On a
+\begin{equation*}
+	P(|X_{(n)}-1|\ge \epsilon)=P(X_{(n)}\ge 1+\epsilon)+P(X_{(n)}\le 1-\epsilon)
+\end{equation*}
+Mais les $X_i$ sont définies sur $[0,1]$, donc la première probabilité est 0
+\begin{equation*}
+		P(|X_{(n)}-1|\ge \epsilon)=0+P(X_{(n)}\le 1-\epsilon)
+\end{equation*}
+La deuxième probabilité peut être obtenue à partir de la formule de la fonction de répartition d'une distribution uniforme. Et puisque les variables $X_i$ sont iid, la probabilité jointe va être égale au produit des probabilités respectives:
+\begin{equation*}
+	P(X_{(n)}\le 1-\epsilon)=P(X_i\le 1-\epsilon, i=1,\dots, n)=(1-\epsilon)^n
+\end{equation*}
+Pour $n \rightarrow \infty$, cette probabilité va tendre vers zéro car $1-\epsilon$ est inférieur à 1. De ce fait, on obtient:
+\begin{equation*}
+	X_{(n)}\xrightarrow{p} 1
+\end{equation*}
+\subsection{Convergence presque sûre}
+\subsection{Définition}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition
+	] 
+	Une forme plus forte de convergence est la convergence presque sure qui est définie comme suit:
+Soit le processus stochastique $X_n$, on a
+		\begin{equation*}
+			X_n \xrightarrow{p.s.} X
+		\end{equation*}
+Si et seulement si $\forall \epsilon>0$
+		\begin{equation*}
+			P(\lim_{n \rightarrow \infty} |X_n-X|<\epsilon)=1
+		\end{equation*}
+	\end{tcolorbox}
+\noindent Remarque: si $X_n \xrightarrow{p.s.} X$, alors $X_n \xrightarrow{p} X$ et donc $X_n \xrightarrow{d} X$
+\subsection{Exemple}
+Soit l'espace-échantillon $\Omega=[0,1]$, avec une distribution de probabilité uniforme. On définit
+\begin{equation*}
+	X_n(\omega)=\omega+\omega^n
+\end{equation*}
+Et 
+\begin{equation*}
+	X(\omega)=\omega
+\end{equation*}
+On veut vérifier la convergence presque sûre de $X_n$ vers $X$. On sait que lorsque $n \rightarrow \infty$:
+\begin{equation*}
+	\forall \omega \in \left[0,1\right[,\;\; \omega^n\rightarrow 0
+\end{equation*}
+Donc
+\begin{equation*}
+	X_n(\omega)\rightarrow X(\omega)
+\end{equation*}
+Toutefois, pour $\omega=1$, $X_n(\omega)=2$, $\forall n$. Donc, $X_n(1)$ ne converge pas vers $X(1)$.\\ Mais sinon, $P(\left[0,1\right[)=1$, d'où $X_n \rightarrow X$ sur un ensemble de probabilité 1. Ce résultat est suffisant pour conclure que:
+\begin{equation*}
+	X_n \xrightarrow{p.s.} X
+\end{equation*}
+\section{La loi des grands nombres (LGN)}
+Il s'agit d'un principe en statistique qui énonce que, à mesure que la taille de l'échantillon aléatoire augmente, la moyenne empirique converge vers la moyenne de la population. Formellement:
+\subsection{Définition}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Forme faible de la loi des grands nombres
+	] 
+	Soit une ensemble de variables aléatoires $X_i$ qui sont iid avec $E(X_i)=\mu$ et $Var(X_i)=\sigma^2<\infty$. La moyenne de ces variables est $\bar{X}_n=\frac{\sum_{i=1}^{n}X_i}{n}$. On a
+\begin{equation*}
+	\bar{X}_n \xrightarrow{p}\mu
+\end{equation*}
+		\end{tcolorbox}
+	\begin{tcolorbox}[colback=blue!5!white,
+		colframe=blue!75!black,
+		title=Forme forte de la loi des grands nombres
+		] 
+		Soit une ensemble de variables aléatoires $X_i$ qui sont iid avec $E(X_i)=\mu$ et $Var(X_i)=\sigma^2<\infty$. La moyenne de ces variables est $\bar{X}_n=\frac{\sum_{i=1}^{n}X_i}{n}$. On a
+		\begin{equation*}
+			\bar{X}_n \xrightarrow{p.s.}\mu
+		\end{equation*}
+	\end{tcolorbox}
+\section{Le Théorème Central Limite (TCL)}
+En sélectionnant des échantillons aléatoires simples de taille $n$ d'une population, la distribution d'échantillonnage de la moyenne d'échantillon  $\bar{x}$ peut être approchée par une distribution de probabilité normale, lorsque la taille de l'échantillon devient importante. L'implication intuitive est que la somme d'un grand nombre de variables aléatoires indépendantes doit avoir une distribution presque normale, quelle que soit la distribution des variables individuelles. En d'autres termes, la distribution normale sert d'"attracteur" pour les sommes aléatoires. Formellement
+\subsection{Définition}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition
+	] 
+	Soit une ensemble de variables aléatoires $X_i$ qui sont iid avec $E(X_i)=\mu$ et $Var(X_i)=\sigma^2<\infty$. La moyenne de ces variables est $\bar{X}_n=\frac{\sum_{i=1}^{n}X_i}{n}$. On a
+	\begin{equation*}
+		\begin{split}
+			{\sqrt{n}\left(\frac{\bar{X}_n-\mu}{\sigma}\right)}{ \to ^{d}}\;N(0,1)\;\;\;\;\;
+		\end{split}
+	\end{equation*}
+\end{tcolorbox}
+\noindent \textbf{Remarque} Une illustration connue du TCL est le Galton Board\footnote{En référence à Francis Galton} qui montre qu'en rajoutant des variables aléatoires indépendantes, la somme tend vers la loi normale, voir lien suivant: \url{https://www.youtube.com/shorts/TwctT3Ncm1w}
+\\\textbf{Exemple}: voilà ci-après une illustration de l'idée derrière le théorème:\\
+1. On génére à l'aide d'un logiciel statistique 10000 valeurs aléatoires d'une distribution uniforme. L'histogramme des valeurs générées est comme suit
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.65\linewidth]{unif22}	
+\end{figure}
+\noindent 2. A partir des 10000 valeurs, on prend des échantillons de 30 valeurs et on calcule la moyenne de chaque échantillon prélevé. Après avoir calculé la moyenne pour 1000 échantillons, on note que l'histogramme des moyennes calculées se rapproche de la forme du courbe en cloche (loi normale), même si la distribution des valeurs à partir desquelles les moyenens sont calculées est uniforme.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.65\linewidth]{unif66}	
+\end{figure}
+\end{document}

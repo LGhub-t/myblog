@@ -1,0 +1,248 @@
+\section{Rappels sur la théorie des ensembles}
+
+\pagenumbering{arabic} % Optional: keep only if you need to reset numbering
+\linespread{1.0}
+
+
+La théorie des probabilités est le fondement sur lequel repose la statistique, fournissant des outils pour modéliser ce qui peut être considéré comme un phénomène aléatoire. Grâce à ces modèles, les statisticiens sont en mesure de tirer des conclusions concernant une population partant des données d'un échantillon.
+Tout comme la statistique s'appuie sur la théorie des probabilités, la théorie des probabilités repose à son tour sur la théorie des ensembles, dont nous revoyons quelques principes dans ce premier chapitre.
+	
+
+\section{La notion d'ensemble}
+Un ensemble est une collection d'objets appelés "éléments". L'énoncé $x \in E$ signifie "$x$ appartient à E" et $x \notin E$ veut dire que $E$ ne contient pas $x$. 
+On peut définir l'ensemble de deux manières:
+	\begin{itemize}
+	\item en extension (Set-roster notation): en énumérant entre accolades ses éléments (exemple: $E=\{a,b,c\}$, ou bien $A=\{1,2,3,\dots,100\}$, ou $B=\{1,2,3,\dots\}$). A noter que seule l'appartenance à l'ensemble importe: il n' y a aucun ordre et les répétitions sont possibles (exemple: $\{a,b\}=\{b,a\}=\{a,b,a\}$). La définition en extension est préférée lorsque l'ensemble est petit ou lorsque les éléments peuvent être facilement énumérés.
+	\item en compréhension (Set-builder notation): $E$ est défini comme le sous-ensemble formé des éléments $x$ d'un ensemble connu $X$ vérifiant une certaine propriété $p(x)$. On note $E=\{x \in X: p(x)\}$ ou $E=\{x \in X| p(x)\}$.\footnote{E est l'ensemble des $x$ dans $X$ tels que $p(x)$ (ou vérifiant $p(x))$} Exemple: $E=\{x \in \mathbb{N}|\exists n \in \mathbb{N},x=n^2+1 \}$.Cette approche est pratique pour définir des ensembles infinis ou lorsqu'il est plus simple de décrire une propriété commune que de lister les éléments.
+		\end{itemize}
+
+Quelques ensembles connus:
+\begin{itemize}
+	\item $\emptyset$: l'ensemble vide. Il s'agit de l'ensemble qui ne contient aucun élément $\emptyset=\{\}$
+	\item $\mathbb{N}$: ensemble des nombres naturels. $\mathbb{N}=\{0,1,2,3,\dots\}$
+	\item $\mathbb{Z}$: ensemble des nombres entiers relatifs. $\mathbb{Z}=\{\dots, -3, -2, -1, 0,1,2,3,\dots\}$
+	\item $\mathbb{Q}$: ensemble des nombres rationnels. $\mathbb{Q}=\{\frac{a}{b}|a, b \in \mathbb{Z}, b\neq 0\}$. Les nombres rationnels sont ceux qui peuvent être exprimés comme le quotient de deux entiers, où le dénominateur n'est pas nul. 
+	\item $\mathbb{R}$: ensemble des nombres réels. Cet ensemble représente tous les points sur la ligne numérique continue. Il inclut tous les nombres rationnels et irrationnels.\footnote{Les nombres irrationnels sont ceux qui ne peuvent pas être exprimés comme une fraction de deux entiers. Par exemple, $\sqrt{2}, \pi, e$ sont des nombres irrationnels.}
+	\item $\mathbb{C}$: ensemble des nombres complexes. $\mathbb{C}=\{a+bi| a,b \in \mathbb{R}, i= \sqrt{-1}\}$. Les nombres complexes sont ceux qui comprennent une partie réelle $a$ et une partie imaginaire $bi$. L'unité imaginaire $i$ est définie comme $\sqrt{-1}$. 
+\end{itemize}	
+Ces ensembles sont caractérisés par la relation suivante\footnote{L'ensemble vide est un sous-ensemble de tout ensemble.}
+\begin{equation*}
+	\mathbb{N} \subset \mathbb{Z}\subset \mathbb{Q}\subset \mathbb{R}\subset \mathbb{C}
+\end{equation*}
+\section{Inclusion, égalité et diagramme de Venn}
+ \begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition 1
+	]
+On considère les ensembles $A$ et $B$. $A$ est un sous-ensemble de $B$ (on note $A \subseteq B$), si et seulement si, chaque élément de $A$ est aussi un élément de $B$. Formellement:
+\begin{equation*}
+	A \subseteq B \Leftrightarrow (\forall x, x\in A \Rightarrow x \in B)
+\end{equation*} \end{tcolorbox}
+\noindent Le symbole $\nsubseteq$ veut dire "pas un sous-ensemble de". Par exemple, si $A \nsubseteq B$, cela signifie que: $\exists\;x$ tel que $x \in A$ et $x \notin B$.
+ Un autre concept est celui de sous-ensemble \textbf{strict}: $A$ est un sous-ensemble propre ou strict de $B$ (on note $A \subset$ B), si $A \subseteq B$ mais $A \neq B$ ($\exists\;x$ tel que $x\in B$ et $x \notin A$). Le symbole $\not\subset$ veut dire "pas un sous-ensemble propre de".\\	
+ \begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition 2
+	] 
+Soient les ensembles $A$ et $B$. $A=B$ si et seulement si $A \subseteq B$ et $B \subseteq A$. On note
+\begin{equation*}
+	A=B \Leftrightarrow (A \subseteq B\text{ et }B \subseteq A)
+\end{equation*} \end{tcolorbox}
+\noindent\textbf{Quelques propriétés} \\
+$A \subseteq A$: puisque chaque élément de $A$ est un élément de $A$ (voir définition 1)\\
+$\emptyset \subseteq A$: $\emptyset$ ne contient aucun élément donc il s'agit d'une \textit{vérité creuse}.\\
+Soient les 3 ensembles $A$, $B$ et $C$: 
+\begin{equation*}(A\subseteq B\text{ et }B \subseteq C)\Rightarrow A \subseteq C\end{equation*}
+\noindent\textbf{Diagramme de Venn} \\
+Pour illustrer les relations logiques et quelques opérations entre ensembles, un outil pratique est le diagramme de Venn. Les diagrammes de Venn ont été conçus autour de 1880 par John Venn.
+Considérons les sous-ensembles $A$, $B$ et $C$, ci-dessous quelques exemples de représentations graphiques:\\
+Figure 1: $A \subset B$, $A$ et $C$ n'ont pas d'éléments en commun, $B$ et $C$ ont quelques éléments en commun mais $B \not\subset C$ et $C \not\subset B$.\\
+Figure 2: $A \subseteq B$ et $B \subseteq C$ (voir propriétés)
+\begin{multicols}{2} 
+\begin{figure}[H]
+	\centering
+	\caption{}
+	\includegraphics[width=0.75\linewidth]{ven11}
+\end{figure}\columnbreak
+\begin{figure}[H]
+	\centering
+	\caption{}
+	\includegraphics[width=0.75\linewidth]{ven22}
+\end{figure}
+\end{multicols}
+
+\section{Union, intersection, différence et complément}
+\subsection{Union}
+ \begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition 3
+	] Soient $A$ et $B$ deux ensembles. Il existe un unique ensemble dont les éléments sont ceux de $A$ et $B$. On l'appelle union de $A$ et $B$ et on le note $A \cup B$. Si $A$ et $B$ correspondent à deux sous-ensembles de $\Omega$ (qui est l'ensemble universel u), on définit leur union comme suit: $A\cup B=\{\omega \in \Omega \mid \omega \in A \text{ ou } \omega \in B\}$	\end{tcolorbox}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.4\linewidth]{im31}
+			\end{figure}
+
+\subsection{Intersection}
+ \begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition 4
+	] Soient $A$ et $B$ deux ensembles. Il existe un unique ensemble formé par les éléments qui sont communs à $A$ et à $B$. On l'appelle intersection de $A$ et $B$ et on le note $A \cap B$. Si $A$ et $B$ correspondent à deux sous-ensembles de $\Omega$, on définit leur intersection comme suit: $A\cap B=\{\omega \in \Omega \mid \omega \in A \text{ et } \omega \in B\}$ \end{tcolorbox}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=0.4\linewidth]{wht}
+			\end{figure}	
+\subsection{Différence de deux ensembles}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition 5
+	] 
+	Soient $A$ et $B$ deux ensembles. On appelle \textbf{différence} de $A$ et $B$ l'ensemble des éléments de $A$ qui n'appartiennent pas à $B$. On le note $A\backslash B$ ($A$ privé de $B$). Si $A$ et $B$ sont deux sous-ensembles de $\Omega$, on aura
+	$A\backslash B=A\cap B^c=\{\omega \in \Omega| \omega \in A \text{ et } \omega \notin B\}$\end{tcolorbox}
+
+	\begin{figure}[H]
+		\centering
+		\caption*{$A\backslash B$}
+		\includegraphics[width=0.35\linewidth]{diff}
+	\end{figure}
+
+\subsection{Complémentaire d'un ensemble}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition 6
+	] 
+	Soit $A \subset E$, le \textbf{complémentaire} de $A$ dans $E$ correspond à l'ensemble $E\backslash A$. On le note $A^c$ (on utilise parfois aussi la notation $\bar{A}$).\\
+	Si $A \subset \Omega$, le complémentaire de A est défini comme suit: $A^c= \{\omega \in \Omega \mid \omega \notin A \}$.
+\end{tcolorbox}
+\begin{multicols}{2}
+	\begin{figure}[H]
+		\centering
+		\caption*{Ensemble $A$}
+		\includegraphics[width=0.7\linewidth]{ens}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\caption*{Ensemble $A^c$}
+		\includegraphics[width=0.7\linewidth]{cont}
+	\end{figure}
+\end{multicols}
+\newpage
+\section{Quelques propriétés}
+\subsection{Propriétés liées aux opérations d'union et intersection}
+\begin{itemize}
+\item Les opérations d'union et d'intersection sont \textbf{commutatives} et \textbf{associatives}:\\
+$A \cup B= B \cup A$; $A \cap B= B \cap A$\\
+$(A \cup B) \cup C= A \cup (B \cup C)$; $(A \cap B) \cap C= A \cap (B \cap C)$
+\item \textbf{Distributivité}
+\begin{multicols}{2}				
+	\begin{figure}[H]
+		\centering
+	\caption*{$A \cap (B\cup C)= (A\cap B) \cup (A\cap C)$}
+		\includegraphics[width=0.55\linewidth]{wht2}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\caption*{$A \cup (B\cap C)= (A\cup B) \cap (A\cup C)$}
+		\includegraphics[width=0.55\linewidth]{wht3}
+	\end{figure}
+\end{multicols}
+\item \textbf{Idempotence}\\
+			$A\cup A=A$, $A \cap A=A$
+\item \textbf{Autres propriétés}\\
+$A\cup \emptyset=A$, $A \cap \emptyset=\emptyset$; $A\cup \Omega=\Omega$, $A \cap \Omega=A$
+\end{itemize}
+\subsection{Propriétés liées à l'ensemble complémentaire}
+Dans $\Omega$, soit $A \subseteq \Omega$ , on a les égalités suivantes: 
+$(A^c)^c=A$, $\emptyset^c=\Omega$, $\Omega^c=\emptyset$,
+$A \cup A^c= \Omega, A \cap A^c= \emptyset$
+\subsection{Loi de De Morgan}
+\begin{multicols}{2}
+			\begin{figure}[H]
+				\centering
+				\caption*{$(A\cup B)^c=A^c\cap B^c$}
+				\includegraphics[width=0.65\linewidth]{p1}
+			\end{figure}\columnbreak
+			\begin{figure}[H]
+				\centering
+				\caption*{$(A\cap B)^c=A^c\cup B^c$}
+				\includegraphics[width=0.65\linewidth]{p2}
+			\end{figure}
+		\end{multicols}
+	
+\section{Extension à une collection d'ensembles}
+Toute famille non vide d'ensembles $\{A_i, i \in I=\{0,1,2,\dots, n\}\}$ faisant partie de l'ensemble universel $\Omega$ possède des unions et des intersections:
+\begin{itemize}
+	\item $\bigcup_{i=0}^n A_i=\{x \in \Omega|x \in A_i \text{ pour au moins un } i=0,1,2,\dots, n\}$
+	\item $\bigcap_{i=0}^n A_i=\{x \in \Omega|x \in A_i \text{ pour chaque } i=0,1,2,\dots, n\}$	
+\end{itemize}
+On peut également avoir une extension à l'infini.
+\\Exemple avec $I$ de cardinalité 3
+\begin{multicols}{2}
+	$\bigcup^3_{i=1}A_i=A_1 \cup A_2 \cup A_3$		
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.65\linewidth]{un}
+	\end{figure}
+	$\bigcap^3_{i=1}A_i=A_1 \cap A_2 \cap A_3$
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.65\linewidth]{int}
+	\end{figure}
+	
+\end{multicols}
+
+
+\section{Partitions}	
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition 7
+	] 
+	Deux ensembles $A$, $B$ sont dits \textbf{disjoints} lorsqu'ils n'ont aucun élément en commun, c'est-à-dire $A\cap B=\emptyset$ 
+\end{tcolorbox}
+\noindent Généralisation à plus de 2 ensembles
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition 8
+	] 
+	Les ensembles $A_1, A_2, A_3, \dots$ sont dits \textbf{mutuellement disjoints} (ou exclusifs) si et seulement si et seulement si pour tout couple d'ensembles distincts 
+	$A_i$ et $A_j$ avec $i \neq j$, l'intersection $A_i \cap A_j$ est vide, c'est-à-dire $A_i \cap A_j=\emptyset$. Cela signifie qu'aucun élément ne peut appartenir à plus d'un ensemble parmi $A_1, A_2, A_3, \dots$.
+\end{tcolorbox}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition 9: Partition d'ensemble
+	] 
+	Une partition d'un ensemble E est une collection d'ensembles non vides $\{A_1, A_2, \dots, A_n\}$ tels que:
+	\begin{itemize}
+		\item Les ensembles $A_i$ sont \textbf{mutuellement disjoints}, c'est-à-dire $A_i \cap A_j=\emptyset$ pour $i \neq j$
+		\item L'union de tous les ensembles $A_i$ couvre l'ensemble $E$, c'est-à-dire $A_1 \cup A_2 \cup \dots \cup A_n=E$
+	\end{itemize}
+
+\end{tcolorbox}
+\noindent En d'autres termes, une partition divise l'ensemble $E$ en sous-ensembles qui ne se chevauchent pas et dont l'union reconstitue l'ensemble entier.
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition 10: l'ensemble puissance (ensemble des parties d'un ensemble)
+	] 
+L'\textbf{ensemble puissance} (ou \textbf{ensemble des parties}) d'un ensemble $E$, noté $\mathcal{P}(E)$ est l'ensemble de tous les sous-ensembles possibles de $E$, y compris l'ensemble vide et l'ensemble $E$ lui-même.\\
+Formellement, si $E$ est un ensemble, l'ensemble puissance $\mathcal{P}(E)$ est défini comme:
+\begin{equation*}
+	\mathcal{P}(E)=\{A|A\subseteq E\}
+\end{equation*}	
+Cela signifie que chaque élément de $\mathcal{P}(E)$ est un sous-ensemble de $E$ et le nombre total de sous-enembles est $2^n$ où $n$ est le nombre d'éléments de $E$
+\end{tcolorbox}
+\section{Opérations sur les cardinaux}
+Le cardinal d'un ensemble fini correspond au nombre total de tous ses éléments.\\ Différentes notations sont utilisées pour désigner le cardinal; par exemple, pour un ensemble $E$:
+\begin{equation*}
+	Card(E)=\#E=|E|
+\end{equation*}
+\textbf{Propriétés}\\
+Soient A et B deux ensembles inclus dans l'ensemble universel $\Omega$, on a
+			\begin{equation*}
+				Card(A\cup B)= Card(A)+Card(B)-Card(A\cap B)
+			\end{equation*}	
+			\begin{equation*}
+				Card(A^c)= Card(\Omega)-Card(A)
+			\end{equation*}	
+			\begin{equation*}
+				Card(A)= Card(A\backslash B)+Card(A\cap B)
+			\end{equation*}	
+

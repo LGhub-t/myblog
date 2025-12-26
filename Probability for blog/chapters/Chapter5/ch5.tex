@@ -1,0 +1,454 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{lscape}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage[capposition=top]{floatrow}
+\usepackage{sectsty}
+\usepackage{textcase}
+\usepackage[tablename=TABLE,figurename=FIGURE]{caption}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{comment}
+\usepackage{threeparttable}
+\usepackage{subcaption}
+\usepackage{epstopdf}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{awesomebox}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{pgfkeys}
+\usepackage{amsmath,amssymb}
+
+%\sectionfont{\centering}
+%\subsectionfont{\underline}
+
+\usepackage[authoryear]{natbib}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+		T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\oddsidemargin 0.30cm \textwidth 16.5cm \textheight 23cm
+\topmargin -1.5cm
+
+\newcolumntype{b}{X}
+\newcolumntype{s}{>{\hsize=.5\hsize}X}
+
+\makeatletter
+\renewcommand\@biblabel[1]{}
+\makeatother
+
+\doublespacing
+\begin{document}
+	\title{Variables aléatoires discrètes}
+	\author{L.B.}
+	\date{}
+	\maketitle
+	
+	\pagenumbering{gobble}
+	\pagenumbering{arabic}
+	
+	%\doublespacing
+	\linespread{1.0}
+	
+
+
+\section{Définition et types de variables aléatoires}
+Dans les chapitres précédents, on avait vu les définitions suivantes\\
+L'expérience aléatoire\\
+L'espace-échantillon $\Omega$\\
+L'événement aléatoire\\
+Sigma-algèbre des événements ${\cal A}$ et axiomes de la fonction de probabilité $P$\\
+L'espace de probabilités $(\Omega,{\cal A} ,P)$
+\subsection{Définition d'une variable aléatoire}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Définition
+	] 
+Soit un espace de probabilités $(\Omega,{\cal A} ,P)$, une variable aléatoire sur cet espace est une application $X$ de $\Omega$ dans $\mathbb{R}$ qui attribue des valeurs numériques à des événements abstraits.
+\begin{equation*}
+	X: \Omega \mapsto \mathbb{R}
+\end{equation*} 
+\begin{equation*}
+	{\cal A} \mapsto {\cal B}
+\end{equation*}	
+\end{tcolorbox}
+\noindent \textbf{Exemples} 
+\\- Dans une expérience de lancer d'une pièce, on assigne la valeur 1 au résultat \{P\} et 0 à \{F\}.
+\\- Dans une expérience de lancer de deux dés, on crée une variable aléatoire qui prend comme valeur la somme des résultats obtenus sur les deux dés. 
+\\- Dans une expérience de lancer de fléchette, on attribue un score de 10 si la cible au centre du plateau est atteinte et un score de 1 si une cible extérieure est atteinte.
+\\ En d'autres termes, une variable aléatoire peut être considérée comme une expérience dont les résultats sont des nombres (une description numérique des résultats d'une expérience). 
+
+\subsection{Fonctions de distribution}
+La fonction de distribution de probabilité d'une variable aléatoire décrit comment sont distribuées les probabilités en fonction des valeurs de la variable aléatoire. Différentes notations peuvent être utilisées:
+\begin{itemize}
+	\item La fonction de distribution est définie comme $P(X=x)$ pour une valeur spécifique $x$. Elle peut également être dénotée par $P_X(x)$, $P(X(\omega)=x)$, $P(\{\omega:X(\omega)=x\})$ ou $P(X^{-1}(x))$.
+	\item Pour un ensemble $B$, on a la notation $P(X(\omega) \in B)$  ou bien $P(X(\omega)\in B)$,  $P (\omega :{X(\omega) \in B})$ ou $P(X^{-1}(B))$.
+\end{itemize}
+\noindent\textbf{Remarque}\\
+$(X(\Omega), \mathcal{B}, P_X)$ correspond également à un espace de probabilité.
+\subsection{Types de variables aléatoires}
+Les variables aléatoires peuvent être discrètes ou continues.	
+\subsubsection{Variable aléatoire discrète}
+Une variable aléatoire qui peut prendre soit un nombre fini de valeurs, soit un ensemble infini de valeurs dénombrables, telles que $0, 1, 2, \dots$ est dite variable aléatoire discrète.
+\\\textbf{Exemples}\\
+Une variable $X$ qui représente le nombre de produits commandés par un client à une entreprise\\
+Une variable $X$ qui prend la valeur $0$ si échec, et $1$ si réussite\\
+\textbf{Remarque}: Une variable discrète ne correspond pas nécessairement à un entier naturel. Il peut également s'agir d'une variable qui prend des valeurs négatives ou d'une proportion. Par exemple: la proportion de produits défectueux dans un lot de 100 produits: 1/100, 2/100,...100/100.
+\subsubsection{Variable aléatoire continue}
+Une variable aléatoire qui peut prendre ses valeurs numériques dans un intervalle ou une suite d'intervalles est appelée variable aléatoire continue.
+\\\textbf{Exemples}\\
+Une variable $X$ qui représente le temps écoulé en minutes entre deux appels téléphoniques.\\
+Une variable $X$ qui représente le poids d'une marchandise.\\
+\textbf{Remarque}: On peut également avoir des variables qui sont discrètes sur un intervalle de valeurs et continues sur d'autres intervalles.
+\section{Distribution de probabilité discrète}	
+Pour le cas d'une variable discrète $X$, la distribution de probabilité est définie par une fonction $f_X(x)$, appelée la \textbf{fonction de masse de probabilité}\footnote{Contrairement à la variable continue pour laquelle on a une fonction de densité de probabilité} telle que
+\begin{equation*}
+			f_X(x)=P(X=x),\vspace{0.5cm} \forall x \in \chi 
+\end{equation*}
+où $\chi$ représente le support de la fonction. Cette fonction donne la probabilité que la variable aléatoire prenne une valeur spécifique pour l'ensemble des valeurs possibles. Une propriété importante de la fonction de masse de probabilité est 
+\begin{equation*}
+	\sum_{x} f_X(x)=1
+\end{equation*}
+\begin{equation*}
+f_X(x)\ge 0, \;\;\forall x
+\end{equation*}
+Puisque pour chaque résultat de l'expérience $\omega$, $X$ ne peut prendre qu'une seule valeur $x$. Les événements $\{X=x\}$ sont disjoints et constituent un système complet (exhaustif) d'événements. De ce fait, la somme des probabilités est égale à 1.\\
+La \textbf{fonction de distribution cumulative} (ou bien la \textbf{fonction de répartition}) ${F_X}$ d'une variable est
+\begin{equation*}
+F_X(t)=P(X\le t), \vspace{1cm} t \in \mathbb{R}
+\end{equation*}
+\begin{tcolorbox}[colback=blue!5!white,
+	colframe=blue!75!black,
+	title=Théorème
+	] 
+	$F(x)$ est une fonction de distribution cumulative \underline{si et seulement si}
+	\begin{itemize}
+		\item $\lim\limits_{t\rightarrow -\infty} F(t)=0\;\;$, $\lim\limits_{t\rightarrow \infty}F(t)=1$
+		\item $F$ est une fonction non-décroissante
+		\item $F$ est continue à droite: $\lim\limits_{t\rightarrow x_0^{+}}F(t)=F(x_0)$ 
+	\end{itemize}
+	
+\end{tcolorbox}
+\noindent\textbf{Remarques}\\ 
+- Une variable aléatoire est continue si et seulement si $F(t)$ est continue (c'est-à-dire également continue à gauche). Elle est discrète si $F(t)$ est une fonction en escalier (step function).\\
+- $X$ et $Y$ sont dites identiquement distribuées si et seulement si $F_X=F_Y$.\footnote{Cette propriété sera discutée dans le chapitre sur les vecteurs aléatoires}.\\
+- La fonction de masse de probabilité est une fonction de distribution pour les variables aléatoires discrètes uniquement (la fonction de densité est utilisée pour les variables continues). En revanche, la fonction de répartition est définie quelque soit le type de la variable aléatoire.
+\section{Espérance et variance}
+Les caractéristiques les plus importantes d'une distribution sont sa localisation et sa dispersion, mesurées respectivement par l'espérance et la variance.
+\subsection{Espérance}
+L'espérance d'une variable aléatoire discrète correspond à sa moyennne. La variable aléatoire $X$ peut prendre différentes valeurs avec différentes probabilités. Pour cette raison, la moyenne de $X$ n'est pas juste une moyenne des valeurs comprises dans la plage de $X$ mais une moyenne pondérée (pas les probabilités) de toutes ces valeurs
+		\begin{equation*}E\left( X \right) = \mathop \sum \limits_x x\;P\left( {X = x} \right) = \mu\end{equation*}
+\textbf{Exemples}\\
+- Soit une variable aléatoire qui prend les valeurs 0 ou 1 avec des probabilités P(0)=P(1)=1/2. L'espérance est égale à $E(X)=1/2\times 0+ 1/2\times 1=1/2$\\
+- Soit une variable aléatoire qui prend les valeurs 0 ou 1 avec des probabilités P(0)=0.75 et P(1)=0.25. L'espérance est égale à $E(X)=0.75\times 0+ 0.25\times 1=0.25$
+\subsection{Variance}
+La variance d'une variable aléatoire est définie comme suit
+		\begin{equation*}
+			Var\left( X \right) = E[(X-E(X))^2]
+		\end{equation*}
+D'après cette définition, la variance ne peut pas être négative. De plus, elle est seulement nulle lorsque $X=E(X)$ pour toutes les valeurs $x$, c'est-à-dire lorsque $X$ est une constante (et donc a zéro variabilité). Une autre approche utilisée pour le calcul de la variance est comme suit:
+	\begin{equation*}
+		Var\left( X \right) = E\left( {{X^2}} \right) - E{\left( X \right)^2}={\sigma^2}
+	\end{equation*}
+\textbf{Exemple}\\
+On considère deux individus A et B. L'individu A reçoit soit 48 messages soit 52 messages par jour, avec la même probabilité de 1/2. L'individu B reçoit soit 0 soit 100 messages par jour, avec la même probabilité de 1/2. Si X est le nombre de messages reçus par A et Y le nombre de messages reçus par B par jour, on a $E(X)=E(Y)=50$. Néanmoins, la variable Y est caractérisée par une variabilité plus forte. En calculant la variance, on trouve que $V(X)=4$ et $V(Y)=2500$
+\subsection{Ecart-type}
+L'écart-type est la racine carrée de la variance
+\begin{equation*}
+	\sigma=\sqrt{Var\left( X \right)}
+\end{equation*}
+\subsection{Propriétés importantes}
+L'espérance est une application linéaire 
+\begin{equation*}
+	E[aX+b]=aE(X)+b
+\end{equation*}
+La variance est quadratique 
+\begin{equation*}
+	V[aX]=a^2V(X)
+\end{equation*}
+Elle est aussi invariante par ajout d'une constante: l'ajout d'une constante n'affecte pas cette mesure \begin{equation*}
+	V[aX+b]=a^2V(X)
+\end{equation*}		
+\section{Exemple d'une variable aléatoire discrète}
+\subsection{Fonction de masse de probabilité et fonction de répartition}
+Pour l'expérience de lancer de pièce 3 fois, avec valeur de 1 pour le résultat \{F\} et 0 pour \{P\}, on a:
+		\begin{table}[!htbp]
+			\centering
+			\renewcommand{\arraystretch}{1.0}
+			\resizebox{0.6\linewidth}{!}{
+				\begin{tabular}{ccccccccc}
+					\hline
+					i & 1   & 2   & 3   & 4   & 5   & 6   & 7   & 8    \\\hline
+					$\omega_i$ & FFF & FFP & FPF & PFF & PPF & PFP & FPP & PPP  \\
+					$X(\omega_i)$ & 3   & 2   & 2   & 2   & 1   & 1   & 1   & 0    \\
+					$P(\omega_i)$ & 1/8 & 1/8 & 1/8 & 1/8 & 1/8 & 1/8 & 1/8 & 1/8 \\\hline
+			\end{tabular}}
+		\end{table}
+ Le domaine de X est $\chi=\{0,1,2,3\}$ et la fonction de masse de probabilité est:\\
+$P(\omega:{X(\omega) =3})=1/8$\\
+$P(\omega:{X(\omega) =2})=3/8$\\
+$P(\omega:{X(\omega) =1})=3/8$\\
+$P(\omega:{X(\omega) =0})=1/8$\\
+La fonction de répartition pour une variable discrète est une \textbf{fonction échelon}
+\begin{equation*}
+				{F_x}\left( t \right) = \left\{ {\begin{array}{*{20}{c}}
+						0&{t < 0}\\
+						{1/8}&{0 \le t < 1}\\
+						{1/2}&{1 \le t < 2}\\
+						{7/8}&{2 \le t < 3}\\
+						1&{3 \le t}
+				\end{array}} \right.	
+		\end{equation*}
+ Notez que 
+ \begin{itemize}
+ 	\item $F_X$ est définie sur $\mathbb{R}$ et pas juste $\chi=\{0, 1, 2, 3\}$ (par exemple, on peut avoir la valeur de $F_X(1.5)$)
+ 	\item $F_X$ saute à chaque $x_i$ d'une valeur égale à $P(X=x_i)$
+ 	\item $F_X(t)=0$ pour $t<0$ puisque $X$ ne peut pas prendre de valeur négative
+ 	\item $F_X(t)=1$ pour $t\ge 3$ puisque $X\le 3$ presque sûrement (pour rappel, l'événement presque sûr a une probabilité égale à 1).
+ \end{itemize}
+
+
+\subsection{Espérance et variance}
+En reprenant l'exemple précédent:\\
+		\begin{table}[!htbp]
+			\centering
+			\renewcommand{\arraystretch}{1.0}
+			\resizebox{0.6\linewidth}{!}{
+				\begin{tabular}{ccccccccc}
+					\hline
+					i & 1   & 2   & 3   & 4   & 5   & 6   & 7   & 8    \\\hline
+					$\omega_i$ & FFF & FFP & FPF & PFF & PPF & PFP & FPP & PPP  \\
+					$X(\omega_i)$ & 3   & 2   & 2   & 2   & 1   & 1   & 1   & 0    \\
+					$P(\omega_i)$ & 1/8 & 1/8 & 1/8 & 1/8 & 1/8 & 1/8 & 1/8 & 1/8 \\\hline
+			\end{tabular}}
+		\end{table}
+		\begin{table}[!htbp]
+			\centering
+			\renewcommand{\arraystretch}{1.1}
+			\resizebox{0.35\linewidth}{!}{
+				\begin{tabular}{ccccc}
+					\hline
+					x & 0   & 1   & 2   & 3       \\\hline
+					$P(X=x)$ & $\frac{1}{8}$ & $\frac{3}{8}$ &$\frac{3}{8}$ & $\frac{1}{8}$ \\\hline
+			\end{tabular}}
+		\end{table}
+		\begin{equation*}E[X]=1*3/8+2*3/8+3*1/8=1.5\end{equation*}
+		\begin{equation*}E[X^2]=1*3/8+2^2*3/8+3^2*1/8=3\end{equation*}
+		\begin{equation*}V[X]=E\left( {{X^2}} \right) - E{\left( X \right)^2}=3-1.5^2=0.75\end{equation*}
+
+		
+\section{Lois usuelles discrètes}
+\subsection{Loi uniforme}
+Une distribution de probabilité suit une loi uniforme lorsque toutes les valeurs prises par la variable aléatoire sont \textbf{équiprobables}. Si $n$ est le nombre de valeurs différentes prises par la variable aléatoire X qui suit cette loi, la fonction de masse de probabilité est
+\begin{equation*}
+	\forall i,\;\;P(X=x_i)=\frac{1}{n}
+\end{equation*}
+\noindent L'espérance
+\begin{equation*}
+	E(X)=\frac{n+1}{2}
+\end{equation*}
+\noindent La variance
+\begin{equation*}
+	V(X)=\frac{n^2-1}{12}
+\end{equation*}
+\textbf{Exemple}: La distribution des résultats obtenus suite à un lancer d'un dé équilibré suit une loi uniforme avec $n=6$ et $x_i=1,2,3,4,5,6$. L'espérance correspond à $E(X)=\frac{1}{6}\sum_{i=1}^{6}i=3.5$ et $V(X)=\frac{1}{6}\sum_{i=1}^{6}i^2-E(X)^2=2.92$
+\subsection{Loi de Bernoulli}
+La distribution de Bernoulli décrit une variable aléatoire qui résulte d'une expérience à 2 issues possibles appelées "succès" et "échec". Une variable aléatoire discrète suit une distribution de Bernoulli de paramètre $p$ si sa fonction de masse de probabilité est défini comme suit
+\begin{equation*}
+	f_X(x)=\begin{cases}
+		p \;\;\;\text{   si } x=1,\\
+		1-p\;\;\;\text{   si } x=0,
+	\end{cases}
+\end{equation*}
+\begin{equation*}
+	f_X(x)= p^x (1-p)^{1-x} \text{pour } x= 0,1
+\end{equation*}
+avec $0<p<1$. $X$ est une variable aléatoire binaire, qui prend la valeur $1$ avec probabilité $p$ et la valeur $0$ avec probabilité $q=1-p$.\\
+\textbf{Par exemple}, on peut définir:\\
+- Une variable aléatoire $X$ qui prend la valeur 1 lorsque le prix d'une action augmente et 0 lorsque le prix de cette action diminue.\\
+- Une variable $X$ qui prend la valeur 1 si un produit est défectueux et 0 si un produit ne l'est pas.
+\\
+L'espérance et la variance pour cette distribution peuvent être calculées comme suit: 
+\begin{equation*}
+	E(X)=0\times (1-p)+ 1 \times p= p= P(X=1),
+\end{equation*}
+\begin{equation*}
+	var(X)=0^2\times (1-p)+ 1^2 \times p-p^2= p(1-p),
+\end{equation*}
+\noindent La variance d'une loi de Bernoulli a une valeur maximale pour $p=1/2$ comme illustré sur la figure ci-après:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{bvar}
+\end{figure}
+\subsection{Loi binomiale}
+La loi binomiale est associée à une expérience binomiale.
+\subsubsection{Expérience binomiale}
+Une expérience binomiale possède les propriétés suivantes
+\begin{enumerate}
+	\item L'expérience est une série de $n$ tirages identiques
+	\item Deux événements sont possibles à chaque tirage: un succès, un échec
+	\item La probabilité de succès, notée $p$, ne se modifie pas d'un tirage à l'autre (même chose pour la probabilité de l'échec notée $1-p$)
+	\item Les tirages sont indépendants
+\end{enumerate}	
+Les propriétés 2, 3 et 4 décrivent un processus de Bernoulli. En rajoutant la propriété 1, on a une expérience binomiale. La propriété 3 est appelée hypothèse de stationnarité.\\L'intérêt d'une expérience binomiale est de connaître le nombre de succès intervenant au cours de $n$ tirages. Soit $X$ le nombre de succès obtenus en $n$ tirages. $X$ peut prendre les valeurs $0, 1, 2, 3, \dots, n$. Il s'agit d'une variable aléatoire discrète.
+\subsubsection{La fonction de probabilité binomiale}
+Une variable aléatoire suit une distribution binomiale, dénoté par $B(n,p)$, si sa fonction de masse de probabilité est
+\begin{equation*}
+	f_X(x)= P(X=x)=C^x_n p^x (1-p)^{n-x} \text{pour } x= 0,1,\dots, n
+\end{equation*}
+Avec $n \ge 1$ et $0<p<1$.\\
+Une variable aléatoire binomiale peut prendre $n+1$ valeurs entières possibles. C'est une distribution sur support fini. Cette loi est appelée loi binomiale parce qu'elle fait intervenir le coefficient binomial $C^x_n$.\\
+On peut noter qu'une variable qui suit la loi binomiale peut être représentée comme \textbf{la somme de variables indépendantes suivant une distribution de Bernoulli} $X=X_1+\dots+X_n$. Par exemple, dans un lancer d'une pièce de monnaie $n$ fois de suite et en considérant qu'un Face est un succès. Pour une expérience individuelle, Face a une probabilité de $p$ de se produire. Combien de Face peut-on obtenir à partir de $n$ répétitions? Soit $X_i$ le nombre de Faces obtenu dans le $i^{\text{ème}}$ lancer et $X$ le nombre total de Faces dans les $n$ lancers. Dans ce cas, on a
+\begin{equation*}
+	X=\sum_{i=1}^{n} X_i
+\end{equation*}
+où $X_i$ est une séquence de variables aléatoires iid suivant une loi de Bernoulli(p). On peut alors démontrer que $	X=\sum_{i=1}^{n} X_i$ suit une distribution binomiale $B(n,p)$ de la manière suivante.
+Si on définit l'événement $A_i=\{X_i=1\text{ à la ième expérience}\}$, alors $X$ peut être considérée comme le nombre de succès dans $n$ répétitions de l'expérience puisqu'en cas d'échec $X_i=0$. La probabilité d'avoir un nombre $k$ de succès peut être obtenue pour un exemple distinct de séquence de succès comme suit:
+\begin{equation*}
+P(A_1 \cap A_2 \cap A_3 \cap \dots A^c_{n-1}\cap A^c_n)=p^k(1-p)^{n-k}
+\end{equation*}
+\noindent Toutefois, il n'est pas nécessaire d'avoir $A_1, \dots, A_k$ réalisés et $A_{k+1}, \dots, A_n$ non réalisés. L'essentiel est d'avoir $k$ expériences parmi les $n$ qui donnent un résultat $X_i=1$. De ce fait
+\begin{equation*}
+	P(X=k)=C^k_n p^k(1-p)^{n-k}
+\end{equation*}
+Le coefficient binomial $C^k_n$ \textbf{donne une indication sur le nombre de manières possibles d'ordonner les $k$ succès parmi les $n$ expériences}. $Xi$ peut prendre les valeurs $0$ et $1$, mais $X$ peut prendre les valeurs de $0$ jusqu'à $n$. On peut également démontrer que la somme des probabilités données par cette fonction est égale à 1.
+\begin{equation*}
+	\sum_{k=0}^{n}P(X=k)=\sum_{k=0}^{n}C^k_n p^k(1-p)^{n-k}=1
+\end{equation*}
+Parce que la formule du binôme de Newton donne $\sum_{k=0}^{n}C^k_n x^ky^{n-k}=(x+y)^n$. En remplaçant $x$ par $p$ et $y$ par $1-p$, on trouve 1.\\
+Enfin, on peut calculer l'espérance comme suit:
+\begin{equation*}
+	E(X)=E(X_1+\dots+X_n)=E(X_1)+E(X_2)+\dots+E(X_n)=p+p+\dots+p=np
+\end{equation*}
+Pour la variance, on obtient (en tenant compte de la propriété d'indépendance)
+\begin{equation*}
+	Var(X)=Var(X_1+\dots+X_n)=Var(X_1)+Var(X_2)+\dots+Var(X_n)=np(1-p)
+\end{equation*}
+\textbf{Exemple}: on considère l'exercice 7 de la série 3 (chapitre 3). L'événement A était défini comme suit: « au moins un 6 apparait dans 4 lancers d’un dé à 6 faces ». Cette expérience peut être représentée comme 4 répétitions d'une expérience de Bernoulli avec $p=1/6$. Si on définit $X$ comme la variable représentant le nombre de 6 dans 4 lancers, on a $X \sim B(4, 1/6)$. Donc on peut utiliser la formule de la loi binomiale pour calculer $P(A)=P(X>0)=1-P(X=0)=1-C^0_4 (1/6)^0 (1-1/6)^{4-0}=1-(5/6)^4$. De la même manière, dans cet exercice, on peut calculer la probabilité de l'événement B: « au moins un double 6 apparait dans 24 lancers d’un couple de dés à 6 faces ». On considère la variable $Y$ comme représentant le nombre de double 6s obtenus en 24 lancers. On a $Y \sim B(24,1/36)$, donc $P(B)=P(Y>0)=1-P(Y=0)=1-C^0_{24} (1/36)^0 (1-1/36)^{24-0}=1-(35/36)^4$
+\\Remarque: Il est d'usage d'utiliser une \underline{table de la loi binomiale} pour obtenir les valeurs de la fonction de répartition pour cette distribution.
+\subsection{Loi de Poisson}
+La distribution de Poisson décrit un processus qui vérifie les conditions suivantes
+\begin{itemize}
+	\item La probabilité de réalisation d'un événement au cours d'une période T est proportionnelle à T
+	\item La réalisation d'un événement au cours d'une période T est indépendante de ce qui s'est passé antérieurement
+	\item La probabilité d'obtenir $n$ réalisations dans une même période diminue très vite à mesure que $n$ augmente
+\end{itemize}
+\subsubsection{Caractéristiques de la loi de Poisson}
+La fonction de masse de probabilité de cette loi est comme suit
+\begin{equation*}
+	P(X=x)=e^{-\lambda}\frac{\lambda^x}{x!},\;\;\; x=0,1,2,\dots
+\end{equation*}
+Le paramètre $\lambda$ de cette distribution correspond à la fréquence, nombre moyen de ces événements. L'espérance est comme suit
+\begin{equation*}
+	E(X)=\lambda
+\end{equation*}
+La variance est
+\begin{equation*}
+	Var(X)=\lambda
+\end{equation*}
+La distribution de Poisson est souvent utilisée pour décrire des expériences qui impliquent l'attente d'un événement (attente d'un bus, de l'arrivée de clients, etc). Dans ce cas, il y a un lien entre le temps d'attente et la probabilité d'occurrence de l'événement qui va augmenter plus la période est longue. Cette distribution s'applique donc aussi à des événements qui peuvent rarement se produire de manière simultanée ou dans un laps de temps court (par exemple: offres de travail, appels téléphoniques, pannes de courant électrique, inondations...). \\
+\textbf{Exemple}: On considère le cas d'un opérateur téléphonique qui peut gérer au maximum 5 appels toutes les 3 minutes. Quelle est la probabilité de n'avoir aucun appel la minute suivante? Quelle est la probabilité d'avoir au moins deux appels la minute suivante?\\
+On définit la variable $X$ comme étant le nombre d'appels en une minute. $X$ a une distribution de Poisson avec un paramètre $\lambda=5/3$. De ce fait, on obtient
+\begin{equation*}
+	P(\text{ n'avoir aucun appel la minute suivante})=P(X=0)=e^{-5/3}\frac{(5/3)^0}{0!}=0.189
+\end{equation*}
+Et
+\begin{equation*}
+	P(\text{avoir au moins deux appels la minute suivante})=P(X\ge 2)=1-P(X=0)-P(X=1)
+\end{equation*}
+\begin{equation*}
+=1-0.189-e^{-5/3}\frac{(5/3)^1}{1!}=0.496
+\end{equation*}
+\\Remarque: Il est d'usage d'utiliser une \underline{table de la loi de Poisson} pour obtenir les valeurs de la fonction de répartition pour cette distribution.
+\subsubsection{Approximation d'une distribution binomiale par la loi de Poisson}
+La distribution de Poisson peut être utilisée de manière efficace comme approximation de la loi binomiale pour le cas d'un nombre de répétitions d'expérience $n$ qui est large et une probabilité de succès $p$ qui est petite. Cette approximation est adéquate pour $n \ge 30$ et $p\le 0.05$. Elle devient de plus en plus juste à mesure que $n$ devient plus large. Dans ce cas, $np=\lambda$ qui est de quelques unités.
+\\Formellement, on peut noter que
+\begin{equation*}
+	\lim\limits_{\underset{\underset{np \to \lambda}{{p \to 0}}}{{n \to \infty}}}C^x_n p^x (1-p)^{n-x}=e^{-\lambda}\frac{\lambda^x}{x!}
+\end{equation*}
+Cette approximation peut être justifiée comme suit: Soit $Y\sim B(n,p)$ et $X\sim Pois(\lambda)$. On peut noter que $P(Y=y)$ peut s'écrire de manière récursive comme suit
+\begin{equation*}
+	P(Y=y)=C^y_n p^y (1-p)^{n-y}=\frac{(n-y+1)}{y}\frac{p}{1-p}P(Y=y-1)
+\end{equation*}
+Avec 
+\begin{equation*}
+	P(Y=y-1)=C^{y-1}_n p^{y-1} (1-p)^{n-y+1}
+\end{equation*}
+Donc
+\begin{equation*}
+	P(Y=y)=\frac{(n-y+1)}{y}\frac{p}{1-p}P(Y=y-1)=\frac{np-p(y-1)}{y-py}P(Y=y-1)
+\end{equation*}
+Mais si $p$ est très petite, on pourra écrire $\frac{np-p(y-1)}{y-py}\approx \frac{np}{y}$ en ignorant les termes multipliés par $p$. En même temps, on peut aussi écrire $X$ sous une forme récursive comme suit:
+\begin{equation*}
+	P(X=x)=e^{-\lambda}\frac{\lambda^x}{x!}=\frac{\lambda}{x}P(X=x-1)
+\end{equation*}
+De ce fait, en posant $\lambda=np$, on obtient une équivalence entre l'expression de probabilité de la loi binomiale et de celle de Poisson.
+\begin{equation*}
+	P(Y=y)=\frac{np-p(y-1)}{y-py}P(Y=y-1)\approx \frac{np}{y}P(Y=y-1)=\frac{\lambda}{y}P(Y=y-1)
+\end{equation*}
+Il reste à confirmer l'équivalence entre $P(Y=y-1)$ et $P(X=x-1)$. Puisqu'on a la relation entre $Y$ et $Y-1$, on peut déduire les probabilités à partir de la valeur 0. Il suffit donc de démontrer que $P(Y=0)\approx P(X=0)$. On a
+\begin{equation*}
+	P(Y=0)= (1-p)^n=\left(1-\frac{np}{n}\right)^n=\left(1-\frac{\lambda}{n}\right)^n
+\end{equation*}
+On a la propriété $\lim\limits_{n \to \infty} \left(1-\frac{\lambda}{n}\right)^n=e^{-\lambda}$. De ce fait, si $n$ est suffisamment large
+\begin{equation*}
+	P(Y=0)= \left(1-\frac{\lambda}{n}\right)^n \approx e^{-\lambda}=P(X=0)
+\end{equation*}
+L'approximation par la loi de Poisson est donc valide pour les valeurs larges de $n$ et les valeurs petites de $p$. En utilisant cette approximation, le calcul devient plus simple comme dans l'exemple qui suit.\\
+\textbf{Exemple}: Un typographe commet une erreur en moyenne une fois pour chaque 500 mots saisis. Une page contient environ 300 mots. Quelle est la probabilité que le nombre d'erreurs soit inférieur ou égal à 2 dans 5 pages?
+\\On considère que saisir un mot est une expérience de Bernoulli avec succès="le mot contient une erreur" et échec= "le mot ne contient aucune erreur". La probabilité de succès $p=1/500$. Sur 5 pages, on a 1500 mots. On peut donc définir une variable $X$ correspondant au nombre d'erreurs sur 5 pages. Cette variable suit une loi binomiale $X \sim B(1500,1/500)$. Pour répondre à la question, on calcule la probabilité suivante:
+\begin{equation*}
+	P(X\le 2)=\sum_{x=0}^{2}C^x_{1500} \left(\frac{1}{500}\right)^x\left(\frac{499}{500}\right)^{1500-x}=0.4230
+	\end{equation*}
+Le calcul est plus simple si on procède par une approximation par la loi de Poisson\footnote{On a $n \ge 30$ et $p\le 0.05$} avec $\lambda=1500\times (1/500)=3$. On obtient
+\begin{equation*}
+	P(X\le 2)\approx e^{-3}\left(1+3+\frac{3^2}{2}\right)=0.4230
+\end{equation*}
+\subsection{Loi géométrique}
+On considère une série d'expériences aléatoires de Bernoulli. La variable aléatoire du nombre d'expériences avant d'obtenir un premier succès suit une distribution géométrique. Une variable aléatoire suivant cette loi peut prendre des valeurs entières de 1 jusqu'à l'infini. Le paramètre de cette distribution est $p$ (probabilité d'un succès).\\
+\textbf{Exemple}: un recruteur passe un entretien à un ensemble de candidats à un poste. Le nombre de candidats interviewés avant que le poste ne soit pourvu suit une distribution géométrique.
+\subsubsection{Caractéristiques de la loi géométrique}
+La fonction de masse de probabilité de la loi géométrique est comme suit:
+\begin{equation*}
+	P(X=x)=P\{\text{le premier succès se produit à la xième expérience}\}=(1-p)^{x-1}p,\;\;\;\; x=1,2,\dots
+\end{equation*}
+Même si la valeur de X peut aller jusqu'à l'infini, on peut vérifier que la somme des probabilités est égale à 1 puisque:
+\begin{equation*}
+	\sum_{x=1}^{\infty}(1-p)^{x-1}p=p\frac{1}{1-(1-p)}=1
+\end{equation*}
+On a utilisé dans ce cas la formule de la somme des n premiers termes d'une suite géométrique (d'où l'appelation de loi "géométrique").\footnote{Pour rappel, cette formule est $u_0\frac{1-q^{n+1}}{1-q}$}
+\\ L'espérance de cette distribution est\footnote{Remarque: la somme des termes de la série $s(q)=\sum_{0}^{\infty}q^x=(1-q)^{-1}$. La dérivée de premier ordre de cette somme est $s'(q)=\sum_{0}^{\infty}x(q)^{x-1}=((1-q)^{-1})'=\frac{1}{(1-q)^2}$. Donc $E(X)=p\frac{1}{(1-q)^2}=1/p$}
+\begin{equation*}
+	E(X)=\frac{1}{p}
+\end{equation*}
+La variance correspond à
+\begin{equation*}
+	Var(X)=\frac{(1-p)}{p^2}
+\end{equation*}
+\subsubsection{Le paradoxe de Saint-Pétersbourg}
+En probabilités, le paradoxe de Saint-Pétersbourg concerne une variable aléatoire dont la valeur est, très probablement, petite, mais dont l'espérance est infinie. Ce paradoxe a été énoncé pour la première fois par Daniel Bernoulli. Il décrit un jeu dont le déroulement est comme suit: le joueur mise un montant équivalent au montant qu'il désire gagner (par exemple, un montant de $100$). Si le joueur gagne une manche, il emporte le gain et arrête de jouer, sinon il double sa mise et continue de jouer. Le nombre de manches à jouer est une variable aléatoire qui suit une distribution géométrique. Elle peut aller jusqu'à l'infini, mais en moyenne, elle sera finie avec $E(X)=1/p$.\\
+Toutefois, si on considère la variable $Y$ du montant maximal à miser. Ce montant correspond à $Y=100\times 2^{X-1}$ (où le montant 100 correspond à la mise initiale). L'espérance de la variable $Y$ est comme suit
+\begin{equation*}
+	E(Y)=\sum_{x}(100\times 2^{x-1})P_X(x)=100p\sum_{x=1}^{\infty}(2(1-p))^{x-1}=\begin{cases}
+		\frac{100p}{2(1-p)}\;\text{ si }p>1/2\\
+		+\infty\;\text{ si }p\le 1/2
+	\end{cases}
+\end{equation*}
+De ce fait, même si la variable $Y$ est finie, son espérance peut être infinie si $p\le 1/2$. C'est le paradoxe de Saint-Pétersbourg.
+
+\end{document}
