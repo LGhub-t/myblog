@@ -14,7 +14,7 @@ Cette page contient le support de cours et exercices sur la théorie des probabi
 
 ## 📁 Documents à télécharger
 
-- 📄 [Formulaire de propriétés utiles](media/proba/lectures.pdf)
+- 📄 [Cours et exercices](media/proba/lectures.pdf)
 
 ---
 
